@@ -1,0 +1,27 @@
+# Entorno virtual
+projectFCs/
+.venv/
+venv/
+.env
+
+# Archivos de compilación de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Configuración de IDEs y editores
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs y datos temporales
+*.log
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de dependencias
+*.lock
