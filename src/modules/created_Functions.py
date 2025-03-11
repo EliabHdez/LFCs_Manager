@@ -1,4 +1,5 @@
 import flet as ft
+from fpdf import FPDF as fp
 
 color_teal = "#00ebab"
 color_teal_2 = "#11b78a"
