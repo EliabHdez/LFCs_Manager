@@ -1,18 +1,23 @@
 from fpdf import FPDF
-import os
 
 def cells_basicas_FPDF(text1, sl1, text2, sl2, text3, sl3, text4, sl4):
     pdf.cell(15, 10, text1, 1, sl1, 'C')
     pdf.cell(15, 10, text2, 1, sl2, 'C')
     pdf.cell(15, 10, text3, 1, sl3, 'C')
     pdf.cell(15, 10, text4, 1, sl4, 'C')
+    
+def cells_basicas_FPDF_1(text1, sl1, text2, sl2, text3, sl3, text4, sl4):
+    pdf.cell(15, 8, text1, 1, sl1, 'C')
+    pdf.cell(15, 8, text2, 1, sl2, 'C')
+    pdf.cell(15, 8, text3, 1, sl3, 'C')
+    pdf.cell(15, 8, text4, 1, sl4, 'C')
 
 pdf = FPDF(orientation="P", unit="mm", format="A4")
 pdf.add_page()
 
 pdf.set_font("Arial", "", 10)
 
-pdf.image("../../assets/Images/FresaReporte.png", 10, 7, 20)
+pdf.image("assets/Images/FresaReporte.png", 10, 7, 20)
 pdf.cell(187, 5, f'FECHA', 0, 1, "R")
 
 # Titulo
@@ -27,10 +32,7 @@ cells_basicas_FPDF("TI", 0, "TF", 0, "VI", 0, "VF", 0)
 pdf.cell(25, 10, f'VENDIDOS', 1, 0, 'C')
 pdf.cell(35, 10, f'MONTO VENTA', 1, 1, 'C')
 pdf.cell(70, 8, 'VASOS CHICOS', 1, 0)
-pdf.cell(15, 8, f'', 1, 0, 'C')
-pdf.cell(15, 8, f'', 1, 0, 'C')
-pdf.cell(15, 8, f'', 1, 0, 'C')
-pdf.cell(15, 8, f'', 1, 0, 'C')
+cells_basicas_FPDF_1("", 0, "", 0, "", 0, "", 0)
 pdf.cell(25, 8, f'', 1, 0, 'C')
 pdf.cell(35, 8, f'$ ', 1, 1, 'C')
 pdf.cell(70, 8, 'VASOS MEDIANOS', 1, 0)
@@ -255,4 +257,4 @@ pdf.cell(0, 10, '', 0, 1)
 
 pdf.cell(0, 1, f'* FIN REPORTE *'.upper(), 0, 1, 'C')
 
-pdf.output(f"../../...Reportes/Reporte.pdf")
+pdf.output(f"...Reportes/Reporte.pdf")
