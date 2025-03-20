@@ -106,6 +106,27 @@ def create_textfield_WB(Label, Height=30, Color="#d3d3d3", text_Size=25, border_
         on_change=on_Change
     )
 
+def create_textfield_planeador(Width=None, hint_Text=None, hint_Style=None, on_Focus=None, read_Only=False):
+    return ft.TextField(
+        color="black",
+        text_size=12,
+        width=Width,
+        content_padding=2,
+        # height=30,
+        border_color="black",
+        border_width=.5,
+        border_radius=0,
+        text_align="center",
+        cursor_height=15,
+        cursor_color="black",
+        focused_border_color="#ff0909",
+        focused_border_width=1,
+        hint_text=hint_Text,
+        hint_style=hint_Style,
+        read_only=read_Only,
+        on_focus=on_Focus,
+    )
+
 # ***** Función creadora de campos de texto para la seccion de extra y adicionales *****
 
 def create_textField_Extras(Width, Height, Color="#d3d3d3", text_Size=12, border_Color=None, read_Only=False, on_Change=False):

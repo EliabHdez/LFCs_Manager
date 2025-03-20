@@ -9,7 +9,11 @@ class UI(ft.ResponsiveRow):
 
         # ***** VARIABLES SISTEMA *****
 
-        self.pdv = ""
+        self.mayus_weekend_day = dt.datetime.now().strftime("%A").upper()
+        self.mayus_month = dt.datetime.now().strftime("%B").upper()
+        self.today_1 = dt.datetime.today().date()
+        self.today_2 = self.today_1.strftime(f"{self.mayus_weekend_day} %d-{self.mayus_month}-%Y")
+        self.today_main = self.today_2
 
         # self.color_teal = "teal"
         self.color_teal = "#00ebab"
@@ -89,7 +93,7 @@ class UI(ft.ResponsiveRow):
                         self.ensuenos,
                         self.operagua,
                         self.sanantonio,
-                        self.lapiedad 
+                        self.lapiedad
                     ]
                 )
             )
@@ -107,7 +111,7 @@ class UI(ft.ResponsiveRow):
         # self.vcdif = cf.create_textfield("Diferencia", suffix_Text="Vasos", read_Only=True)
         # self.vcsv = cf.create_textfield("Sin vender", suffix_Text="Vasos", Color="#ffffff", read_Only=True)
         self.vcven = cf.create_textfield("Vendidos", Color="#fd0000", text_Size=24, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Text="Vasos", suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=True)
-        self.vcvt = cf.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=24,label_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=2, focused_Border_Color="#fd0000", Width=150, prefix_Text=" $", prefix_Style=ft.TextStyle(color="#ffffff", size=12), read_Only=True)
+        self.vcvt = cf.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=24, label_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#ffffff", size=12), read_Only=True)
 
         # Variables Vasos Medianos
 
@@ -195,7 +199,7 @@ class UI(ft.ResponsiveRow):
 
         self.fruven = cf.create_textfield_WB(Label="Fruta", Height=25, Color="#ffffff", text_Size=24, border_Color="#292929", border_Width=.3, focused_Border_Color="#292929", suffix_Text="Botes ", read_Only=True)
         self.creven = cf.create_textfield_WB(Label="Cremas", Height=25, Color="#ffffff", text_Size=24, border_Color="#292929", border_Width=.3, focused_Border_Color="#292929", suffix_Text="Botes ", read_Only=True)
-        
+
         # ***** VARIABLES ADICIONALES Y EXTRAS *****
 
         # Opciones a configurar en la funcion create_textfield_Extras: Width, Height, Color="#d3d3d3", text_Size=12, border_Color=None, read_Only=False, on_Change=False
@@ -263,6 +267,11 @@ class UI(ft.ResponsiveRow):
                                     icon = ft.Icons.HOME,
                                     label_content=ft.Text("INICIO", size=8),
                                     selected_icon=ft.Icon(ft.Icons.HOME, color="#2e2e2e")
+                                ),
+                                ft.NavigationRailDestination(
+                                    icon = ft.Icons.APP_REGISTRATION,
+                                    label_content=ft.Text("REGISTRO", size=8),
+                                    selected_icon=ft.Icon(ft.Icons.APP_REGISTRATION, color="#2e2e2e")
                                 ),
                                 ft.NavigationRailDestination(
                                     icon = ft.Icons.POINT_OF_SALE_SHARP,
@@ -397,9 +406,128 @@ class UI(ft.ResponsiveRow):
                 ]
             )
         )
-        # ***** AREA DE CAPTURA DE INSUMOS / ICONO HOME *****
 
-        self.home = ft.Container(# Ventana Inicio
+        # ***** PAGINA INICIO *****
+
+        self.home = ft.Container(# Ventana Inicio Planeador
+            col=12,
+            bgcolor=ft.Colors.BLUE_GREY_900,
+            border_radius=10,
+            content=ft.Container(
+                margin=3,
+                # bgcolor="pink",
+                content=ft.Column(
+                    controls=[
+                        ft.ResponsiveRow(
+                            controls=[
+                                ft.Column(# Titulo ventana
+                                    col=12,
+                                    horizontal_alignment="center",
+                                    controls=[
+                                        ft.Container(
+                                            padding=10,
+                                            # bgcolor="black",
+                                            content=ft.Text("PLANEADOR", size=30, color="#ff1765", weight=ft.FontWeight.BOLD)
+                                        )
+                                    ]
+                                ),
+                                ft.Divider(# Separador de seccion con Divider
+                                    height=1,
+                                    color=self.color_teal,
+                                    thickness=3,
+                                    # leading_indent=50,
+                                    # trailing_indent=10
+                                ),
+
+                            ]
+                        ),
+                         ft.ResponsiveRow(# Planeador del dia
+                            expand=True,
+                            controls=[
+                                ft.Container(# Contenedor Principal
+                                    col=12,
+                                    margin=ft.margin.symmetric(horizontal=100, vertical=80),
+                                    # bgcolor="yellow",
+                                    content=ft.Column(
+                                        alignment=ft.alignment.center,
+                                        controls=[
+                                            ft.Container(# Fecha
+                                                border_radius=25,
+                                                bgcolor=self.color_teal,
+                                                alignment=ft.alignment.center,
+                                                content=ft.Text(self.today_main, size=32,style=ft.TextStyle(letter_spacing=20), color="black")
+                                            ),
+                                            ft.ResponsiveRow(# Primera fila
+                                                # expand=True,
+                                                controls=[
+                                                    ft.Container(# Supoervisores
+                                                        height=40,
+                                                        col=4,
+                                                        bgcolor=self.color_teal,
+                                                        content=ft.Column(
+                                                            controls=[
+                                                                ft.ResponsiveRow(
+                                                                    alignment=ft.MainAxisAlignment.CENTER,
+                                                                    vertical_alignment="center",
+                                                                    expand=True,
+                                                                    spacing=0,
+                                                                    controls=[
+                                                                        ft.Container(
+                                                                            col=6.5,
+                                                                            # bgcolor=self.color_teal,
+                                                                            alignment=ft.alignment.center_left,
+                                                                            border=ft.border.all(color="black", width=.5),
+                                                                            padding=5,
+                                                                            # bgcolor="blue",
+                                                                            content=ft.Text("SUPERVISIÓN DE PERSONAL Y\nPUNTOS DE VENTA", color="black", size=10)
+                                                                        ),
+                                                                        ft.Container(
+                                                                            col=5.5,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            # bgcolor="blue",
+                                                                            content=cf.create_textfield_planeador(hint_Text="Ivette Herrera", hint_Style=ft.TextStyle(color="black", size=10))
+                                                                        )
+                                                                    ]
+                                                                )
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        col=2,
+                                                        bgcolor=self.color_teal
+                                                    ),
+                                                    ft.Container(
+                                                        col=1,
+                                                        bgcolor=self.color_teal
+                                                    ),
+                                                    ft.Container(
+                                                        col=1,
+                                                        bgcolor=self.color_teal
+                                                    ),
+                                                    ft.Container(
+                                                        col=1,
+                                                        bgcolor=self.color_teal
+                                                    ),
+                                                    ft.Container(
+                                                        col=2,
+                                                        bgcolor=self.color_teal
+                                                    ),
+                                                ]
+                                            )
+                                        ]
+                                    )
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        )
+
+        # ***** PAGINA DE REGISTRO *****
+
+        self.register = ft.Container(# Ventana Inicio
             bgcolor=ft.Colors.BLUE_GREY_900,
             expand=True,
             # height=638,
@@ -433,7 +561,6 @@ class UI(ft.ResponsiveRow):
                                     alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                     controls=[
                                         ft.Container(# Frutas
-                                            expand=True,
                                             margin=ft.Margin(top=20, bottom=0, left=30, right=30),
                                             content=ft.ResponsiveRow(
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
@@ -441,28 +568,24 @@ class UI(ft.ResponsiveRow):
                                                     ft.Container(# Frutas
                                                         col=12,
                                                         # padding=ft.padding.symmetric(horizontal=5, vertical=5),
-                                                        bgcolor="blue",
+                                                        # bgcolor="blue",
                                                         content=ft.Column(
                                                             # alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                                                             # horizontal_alignment="center",
                                                             controls=[
                                                                 ft.Container(# Frutas
-                                                                    # margin=ft.margin.symmetric(horizontal=5, vertical=10),
-                                                                    # height=250,
-                                                                    # width=600,
-                                                                    # margin=5,
                                                                     alignment=ft.alignment.center,
                                                                     # bgcolor="#292929",
                                                                     border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
                                                                     border_radius=5,
-                                                                    padding=ft.Padding(top=5, bottom=5, left=0, right=2),
+                                                                    padding=ft.Padding(top=5, bottom=8, left=0, right=5),
                                                                     content=ft.Column(
                                                                         alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                         controls=[
                                                                             ft.Container(# Titulo Fresa
                                                                                 alignment=ft.alignment.center,
                                                                                 padding=ft.padding.symmetric(horizontal=0, vertical=0),
-                                                                                bgcolor="blue",
+                                                                                # bgcolor="blue",
                                                                                 content=ft.Column(# Titulo
                                                                                     # horizontal_alignment="center",
                                                                                     controls=[
@@ -474,8 +597,6 @@ class UI(ft.ResponsiveRow):
                                                                                 alignment=ft.alignment.center,
                                                                                 margin=ft.margin.only(bottom=5),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                                     vertical_alignment="center",
@@ -486,7 +607,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.fpi
                                                                                             )
@@ -497,7 +617,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.fpf
                                                                                             ),
@@ -508,7 +627,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.fei
                                                                                             )
@@ -519,7 +637,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.fef
                                                                                             ),
@@ -530,7 +647,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.fv
                                                                                             )
@@ -541,12 +657,8 @@ class UI(ft.ResponsiveRow):
                                                                             ft.Container(# Titulo Uva
                                                                                 alignment=ft.alignment.center,
                                                                                 padding=ft.padding.symmetric(horizontal=0, vertical=0),
-                                                                                # height=15,
-                                                                                # padding=7,
                                                                                 # bgcolor="blue",
-                                                                                # border_radius=20,
-                                                                                # width=180,
-                                                                                content=ft.Column(
+                                                                                content=ft.Column(# Titulo
                                                                                     # horizontal_alignment="center",
                                                                                     controls=[
                                                                                         ft.Text("* UVA *", color="#bfc244", weight=ft.FontWeight.BOLD, size=18, style=ft.TextStyle(letter_spacing=10)),
@@ -555,10 +667,7 @@ class UI(ft.ResponsiveRow):
                                                                             ),
                                                                             ft.Container(# Uva
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                                     vertical_alignment="center",
@@ -569,7 +678,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.upi
                                                                                             )
@@ -580,7 +688,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.upf
                                                                                             ),
@@ -591,7 +698,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.uei
                                                                                             )
@@ -602,7 +708,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.uef
                                                                                             ),
@@ -610,10 +715,9 @@ class UI(ft.ResponsiveRow):
                                                                                         ft.Container(
                                                                                             alignment=ft.alignment.center,
                                                                                             col=2,
-                                                                                            bgcolor="yellow",
+                                                                                            # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.uv
                                                                                             )
@@ -636,61 +740,34 @@ class UI(ft.ResponsiveRow):
                                                 controls=[
                                                     ft.Container(# Crema Original
                                                         col=4,
-                                                        margin=ft.Margin(top=5, bottom=0, left=30, right=2),
-                                                        # padding=ft.padding.symmetric(horizontal=5, vertical=5),
+                                                        margin=ft.Margin(top=0, bottom=0, left=30, right=2),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
                                                             # alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                                                             # horizontal_alignment="center",
                                                             controls=[
                                                                 ft.Container(
-                                                                    # margin=ft.margin.symmetric(horizontal=5, vertical=10),
-                                                                    # height=250,
-                                                                    # width=600,
-                                                                    # margin=5,
                                                                     alignment=ft.alignment.center,
                                                                     # bgcolor="#292929",
                                                                     border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
                                                                     border_radius=5,
-                                                                    padding=ft.Padding(top=5, bottom=5, left=0, right=0),
-                                                                    # shadow=ft.BoxShadow(
-                                                                    #     spread_radius=1,
-                                                                    #     blur_radius=15,
-                                                                    #     color=ft.Colors.BLUE_GREY_100,
-                                                                    #     offset=ft.Offset(0, 0),
-                                                                    #     blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                    # ),
+                                                                    padding=ft.Padding(top=5, bottom=8, left=0, right=0),
                                                                     content=ft.Column(
                                                                         alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                         controls=[
                                                                             ft.Container(# Titulo
                                                                                 alignment=ft.alignment.center,
-                                                                                padding=ft.padding.symmetric(horizontal=0, vertical=0),
-                                                                                # height=15,
-                                                                                # padding=7,
                                                                                 # bgcolor="blue",
-                                                                                # border_radius=20,
-                                                                                # width=180,
                                                                                 content=ft.Column(
                                                                                     # horizontal_alignment="center",
                                                                                     controls=[
                                                                                         ft.Text("* CREMA ORIGINAL *", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
-                                                                                        # ft.Divider(# Separador de seccion con Divider
-                                                                                        #     height=1,
-                                                                                        #     color="white",
-                                                                                        #     thickness=.5,
-                                                                                        #     leading_indent=400,
-                                                                                        #     trailing_indent=400
-                                                                                        # ),
                                                                                     ]
                                                                                 )
                                                                             ),
                                                                                 ft.Container(# Botes Dia
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                                     vertical_alignment="center",
@@ -701,7 +778,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.coi
                                                                                             )
@@ -712,7 +788,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.cof
                                                                                             ),
@@ -722,10 +797,7 @@ class UI(ft.ResponsiveRow):
                                                                             ),
                                                                             ft.Container(# Venta Botes
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                                     vertical_alignment="center",
@@ -736,7 +808,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.cov
                                                                                             )
@@ -752,7 +823,7 @@ class UI(ft.ResponsiveRow):
                                                     ),
                                                     ft.Container(# Crema Chocolate
                                                         col=4,
-                                                        margin=ft.Margin(top=5, bottom=0, left=4, right=4),
+                                                        margin=ft.Margin(top=0, bottom=0, left=4, right=4),
                                                         # padding=ft.padding.symmetric(horizontal=5, vertical=5),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
@@ -760,53 +831,27 @@ class UI(ft.ResponsiveRow):
                                                             # horizontal_alignment="center",
                                                             controls=[
                                                                 ft.Container(
-                                                                    # margin=ft.margin.symmetric(horizontal=5, vertical=10),
-                                                                    # height=250,
-                                                                    # width=600,
-                                                                    # margin=5,
                                                                     alignment=ft.alignment.center,
                                                                     # bgcolor="#292929",
                                                                     border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
                                                                     border_radius=5,
-                                                                    padding=ft.Padding(top=5, bottom=5, left=0, right=0),
-                                                                    # shadow=ft.BoxShadow(
-                                                                    #     spread_radius=1,
-                                                                    #     blur_radius=15,
-                                                                    #     color=ft.Colors.BLUE_GREY_100,
-                                                                    #     offset=ft.Offset(0, 0),
-                                                                    #     blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                    # ),
+                                                                    padding=ft.Padding(top=5, bottom=8, left=0, right=0),
                                                                     content=ft.Column(
                                                                         alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                         controls=[
                                                                             ft.Container(# Titulo
                                                                                 alignment=ft.alignment.center,
-                                                                                padding=ft.padding.symmetric(horizontal=0, vertical=0),
-                                                                                # height=15,
-                                                                                # padding=7,
                                                                                 # bgcolor="blue",
-                                                                                # border_radius=20,
-                                                                                # width=180,
                                                                                 content=ft.Column(
                                                                                     # horizontal_alignment="center",
                                                                                     controls=[
                                                                                         ft.Text("* CREMA CHOCOLATE *", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
-                                                                                        # ft.Divider(# Separador de seccion con Divider
-                                                                                        #     height=1,
-                                                                                        #     color="white",
-                                                                                        #     thickness=.5,
-                                                                                        #     leading_indent=400,
-                                                                                        #     trailing_indent=400
-                                                                                        # ),
                                                                                     ]
                                                                                 )
                                                                             ),
                                                                             ft.Container(# Botes Dia
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                                     vertical_alignment="center",
@@ -817,7 +862,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.cchi
                                                                                             )
@@ -828,7 +872,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.cchf
                                                                                             ),
@@ -838,10 +881,7 @@ class UI(ft.ResponsiveRow):
                                                                             ),
                                                                             ft.Container(# Venta Botes
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                                     vertical_alignment="center",
@@ -852,7 +892,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.cchv
                                                                                             )
@@ -868,7 +907,7 @@ class UI(ft.ResponsiveRow):
                                                     ),
                                                     ft.Container(# Crema Cafe
                                                         col=4,
-                                                        margin=ft.Margin(top=5, bottom=0, left=2, right=30),
+                                                        margin=ft.Margin(top=0, bottom=0, left=2, right=30),
                                                         # padding=ft.padding.symmetric(horizontal=5, vertical=5),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
@@ -876,54 +915,27 @@ class UI(ft.ResponsiveRow):
                                                             # horizontal_alignment="center",
                                                             controls=[
                                                                 ft.Container(
-                                                                    # margin=ft.margin.symmetric(horizontal=5, vertical=10),
-                                                                    # height=250,
-                                                                    # width=600,
-                                                                    # margin=5,
                                                                     alignment=ft.alignment.center,
                                                                     # bgcolor="#292929",
-                                                                    # bgcolor=ft.Colors.BLUE_GREY_900,
                                                                     border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
                                                                     border_radius=5,
-                                                                    padding=ft.Padding(top=5, bottom=5, left=0, right=0),
-                                                                    # shadow=ft.BoxShadow(
-                                                                    #     spread_radius=1,
-                                                                    #     blur_radius=15,
-                                                                    #     color=ft.Colors.BLUE_GREY_100,
-                                                                    #     offset=ft.Offset(0, 0),
-                                                                    #     blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                    # ),
+                                                                    padding=ft.Padding(top=5, bottom=8, left=0, right=0),
                                                                     content=ft.Column(
                                                                         alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                         controls=[
                                                                             ft.Container(# Titulo
                                                                                 alignment=ft.alignment.center,
-                                                                                padding=ft.padding.symmetric(horizontal=0, vertical=0),
-                                                                                # height=15,
-                                                                                # padding=7,
                                                                                 # bgcolor="blue",
-                                                                                # border_radius=20,
-                                                                                # width=180,
                                                                                 content=ft.Column(
                                                                                     # horizontal_alignment="center",
                                                                                     controls=[
                                                                                         ft.Text("* CREMA CAFE *", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
-                                                                                        # ft.Divider(# Separador de seccion con Divider
-                                                                                        #     height=1,
-                                                                                        #     color="white",
-                                                                                        #     thickness=.5,
-                                                                                        #     leading_indent=400,
-                                                                                        #     trailing_indent=400
-                                                                                        # ),
                                                                                     ]
                                                                                 )
                                                                             ),
                                                                             ft.Container(# Botes Dia
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                                     vertical_alignment="center",
@@ -934,7 +946,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.ccai
                                                                                             )
@@ -945,7 +956,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.ccaf
                                                                                             ),
@@ -955,10 +965,7 @@ class UI(ft.ResponsiveRow):
                                                                             ),
                                                                             ft.Container(# Venta Botes
                                                                                 alignment=ft.alignment.center,
-                                                                                # margin=ft.margin.only(bottom=25),
                                                                                 # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
                                                                                 content=ft.ResponsiveRow(
                                                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                                                     vertical_alignment="center",
@@ -969,7 +976,6 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor="yellow",
                                                                                             content=ft.Container(
                                                                                                 # bgcolor=self.color_teal_2,
-                                                                                                padding=2.5,
                                                                                                 border_radius=5,
                                                                                                 content=self.ccav
                                                                                             )
@@ -987,111 +993,81 @@ class UI(ft.ResponsiveRow):
                                             )
                                         ),
                                         ft.Container(# Venta General
+                                            margin=ft.Margin(top=0, bottom=15, left=30, right=30),
                                             content=ft.ResponsiveRow(
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 vertical_alignment="center",
                                                 controls=[
-                                                    
                                                     ft.Container(# Venta General Frutas y Cremas
-                                                        col=7,
-                                                        # margin=ft.Margin(top=2, bottom=0, left=0, right=0),
-                                                        # padding=ft.padding.symmetric(horizontal=5, vertical=5),
+                                                        col=12,
+                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                        border_radius=5,
+                                                        padding=ft.Padding(top=2, bottom=5, left=0, right=5),
                                                         # bgcolor="blue",
                                                         content=ft.Column(
                                                             # alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                                                             # horizontal_alignment="center",
                                                             controls=[
-                                                                ft.Container(
-                                                                    # margin=ft.margin.symmetric(horizontal=5, vertical=10),
-                                                                    # height=250,
-                                                                    # width=600,
-                                                                    margin=2,
+                                                                ft.Container(# Titulo
                                                                     alignment=ft.alignment.center,
-                                                                    # bgcolor="#292929",
-                                                                    # border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
-                                                                    # border_radius=5,
-                                                                    padding=ft.Padding(top=0, bottom=0, left=3, right=3),
-                                                                    # shadow=ft.BoxShadow(
-                                                                    #     spread_radius=1,
-                                                                    #     blur_radius=15,
-                                                                    #     color=ft.Colors.BLUE_GREY_100,
-                                                                    #     offset=ft.Offset(0, 0),
-                                                                    #     blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                    # ),
+                                                                    padding=ft.Padding(top=5, bottom=5, left=0, right=0),
                                                                     content=ft.Column(
-                                                                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                        # horizontal_alignment="center",
                                                                         controls=[
-                                                                            ft.Container(# Titulo
+                                                                            ft.Text("VENTA GENERAL FRUTAS Y CREMAS", color="#bfc244", weight=ft.FontWeight.BOLD, size=18, style=ft.TextStyle(letter_spacing=10)),
+                                                                        ]
+                                                                    )
+                                                                ),
+                                                                ft.Container(# Venta Total Frutas y Cremas
+                                                                    alignment=ft.alignment.center,
+                                                                    margin=ft.margin.only(top=5),
+                                                                    padding=ft.Padding(top=5, bottom=5, left=0, right=0),
+                                                                    # bgcolor="pink",
+                                                                    content=ft.ResponsiveRow(
+                                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                                        vertical_alignment="center",
+                                                                        controls=[
+                                                                            ft.Container(# Fruta total vendida (botes)
+                                                                                col=2.5,
                                                                                 alignment=ft.alignment.center,
-                                                                                padding=ft.Padding(top=5, bottom=5, left=0, right=0),
-                                                                                # height=40,
-                                                                                # padding=7,
-                                                                                # bgcolor="blue",
-                                                                                # border_radius=20,
-                                                                                # width=180,
-                                                                                content=ft.Column(
-                                                                                    # horizontal_alignment="center",
-                                                                                    controls=[
-                                                                                        ft.Text("VENTA GENERAL FRUTAS Y CREMAS", color="#bfc244", weight=ft.FontWeight.BOLD, size=18, style=ft.TextStyle(letter_spacing=10)),
-                                                                                    ]
-                                                                                )
+                                                                                bgcolor="#292929",
+                                                                                padding=2.5,
+                                                                                border=ft.border.all(width=1, color="#292929"),
+                                                                                border_radius=5,
+                                                                                margin=ft.margin.only(right=60),
+                                                                                shadow=ft.BoxShadow(
+                                                                                    spread_radius=.5,
+                                                                                    blur_radius=5,
+                                                                                    color="#0042e8",
+                                                                                    offset=ft.Offset(0, 0),
+                                                                                    blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                ),
+                                                                                content=self.fruven
                                                                             ),
-                                                                            ft.Container(# Venta Total Frutas y Cremas
+                                                                            ft.Container(# Crema total vendida (botes)
+                                                                                col=2.5,
                                                                                 alignment=ft.alignment.center,
-                                                                                margin=ft.margin.only(top=5),
-                                                                                padding=ft.Padding(top=5, bottom=5, left=0, right=0),
-                                                                                # margin=ft.margin.only(bottom=20),
-                                                                                # bgcolor="pink",
-                                                                                # padding=ft.padding.symmetric(horizontal=0, vertical=5),
-                                                                                # border_radius=20,
-                                                                                content=ft.ResponsiveRow(
-                                                                                    alignment=ft.MainAxisAlignment.CENTER,
-                                                                                    vertical_alignment="center",
-                                                                                    controls=[
-                                                                                        ft.Container(# Fruta total vendida (botes)
-                                                                                            col=3.5,
-                                                                                            alignment=ft.alignment.center,
-                                                                                            bgcolor="#292929",
-                                                                                            padding=2.5,
-                                                                                            border=ft.border.all(width=1, color="#292929"),
-                                                                                            border_radius=5,
-                                                                                            margin=ft.margin.only(right=60),
-                                                                                            shadow=ft.BoxShadow(
-                                                                                                spread_radius=.5,
-                                                                                                blur_radius=5,
-                                                                                                color="#0042e8",
-                                                                                                offset=ft.Offset(0, 0),
-                                                                                                blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                                            ),
-                                                                                            content=self.fruven
-                                                                                        ),
-                                                                                        ft.Container(# Crema total vendida (botes)
-                                                                                            col=3.5,
-                                                                                            alignment=ft.alignment.center,
-                                                                                            bgcolor="#292929",
-                                                                                            padding=2.5,
-                                                                                            border=ft.border.all(width=1, color="#292929"),
-                                                                                            border_radius=5,
-                                                                                            margin=ft.margin.only(left=60),
-                                                                                            shadow=ft.BoxShadow(
-                                                                                                spread_radius=.5,
-                                                                                                blur_radius=5,
-                                                                                                color="#ff0707",
-                                                                                                offset=ft.Offset(0, 0),
-                                                                                                blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                                            ),
-                                                                                            content=self.creven
-                                                                                        ),
-                                                                                    ]
-                                                                                )
+                                                                                bgcolor="#292929",
+                                                                                padding=2.5,
+                                                                                border=ft.border.all(width=1, color="#292929"),
+                                                                                border_radius=5,
+                                                                                margin=ft.margin.only(left=60),
+                                                                                shadow=ft.BoxShadow(
+                                                                                    spread_radius=.5,
+                                                                                    blur_radius=5,
+                                                                                    color="#ff0707",
+                                                                                    offset=ft.Offset(0, 0),
+                                                                                    blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                ),
+                                                                                content=self.creven
                                                                             ),
                                                                         ]
                                                                     )
-                                                                )
+                                                                ),
                                                             ]
                                                         )
                                                     ),
-                                                    
+
                                                 ]
                                             )
                                         ),
@@ -1205,7 +1181,7 @@ class UI(ft.ResponsiveRow):
                                                                         ]
                                                                     )
                                                                 ),
-                                                                
+
                                                                 ft.Container(# Vasos Medianos
                                                                     alignment=ft.alignment.center,
                                                                     # bgcolor="blue",
@@ -1288,7 +1264,7 @@ class UI(ft.ResponsiveRow):
                                                                         ]
                                                                     )
                                                                 ),
-                                                                
+
                                                                 ft.Container(# Vasos Grandes
                                                                     alignment=ft.alignment.center,
                                                                     # bgcolor="blue",
@@ -1370,8 +1346,8 @@ class UI(ft.ResponsiveRow):
                                                                         ]
                                                                     )
                                                                 ),
-                                                                
-                                                                
+
+
                                                             ]
                                                         )
                                                     ),
@@ -1401,7 +1377,7 @@ class UI(ft.ResponsiveRow):
                                                                                 col=2.5,
                                                                                 alignment=ft.alignment.center,
                                                                                 bgcolor="#292929",
-                                                                                padding=2.5,
+                                                                                padding=3,
                                                                                 border=ft.border.all(width=1, color="#292929"),
                                                                                 border_radius=5,
                                                                                 margin=ft.margin.only(right=60),
@@ -1418,7 +1394,7 @@ class UI(ft.ResponsiveRow):
                                                                                 col=2.5,
                                                                                 alignment=ft.alignment.center,
                                                                                 bgcolor="#292929",
-                                                                                padding=5,
+                                                                                padding=3,
                                                                                 border=ft.border.all(width=1, color="#292929"),
                                                                                 border_radius=5,
                                                                                 margin=ft.margin.only(left=60),
@@ -1448,16 +1424,16 @@ class UI(ft.ResponsiveRow):
                             )
                         ]
                     ),
-                    
+
                 ]
             )
         )
 
-        # ***** AREA DE CAPTURA DE VENTAS / ICONO VENTAS *****
+        # ***** PAGINA VENTAS *****
 
         self.sales = ft.Container(# Ventana Ventas
             col=12,
-            bgcolor=ft.Colors.BLUE_GREY_800,
+            bgcolor=ft.Colors.BLUE_GREY_900,
             border_radius=10,
             content=ft.Container(
                 margin=3,
@@ -1477,17 +1453,6 @@ class UI(ft.ResponsiveRow):
                                         )
                                     ]
                                 ),
-                                # ft.Column(# Separador de secciones
-                                #     col=12,
-                                #     controls=[
-                                #         ft.Container(
-                                #             margin=ft.Margin(right=25, left=25, top=0, bottom=0),
-                                #             bgcolor=self.color_teal,
-                                #             height=2,
-                                #             border_radius=2.5
-                                #         ),
-                                #     ]
-                                # ),
                                 ft.Divider(# Separador de seccion con Divider
                                     height=1,
                                     color=self.color_teal,
@@ -1503,7 +1468,7 @@ class UI(ft.ResponsiveRow):
                                             margin=ft.margin.only(top=20),
                                             padding=ft.padding.symmetric(horizontal=50, vertical=0),
                                             content=ft.ResponsiveRow(
-                                                spacing=50,
+                                                # spacing=30,
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 vertical_alignment="center",
                                                 controls=[
@@ -1512,6 +1477,7 @@ class UI(ft.ResponsiveRow):
                                                         alignment=ft.alignment.center,
                                                         # bgcolor="black",
                                                         content=ft.Dropdown(
+                                                            width=180,
                                                             bgcolor="black",
                                                             color="white",
                                                             fill_color="#555555",
@@ -1535,6 +1501,7 @@ class UI(ft.ResponsiveRow):
                                                         alignment=ft.alignment.center,
                                                         # bgcolor="black",
                                                         content=ft.Dropdown(
+                                                            width=180,
                                                             bgcolor="black",
                                                             color="white",
                                                             fill_color="#555555",
@@ -1587,6 +1554,7 @@ class UI(ft.ResponsiveRow):
                                                         alignment=ft.alignment.center,
                                                         # bgcolor="black",
                                                         content=ft.Dropdown(
+                                                            width=180,
                                                             bgcolor="black",
                                                             color="white",
                                                             fill_color="#555555",
@@ -1617,11 +1585,10 @@ class UI(ft.ResponsiveRow):
                                                     ),
                                                     ft.Container(# Años
                                                         col=3,
-                                                        padding=5,
-                                                        # border_radius=5,
                                                         alignment=ft.alignment.center,
                                                         # bgcolor=self.color_teal,
                                                         content=ft.Dropdown(
+                                                            width=180,
                                                             bgcolor="black",
                                                             color="white",
                                                             fill_color="#555555",
@@ -1684,6 +1651,7 @@ class UI(ft.ResponsiveRow):
                                             ft.Container(# Botones interactivos para archivos
                                                 col=4,
                                                 # bgcolor="black",
+                                                alignment=ft.alignment.center,
                                                 content=ft.Column(
                                                     alignment=ft.MainAxisAlignment.CENTER,
                                                     horizontal_alignment="center",
@@ -1699,7 +1667,7 @@ class UI(ft.ResponsiveRow):
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
                                                                         padding=15,
-                                                                        content=cf.created_Button(Text="Cargar Archivo", bgColor=self.color_teal, Icon=ft.Icons.ADD)
+                                                                        content=cf.created_Button(Text="Crear Reporte PDF", bgColor=self.color_teal, Icon=ft.Icons.ADD)
                                                                     ),
                                                                     ft.Container(
                                                                         alignment=ft.alignment.center,
@@ -1752,12 +1720,13 @@ class UI(ft.ResponsiveRow):
             )
         )
 
+        # ***** PAGINA PUNTOS DE VENTAS *****
 
-        self.branches = ft.Row(
+        self.pos = ft.Row(
             controls=[
                 ft.Container(
                     expand=True,
-                    bgcolor=ft.Colors.BLUE_GREY_800,
+                    bgcolor=ft.Colors.BLUE_GREY_900,
                     border_radius=10,
                     content=ft.Container(
                         expand=True,
@@ -1787,12 +1756,14 @@ class UI(ft.ResponsiveRow):
                 )
             ]
         )
+
+        # ***** PAGINA INVENTARIO *****
 
         self.stock = ft.Row(
             controls=[
                 ft.Container(
                     expand=True,
-                    bgcolor=ft.Colors.BLUE_GREY_800,
+                    bgcolor=ft.Colors.BLUE_GREY_900,
                     border_radius=10,
                     content=ft.Container(
                         expand=True,
@@ -1822,11 +1793,11 @@ class UI(ft.ResponsiveRow):
                 )
             ]
         )
-       
+
         # ***** Paginas de los respectivos elementos laterales encerrados en una lista para el control de estas con los elementos laterales *****
 
 
-        self.pages_containers = [ft.Column(controls=[self.select_Bar_Sucursales, self.home, self.actions_Buttons]), self.sales, self.branches, self.stock]
+        self.pages_containers = [self.home, ft.Column(controls=[self.select_Bar_Sucursales, self.register, self.actions_Buttons]), self.sales, self.pos, self.stock]
 
         # ***** Seleccion de la pagina a mostrar mediante el index relacionado con el NavigationRail *****
 
@@ -1899,8 +1870,6 @@ class UI(ft.ResponsiveRow):
 
         self.fecha_Formateada = self.fecha_Actual.strftime("%d-%b-%Y")
 
-        self.report_field.value = self.fecha_Formateada
-
         self.report_field.value = (
                                 f"                                                   {self.fecha_Formateada}\n\n"
                                 f"<<< {self.pdv} >>>\n\n"
@@ -1932,7 +1901,7 @@ class UI(ft.ResponsiveRow):
 
                                 f"<<< FIN DEL REPORTE >>>"
                             )
-        
+
     # *** Funcion creadora del reporte del dia en formato PDF ***
 
     def create_ReportePDF(self, e):
@@ -1944,18 +1913,18 @@ class UI(ft.ResponsiveRow):
 
         pdf = FPDF(orientation="P", unit="mm", format="A4")
         pdf.add_page()
-        
+
         pdf.set_font("Arial", "", 10)
-        
+
         pdf.image("assets/Images/FresaReporte.png", 10, 7, 20)
         pdf.cell(187, 5, f'{self.fecha_Formateada}', 0, 1, "R")
-        
+
         # Titulo
         pdf.cell(0, 25, f'Reporte {self.pdv}'.upper(), 0, 1, 'C')
         pdf.line(70, 30, 140, 30)
 
         # pdf.cell(0, 5, '', 0, 1)
-        
+
         # Vasos
         pdf.cell(70, 10, 'VASOS', 1, 0, "C")
         pdf.cell(15, 10, f'TI', 1, 0, 'C')
@@ -2192,9 +2161,9 @@ class UI(ft.ResponsiveRow):
         pdf.cell(0, 10, '', 0, 1)
 
         pdf.cell(0, 25, f'* FIN REPORTE *'.upper(), 0, 1, 'C')
-        
+
         pdf.output(f"...Reportes/Reportes_PDV's/{self.fecha_Formateada_RN} - Reporte {self.pdv}.pdf")
-    
+
     # *** Funciones para el manejo de los campos de texto de la seccion de vasos ***
 
     # Vasos Chicos
@@ -2233,7 +2202,7 @@ class UI(ft.ResponsiveRow):
         except ValueError:
             pass
         finally:
-            self.update()       
+            self.update()
 
     # Vasos Grandes
 
@@ -2252,7 +2221,7 @@ class UI(ft.ResponsiveRow):
         except ValueError:
             pass
         finally:
-            self.update()     
+            self.update()
 
     # Vasos Chicos
 
@@ -2326,7 +2295,7 @@ class UI(ft.ResponsiveRow):
                 self.num_fpf = int(self.fpf.value)
                 self.num_fei = int(self.fei.value)
                 self.num_fef = int(self.fef.value)
-            
+
             # self.num_fr = self.num_fpf + self.num_fef
             # self.num_fv = (self.num_fpi + self.num_fei) - self.num_fr
             self.num_fv = (self.num_fpi + self.num_fei) - (self.num_fpf + self.num_fef)
@@ -2416,7 +2385,7 @@ class UI(ft.ResponsiveRow):
                 print("SIN Valor en ambos")
                 print(self.fv.value)
                 print(self.uv.value)
-            
+
             if self.fv.value != "0" and self.uv.value == "0" or self.uv.value == "":
                 self.fruven.value = self.fv.value
                 print("Con Valor en FRESA")
@@ -2450,7 +2419,7 @@ class UI(ft.ResponsiveRow):
 
             if self.num_cov % 2 == 0 or self.num_cov % 2 == 1:
                 self.num_cov = int(self.num_cov)
-                
+
             self.cov.value = round(self.num_cov, 2)
         except ValueError:
             pass
@@ -2490,7 +2459,7 @@ class UI(ft.ResponsiveRow):
 
             if self.num_ccav % 2 == 0 or self.num_ccav % 2 == 1:
                 self.num_ccav = int(self.num_ccav)
-            
+
             self.ccav.value = round(self.num_ccav, 2)
         except ValueError:
             pass
@@ -2528,7 +2497,7 @@ class UI(ft.ResponsiveRow):
     def balance_General(self, e):
         self.num_bgi = self.vcvt.value + self.vmvt.value + self.vgvt.value + self.tt.value + self.sdt.value
         self.bgi.value = self.num_bgi
-        
+
         try:
             self.num_trt = int(self.trt.value)
             self.num_grt = int(self.grt.value)
