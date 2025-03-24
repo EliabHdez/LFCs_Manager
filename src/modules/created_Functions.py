@@ -28,7 +28,7 @@ def create_radio(Value, Label):
     return ft.Radio(
         value=Value,
         label=Label,
-        label_style=ft.TextStyle(size=12),
+        label_style=ft.TextStyle(size=10),
         visual_density=ft.VisualDensity.STANDARD,
         fill_color={
             ft.ControlState.DEFAULT: ft.Colors.PINK,
@@ -106,25 +106,28 @@ def create_textfield_WB(Label, Height=30, Color="#d3d3d3", text_Size=25, border_
         on_change=on_Change
     )
 
-def create_textfield_planeador(Width=None, hint_Text=None, hint_Style=None, on_Focus=None, read_Only=False):
+def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=None, hint_Text=None, hint_Style=None, read_Only=False):
     return ft.TextField(
+        expand=True,
+        value=Value,
+        text_style=text_Style,
         color="black",
         text_size=12,
         width=Width,
-        content_padding=2,
-        # height=30,
-        border_color="black",
-        border_width=.5,
+        height=Height,
+        bgcolor="white",
+        content_padding=1,
+        border=ft.border.all(width=.5, color="black"),
         border_radius=0,
         text_align="center",
         cursor_height=15,
         cursor_color="black",
-        focused_border_color="#ff0909",
-        focused_border_width=1,
+        focused_border_color="#ff0b0b",
+        focused_border_width=2,
         hint_text=hint_Text,
         hint_style=hint_Style,
         read_only=read_Only,
-        on_focus=on_Focus,
+        fit_parent_size=True,
     )
 
 # ***** Función creadora de campos de texto para la seccion de extra y adicionales *****

@@ -15,6 +15,11 @@ class UI(ft.ResponsiveRow):
         self.today_2 = self.today_1.strftime(f"{self.mayus_weekend_day} %d-{self.mayus_month}-%Y")
         self.today_main = self.today_2
 
+        self.date_onList=[]
+
+        for element in self.today_main:
+            self.date_onList.append(element)
+
         # self.color_teal = "teal"
         self.color_teal = "#00ebab"
         self.color_teal_2 = "#11b78a"
@@ -58,23 +63,88 @@ class UI(ft.ResponsiveRow):
 
         # *** Variables Ventana Inicio ***
 
+        # Variables Personal Supervision
+
+        self.sup_Pers_PDV = cf.create_textfield_planeador(hint_Text="Ivette Herrera", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"))
+        self.sup_Ops = cf.create_textfield_planeador(hint_Text="Omar Tovar", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"))
+        self.sup_CDO = cf.create_textfield_planeador(hint_Text="uriel Martínez", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"))
+
+        # Variables Personal Ventas
+
+        self.ven_Glorieta = cf.create_textfield_planeador(hint_Text="Valeria", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Vips = cf.create_textfield_planeador(hint_Text="Donovan Hdez", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_SanMiguel = cf.create_textfield_planeador(hint_Text="Uriel", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_SanAntonio = cf.create_textfield_planeador(hint_Text="Ivette", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Ensuenos = cf.create_textfield_planeador(hint_Text="Alejandra", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Operagua = cf.create_textfield_planeador(hint_Text="Victor", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_LaPiedad = cf.create_textfield_planeador(hint_Text="Isabel", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Cofradia2 = cf.create_textfield_planeador(hint_Text="Karla", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Parques = cf.create_textfield_planeador(hint_Text="Omar", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Cumbria = cf.create_textfield_planeador(hint_Text="Jesús", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Palomas = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Atlanta = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12))
+
+        # Variables Ventas Promedio
+
+        self.cdo_1 = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.cdo_2 = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.cdo_3 = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+
+        # Variables Ventas Minimas
+
+        self.vm_Glorieta = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Vips = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_SanMiguel = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_SanAntonio = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Ensuenos = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Operagua = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_LaPiedad = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Cofradia2 = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Parques = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Cumbria = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Palomas = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.vm_Atlanta = cf.create_textfield_planeador(Value="$", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+
+        # Variables Ventas Promedio
+
+        self.prom_Glorieta = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Vips = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_SanMiguel = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_SanAntonio = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Ensuenos = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Operagua = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_LaPiedad = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Cofradia2 = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Parques = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Cumbria = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Palomas = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+        self.prom_Atlanta = cf.create_textfield_planeador(Value="$0", text_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+
         # Variables sucursales
 
         self.glorieta = cf.create_radio("glorieta", "Glorieta")
 
-        self.sanmiguel = cf.create_radio("sanmiguel", "San Miguel")
-
         self.vips = cf.create_radio("vips", "Vips")
 
-        self. cofradia2 = cf.create_radio("cofradia2", "Cofradía 2")
+        self.sanmiguel = cf.create_radio("sanmiguel", "San Miguel")
+
+        self.sanantonio = cf.create_radio("sanantonio", "San Antonio")
 
         self.ensuenos = cf.create_radio("ensueños", "Ensueños")
 
         self.operagua = cf.create_radio("operagua", "Operagua")
 
-        self.sanantonio = cf.create_radio("sanantonio", "San Antonio")
-
         self.lapiedad = cf.create_radio("lapiedad", "La Piedad")
+
+        self.cofradia2 = cf.create_radio("cofradia2", "Cofradía 2")
+
+        self.parques = cf.create_radio("parques", "Parques")
+
+        self.cumbria = cf.create_radio("cumbria", "Cumbria")
+
+        self.palomas = cf.create_radio("palomas", "Palomas")
+
+        self.atlanta = cf.create_radio("atalanta", "Atlanta")
 
         self.pdv = ft.RadioGroup(# Grupo de Botones tipo Radio de las Sucursales
             on_change=self.pdv_selection,
@@ -87,13 +157,17 @@ class UI(ft.ResponsiveRow):
                     # expand=True,
                     controls=[
                         self.glorieta,
-                        self.sanmiguel,
                         self.vips,
-                        self.cofradia2,
+                        self.sanmiguel,
+                        self.sanantonio,
                         self.ensuenos,
                         self.operagua,
-                        self.sanantonio,
-                        self.lapiedad
+                        self.lapiedad,
+                        self.cofradia2,
+                        self.parques,
+                        self.cumbria,
+                        self.palomas,
+                        self.atlanta,
                     ]
                 )
             )
@@ -441,77 +515,791 @@ class UI(ft.ResponsiveRow):
 
                             ]
                         ),
-                         ft.ResponsiveRow(# Planeador del dia
+                        ft.ResponsiveRow(# Planeador del dia
                             expand=True,
                             controls=[
                                 ft.Container(# Contenedor Principal
                                     col=12,
-                                    margin=ft.margin.symmetric(horizontal=100, vertical=80),
+                                    alignment=ft.alignment.center,
+                                    margin=ft.margin.symmetric(horizontal=50, vertical=10),
+                                    padding=20,
                                     # bgcolor="yellow",
+                                    border=ft.border.all(width=2, color=ft.Colors.BLUE_GREY_700),
+                                    border_radius=10,
                                     content=ft.Column(
                                         alignment=ft.alignment.center,
                                         controls=[
                                             ft.Container(# Fecha
-                                                border_radius=25,
-                                                bgcolor=self.color_teal,
+                                                border_radius=3,
+                                                bgcolor="#1b89ff",
                                                 alignment=ft.alignment.center,
-                                                content=ft.Text(self.today_main, size=32,style=ft.TextStyle(letter_spacing=20), color="black")
+                                                padding=5,
+                                                content=ft.Text(value="PLANEACIÓN Y ESTRUCTURA LABORAL", size=20, color="black", weight=ft.FontWeight.BOLD, style=ft.TextStyle(letter_spacing=15))
+                                                # content=ft.Text(self.today_main, size=32,style=ft.TextStyle(letter_spacing=20), color="black")
                                             ),
-                                            ft.ResponsiveRow(# Primera fila
-                                                # expand=True,
+                                            ft.ResponsiveRow(# Fila Principal
+                                                expand=True,
                                                 controls=[
-                                                    ft.Container(# Supoervisores
-                                                        height=40,
+                                                    ft.Container(
+                                                        col=.5,
+                                                        border_radius=3,
+                                                        alignment=ft.alignment.center,
+                                                        expand=True,
+                                                        bgcolor="#1b89ff",
+                                                        content=ft.Column(
+                                                            spacing=0,
+                                                            alignment=ft.MainAxisAlignment.CENTER,
+                                                            horizontal_alignment="center",
+                                                            controls=[
+                                                                ft.Text(value=self.date_onList[0], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[1], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[2], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[3], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[4], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[5], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[6], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[7], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[8], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value="", color="black", size=6),
+                                                                ft.Text(value="°", color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[10], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[11], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[12], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[13], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[14], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value="", color="black", size=6),
+                                                                ft.Text(value="°", color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[16], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[17], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[18], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[19], color="black", weight=ft.FontWeight.BOLD),
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(# Supervisores y Sucursales
+                                                        expand=True,
+                                                        # bgcolor="blue",
+                                                        alignment=ft.alignment.center,
                                                         col=4,
-                                                        bgcolor=self.color_teal,
                                                         content=ft.Column(
                                                             controls=[
-                                                                ft.ResponsiveRow(
-                                                                    alignment=ft.MainAxisAlignment.CENTER,
-                                                                    vertical_alignment="center",
+                                                                ft.Container(# Supervisores
+                                                                    expand=True,
+                                                                    # bgcolor="yellow",
+                                                                    alignment=ft.alignment.center,
+                                                                    content=ft.ResponsiveRow(
+                                                                        spacing=0,
+                                                                        controls=[
+                                                                            ft.Container(
+                                                                                col=1,
+                                                                                border_radius=ft.border_radius.only(top_left=3),
+                                                                                # expand=True,
+                                                                                # height=142,
+                                                                                bgcolor="#6adb00",
+                                                                                alignment=ft.alignment.center,
+                                                                                border=ft.border.all(color="black", width=.5),
+                                                                                content=ft.Column(
+                                                                                    alignment=ft.MainAxisAlignment.CENTER,
+                                                                                    horizontal_alignment="center",
+                                                                                    spacing=0,
+                                                                                    controls=[
+                                                                                        ft.Text("S", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("U", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("P", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("E", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("R", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("V", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("I", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("S", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("I", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("O", color="black", size=8.5, weight="bold"),
+                                                                                        ft.Text("N", color="black", size=8.5, weight="bold"),
+                                                                                    ]
+                                                                                ),
+                                                                            ),
+                                                                            ft.Column(
+                                                                                expand=True,
+                                                                                col=6,
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        padding=5,
+                                                                                        # height=45,
+                                                                                        bgcolor="#6adb00",
+                                                                                        content=ft.Text("Supervisor de Personal y Puntos de Venta", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        padding=5,
+                                                                                        # height=45,
+                                                                                        bgcolor="#6adb00",
+                                                                                        content=ft.Text("Supervisor de Operaciones", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        padding=5,
+                                                                                        # height=45,
+                                                                                        bgcolor="#6adb00",
+                                                                                        content=ft.Text("Supervisor Centro de Operaciones (CDO)", color="black", size=10)
+                                                                                    )
+                                                                                ]
+                                                                            ),
+                                                                            ft.Column(
+                                                                                col=5,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        # height=45,
+                                                                                        bgcolor="white",
+                                                                                        content=self.sup_Pers_PDV
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        # height=45,
+                                                                                        bgcolor="white",
+                                                                                        content=self.sup_Ops
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        # height=45,
+                                                                                        bgcolor="white",
+                                                                                        content=self.sup_CDO
+                                                                                    ),
+                                                                                ]
+                                                                            ),
+                                                                        ]
+                                                                    ),
+                                                                ),
+                                                                ft.Container(# Supervisores
+                                                                    # expand=True,
+                                                                    height=300,
+                                                                    alignment=ft.alignment.center,
+                                                                    content=ft.ResponsiveRow(
+                                                                        spacing=0,
+                                                                        controls=[
+                                                                            ft.Container(
+                                                                                col=1,
+                                                                                border_radius=ft.border_radius.only(bottom_left=3),
+                                                                                bgcolor="#fe0f7c",
+                                                                                alignment=ft.alignment.center,
+                                                                                border=ft.border.all(color="black", width=.5),
+                                                                                content=ft.Column(
+                                                                                    alignment=ft.MainAxisAlignment.CENTER,
+                                                                                    horizontal_alignment="center",
+                                                                                    spacing=0,
+                                                                                    controls=[
+                                                                                        ft.Text("S", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("U", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("C", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("U", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("R", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("S", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("A", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("L", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("E", color="black", size=14, weight="bold"),
+                                                                                        ft.Text("S", color="black", size=14, weight="bold"),
+                                                                                    ]
+                                                                                ),
+                                                                            ),
+                                                                            ft.Column(
+                                                                                col=6,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("1 - VP Glorieta", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("2 - VP Vips", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("3 - VP San Miguel", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("4 - VP San Antonio", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("5 - VP Ensueños", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("6 - VP Operagua", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("7 - VP La Piedad", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("8 - VP Cofradía 2", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("9 - VP Parques", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("10 - VP Cumbria", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("11 - VP Palomas", color="black", size=10)
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center_left,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="#fe0f7c",
+                                                                                        padding=ft.padding.only(left=5),
+                                                                                        content=ft.Text("12 - VP Atlanta", color="black", size=10)
+                                                                                    )
+                                                                                ]
+                                                                            ),
+                                                                            ft.Column(
+                                                                                col=5,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Glorieta
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Vips
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_SanMiguel
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_SanAntonio
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Ensuenos
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Operagua
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_LaPiedad
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Cofradia2
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Parques
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Cumbria
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Palomas
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=25,
+                                                                                        bgcolor="white",
+                                                                                        content=self.ven_Atlanta
+                                                                                    ),
+                                                                                ]
+                                                                            ),
+                                                                        ]
+                                                                    ),
+                                                                ),
+                                                            ]
+                                                        ),
+                                                    ),
+                                                    ft.Container(# Ventas mínimas
+                                                        alignment=ft.alignment.center,
+                                                        col=2,
+                                                        
+                                                        content=ft.Column(
+                                                            controls=[
+                                                                ft.Column(
                                                                     expand=True,
                                                                     spacing=0,
                                                                     controls=[
                                                                         ft.Container(
-                                                                            col=6.5,
-                                                                            # bgcolor=self.color_teal,
-                                                                            alignment=ft.alignment.center_left,
-                                                                            border=ft.border.all(color="black", width=.5),
-                                                                            padding=5,
-                                                                            # bgcolor="blue",
-                                                                            content=ft.Text("SUPERVISIÓN DE PERSONAL Y\nPUNTOS DE VENTA", color="black", size=10)
+                                                                            expand=True,
+                                                                            border=ft.border.all(width=.5, color="black"),
+                                                                            bgcolor="white",
+                                                                            alignment=ft.alignment.center,
+                                                                            content=ft.Text("Ventas mínimas\ndel día", size=20, color="black", text_align="center"),
                                                                         ),
+                                                                    ]
+                                                                ),
+                                                                ft.Column(
+                                                                    spacing=0,
+                                                                    controls=[
                                                                         ft.Container(
-                                                                            col=5.5,
+                                                                            height=25,
                                                                             alignment=ft.alignment.center,
                                                                             # border=ft.border.all(color="black", width=1),
-                                                                            # bgcolor="blue",
-                                                                            content=cf.create_textfield_planeador(hint_Text="Ivette Herrera", hint_Style=ft.TextStyle(color="black", size=10))
-                                                                        )
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Glorieta
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Vips
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_SanMiguel
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_SanAntonio
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Ensuenos
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Operagua
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_LaPiedad
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Cofradia2
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Parques
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Cumbria
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Palomas
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.vm_Atlanta
+                                                                        ),
                                                                     ]
-                                                                )
+                                                                ),
                                                             ]
                                                         )
                                                     ),
                                                     ft.Container(
-                                                        col=2,
-                                                        bgcolor=self.color_teal
-                                                    ),
-                                                    ft.Container(
+                                                        alignment=ft.alignment.center,
                                                         col=1,
-                                                        bgcolor=self.color_teal
+                                                        content=ft.Column(
+                                                            controls=[
+                                                                ft.Column(
+                                                                    expand=True,
+                                                                    controls=[
+                                                                        ft.Container(
+                                                                            expand=True,
+                                                                            border=ft.border.all(width=.5, color="black"),
+                                                                            alignment=ft.alignment.center,
+                                                                            bgcolor="white",
+                                                                            content=ft.Text("Promedio", color="black")
+                                                                        )
+                                                                    ]
+                                                                ),
+                                                                ft.Column(
+                                                                    spacing=0,
+                                                                    controls=[
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Glorieta
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Vips
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_SanMiguel
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_SanAntonio
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Ensuenos
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Operagua
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_LaPiedad
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Cofradia2
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Parques
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Cumbria
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Palomas
+                                                                        ),
+                                                                        ft.Container(
+                                                                            height=25,
+                                                                            alignment=ft.alignment.center,
+                                                                            # border=ft.border.all(color="black", width=1),
+                                                                            bgcolor="white",
+                                                                            content=self.prom_Atlanta
+                                                                        ),
+                                                                    ]
+                                                                ),
+                                                            ]
+                                                        )
                                                     ),
-                                                    ft.Container(
-                                                        col=1,
-                                                        bgcolor=self.color_teal
-                                                    ),
-                                                    ft.Container(
-                                                        col=1,
-                                                        bgcolor=self.color_teal
-                                                    ),
-                                                    ft.Container(
-                                                        col=2,
-                                                        bgcolor=self.color_teal
+                                                    ft.Container(# Rutas y CDO
+                                                        alignment=ft.alignment.center,
+                                                        col=4.5,
+                                                        content=ft.Column(
+                                                            expand=True,
+                                                            controls=[
+                                                                ft.Container(# Rutas
+                                                                    expand=True,
+                                                                    alignment=ft.alignment.center,
+                                                                    content=ft.ResponsiveRow(
+                                                                        spacing=0,
+                                                                        controls=[
+                                                                            ft.Container(
+                                                                                col=5,
+                                                                                bgcolor="#00b687",
+                                                                                alignment=ft.alignment.center,
+                                                                                border=ft.border.all(color="black", width=.5),
+                                                                                content=ft.Text("Operaciones\ny Transporte", color="black",size=20)
+                                                                            ),
+                                                                            ft.Column(
+                                                                                col=3,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=90,
+                                                                                        bgcolor="#ff1919",
+                                                                                        content=ft.Text("Ruta 1", color="black")
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        height=90,
+                                                                                        bgcolor="#ff1919",
+                                                                                        content=ft.Text("Ruta 2", color="black")
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center,
+                                                                                        border=ft.border.all(color="black", width=.5),
+                                                                                        bgcolor="#ff1919",
+                                                                                        content=ft.Text("Comodines", color="black")
+                                                                                    )
+                                                                                ]
+                                                                            ),
+                                                                            ft.Column(
+                                                                                col=4,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        border_radius=ft.border_radius.only(top_right=3),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                ]
+                                                                            ),
+                                                                        ]
+                                                                    ),
+                                                                ),
+                                                                ft.Container(# CDO
+                                                                    height=150,
+                                                                    alignment=ft.alignment.center,
+                                                                    content=ft.ResponsiveRow(
+                                                                        expand=True,
+                                                                        spacing=0,
+                                                                        controls=[
+                                                                            ft.Container(
+                                                                                expand=True,
+                                                                                col=8,
+                                                                                bgcolor="#fe8410",
+                                                                                alignment=ft.alignment.center,
+                                                                                border=ft.border.all(color="black", width=.5),
+                                                                                content=ft.Text("Centro de Operaciones", color="black",size=20)
+                                                                            ),
+                                                                            ft.Column(
+                                                                                col=4,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=self.cdo_1
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=self.cdo_2
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        height=30,
+                                                                                        bgcolor="white",
+                                                                                        content=self.cdo_3
+                                                                                    ),
+                                                                                    ft.Container(
+                                                                                        expand=True,
+                                                                                        border_radius=ft.border_radius.only(bottom_right=3),
+                                                                                        alignment=ft.alignment.center,
+                                                                                        # border=ft.border.all(color="black", width=.5),
+                                                                                        bgcolor="white",
+                                                                                        content=cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight="bold"))
+                                                                                    ),
+                                                                                ]
+                                                                            ),
+                                                                        ]
+                                                                    ),
+                                                                ),
+                                                            ]
+                                                        ),
                                                     ),
                                                 ]
                                             )
@@ -519,6 +1307,120 @@ class UI(ft.ResponsiveRow):
                                     )
                                 )
                             ]
+                        ),
+                        ft.Container(
+                            # bgcolor="blue",
+                            margin=ft.margin.only(bottom=10),
+                            content=ft.ResponsiveRow(
+                                vertical_alignment="center",
+                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                controls=[
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Personal", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Lunes", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Martes", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Miercoles", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Jueves", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Viernes", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Sabado", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                    ft.Container(
+                                        col=1,
+                                        border_radius=50,
+                                        alignment=ft.alignment.center,
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=.5,
+                                            blur_radius=5,
+                                            color=ft.Colors.BLUE_GREY_100,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                        content=cf.created_Button(Text="Domingo", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                    ),
+                                ]
+                            ),
                         )
                     ]
                 )
