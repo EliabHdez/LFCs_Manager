@@ -9,16 +9,19 @@ class UI(ft.ResponsiveRow):
 
         # ***** VARIABLES SISTEMA *****
 
-        self.mayus_weekend_day = dt.datetime.now().strftime("%A").upper()
-        self.mayus_month = dt.datetime.now().strftime("%B").upper()
+        self.mayus_weekend_day = dt.datetime.now().strftime("%a").upper()
+        self.mayus_month = dt.datetime.now().strftime("%b").upper()
         self.today_1 = dt.datetime.today().date()
-        self.today_2 = self.today_1.strftime(f"{self.mayus_weekend_day} %d-{self.mayus_month}-%Y")
+        self.today_2 = self.today_1.strftime(f"{self.mayus_weekend_day} %d°{self.mayus_month}°%Y")
         self.today_main = self.today_2
 
         self.date_onList=[]
 
         for element in self.today_main:
             self.date_onList.append(element)
+            # print(element)
+            # print(self.date_onList)
+        # print(len(self.date_onList))
 
         # self.color_teal = "teal"
         self.color_teal = "#00ebab"
@@ -39,7 +42,7 @@ class UI(ft.ResponsiveRow):
                     # title=ft.Text("Cuentas"),
                     content=ft.Text('Sección no disponible por el momento'),
                     actions=[
-                        ft.CupertinoDialogAction("Ok", is_destructive_action=True, on_click=lambda e: page.close(e.control.parent))
+                        ft.CupertinoDialogAction("OK", is_destructive_action=True, on_click=lambda e: page.close(e.control.parent))
                     ]
                 ),
             )
@@ -65,24 +68,24 @@ class UI(ft.ResponsiveRow):
 
         # Variables Personal Supervision
 
-        self.sup_Pers_PDV = cf.create_textfield_planeador(hint_Text="Ivette Herrera", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"))
-        self.sup_Ops = cf.create_textfield_planeador(hint_Text="Omar Tovar", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"))
-        self.sup_CDO = cf.create_textfield_planeador(hint_Text="uriel Martínez", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"))
+        self.sup_Pers_PDV = cf.create_textfield_planeador(hint_Text="Ivette Herrera", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"), text_Style=ft.TextStyle(color="black", size=12, italic=True, weight=ft.FontWeight.BOLD))
+        self.sup_Ops = cf.create_textfield_planeador(hint_Text="Omar Tovar", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"), text_Style=ft.TextStyle(color="black", size=12, italic=True, weight=ft.FontWeight.BOLD))
+        self.sup_CDO = cf.create_textfield_planeador(hint_Text="Uriel Martínez", hint_Style=ft.TextStyle(color="black", size=12, italic=True, weight="bold"), text_Style=ft.TextStyle(color="black", size=12, italic=True, weight=ft.FontWeight.BOLD))
 
         # Variables Personal Ventas
 
-        self.ven_Glorieta = cf.create_textfield_planeador(hint_Text="Valeria", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Vips = cf.create_textfield_planeador(hint_Text="Donovan Hdez", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_SanMiguel = cf.create_textfield_planeador(hint_Text="Uriel", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_SanAntonio = cf.create_textfield_planeador(hint_Text="Ivette", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Ensuenos = cf.create_textfield_planeador(hint_Text="Alejandra", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Operagua = cf.create_textfield_planeador(hint_Text="Victor", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_LaPiedad = cf.create_textfield_planeador(hint_Text="Isabel", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Cofradia2 = cf.create_textfield_planeador(hint_Text="Karla", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Parques = cf.create_textfield_planeador(hint_Text="Omar", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Cumbria = cf.create_textfield_planeador(hint_Text="Jesús", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Palomas = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12))
-        self.ven_Atlanta = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12))
+        self.ven_Glorieta = cf.create_textfield_planeador(hint_Text="Valeria", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Vips = cf.create_textfield_planeador(hint_Text="Donovan Hdez", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_SanMiguel = cf.create_textfield_planeador(hint_Text="Uriel", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_SanAntonio = cf.create_textfield_planeador(hint_Text="Ivette", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Ensuenos = cf.create_textfield_planeador(hint_Text="Alejandra", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Operagua = cf.create_textfield_planeador(hint_Text="Victor", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_LaPiedad = cf.create_textfield_planeador(hint_Text="Isabel", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Cofradia2 = cf.create_textfield_planeador(hint_Text="Karla", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Parques = cf.create_textfield_planeador(hint_Text="Omar", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Cumbria = cf.create_textfield_planeador(hint_Text="Jesús", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Palomas = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
+        self.ven_Atlanta = cf.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=12, weight=ft.FontWeight.BOLD))
 
         # Variables Ventas Promedio
 
@@ -233,7 +236,7 @@ class UI(ft.ResponsiveRow):
         self.fpf = cf.create_textfield("Picada Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_fr)
         self.fei = cf.create_textfield("Entera Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_fr)
         self.fef = cf.create_textfield("Entera Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_fr)
-        self.fv = cf.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True, on_Change=self.venta_Total_Fruta_Crema)
+        self.fv = cf.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True, on_Change=self.venta_Total_Fruta_Crema)
         # self.fr = cf.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # Uva
@@ -242,7 +245,7 @@ class UI(ft.ResponsiveRow):
         self.upf = cf.create_textfield("Picada Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_uva)
         self.uei = cf.create_textfield("Entera Inicial", suffix_Text="Botes", on_Change=self.conversion_n_capture_uva)
         self.uef = cf.create_textfield("Entera Final", suffix_Text="Botes", on_Change=self.conversion_n_capture_uva)
-        self.uv = cf.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, Width=150, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000",read_Only=True, on_Change=self.venta_Total_Fruta_Crema)
+        self.uv = cf.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ffffff", text_Size=22, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000",read_Only=True, on_Change=self.venta_Total_Fruta_Crema)
         # self.ur = cf.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # ***** VARIABLES CREMAS *****
@@ -280,31 +283,32 @@ class UI(ft.ResponsiveRow):
 
         # Toppings Extras
 
-        self.t5 = cf.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_tE)
-        self.t10 = cf.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_tE)
-        self.tt = cf.create_textField_Extras(55, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
+        self.t5 = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="white", read_Only=False, on_Change=self.conversion_n_capture_tE)
+        self.t10 = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="white", read_Only=False, on_Change=self.conversion_n_capture_tE)
+        self.tt = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", read_Only=True)
 
         # Servicios a Domicilio
 
-        self.sd25 = cf.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_sD)
-        self.sd35 = cf.create_textField_Extras(40, 25, on_Change=self.conversion_n_capture_sD)
-        self.sdt = cf.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
+        self.sd20 = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="white", read_Only=False, on_Change=self.conversion_n_capture_sD)
+        self.sd35 = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="white", read_Only=False, on_Change=self.conversion_n_capture_sD)
+        self.sdt = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", read_Only=True)
 
         # Transferencias
 
-        self.trn = cf.create_textField_Extras(50, 25)
-        self.trt = cf.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000")
+        self.trn = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=80, Height=35, border_Color="white", read_Only=False)
+        self.trt = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=100, Height=35, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", prefix_Text="$", content_Padding=ft.padding.symmetric(horizontal=10, vertical=0), read_Only=False)
 
         # Gastos / Retiros
 
-        self.grn = cf.create_textField_Extras(50, 25)
-        self.grt = cf.create_textField_Extras(50, 25, "#ffffff", 15, border_Color="#fd0000", on_Change=self.balance_General)
+        self.grn = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=80, Height=35, border_Color="white", read_Only=False)
+        self.grt = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=100, Height=35, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", read_Only=False)
 
         # Balance
 
-        self.bgi = cf.create_textField_Extras(50, 25)
-        self.bgd = cf.create_textField_Extras(50, 25)
-        self.bgt = cf.create_textField_Extras(70, 25, "#ffffff", 15, border_Color="#fd0000", read_Only=True)
+        self.bging = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", read_Only=True)
+        self.bgegr = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", read_Only=True)
+        self.bgtd = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", read_Only=True, on_Change=self.balance_General)
+        self.bgte = cf.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", read_Only=True)
 
         # ***** VARIABLES VENTANA VENTAS *****
 
@@ -312,8 +316,11 @@ class UI(ft.ResponsiveRow):
 
         # Campos de texto
 
-        self.report_field = cf.create_textField_RyV("REPORTE")
-        self.sales_field = cf.create_textField_RyV("EXTRAS", False)
+        self.report_field = cf.create_textField_RyV("REPORTE", min_Lines=25, counter_Style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=5, size=10))
+        self.sales_field = cf.create_textField_RyV("EXTRAS", min_Lines=25, counter_Style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=5, size=10), read_Only=False)
+
+        self.transf_field = cf.create_textField_RyV("MONTOS TRANSFERENCIAS", min_Lines=7, counter_Style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=3, size=8), read_Only=False)
+        self.gastos_field = cf.create_textField_RyV("MONTOS GASTOS / RETIROS", min_Lines=7, counter_Style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=3, size=8), read_Only=False)
 
         # ***** BARRA DE NAVEGACION LATERAL IZQUIERDA *****
 
@@ -492,7 +499,7 @@ class UI(ft.ResponsiveRow):
                 # bgcolor="pink",
                 content=ft.Column(
                     controls=[
-                        ft.ResponsiveRow(
+                        ft.ResponsiveRow(# Titulo ventana
                             controls=[
                                 ft.Column(# Titulo ventana
                                     col=12,
@@ -540,39 +547,33 @@ class UI(ft.ResponsiveRow):
                                             ft.ResponsiveRow(# Fila Principal
                                                 expand=True,
                                                 controls=[
-                                                    ft.Container(
+                                                    ft.Container(# Fecha vertical
                                                         col=.5,
+                                                        padding=ft.padding.symmetric(horizontal=5, vertical=20),
                                                         border_radius=3,
                                                         alignment=ft.alignment.center,
                                                         expand=True,
                                                         bgcolor="#1b89ff",
                                                         content=ft.Column(
                                                             spacing=0,
-                                                            alignment=ft.MainAxisAlignment.CENTER,
+                                                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                             horizontal_alignment="center",
                                                             controls=[
-                                                                ft.Text(value=self.date_onList[0], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[1], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[2], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[3], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[4], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[5], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[6], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[7], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[8], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value="", color="black", size=6),
-                                                                ft.Text(value="°", color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[10], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[11], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[12], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[13], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[14], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value="", color="black", size=6),
-                                                                ft.Text(value="°", color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[16], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[17], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[18], color="black", weight=ft.FontWeight.BOLD),
-                                                                ft.Text(value=self.date_onList[19], color="black", weight=ft.FontWeight.BOLD),
+                                                                ft.Text(value=self.date_onList[0], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[1], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[2], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[3], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[4], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[5], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[6], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[7], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[8], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[9], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[10], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[11], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[12], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[13], color="black", weight=ft.FontWeight.BOLD, size=10),
+                                                                ft.Text(value=self.date_onList[14], color="black", weight=ft.FontWeight.BOLD, size=10),
                                                             ]
                                                         )
                                                     ),
@@ -1029,7 +1030,7 @@ class UI(ft.ResponsiveRow):
                                                             ]
                                                         )
                                                     ),
-                                                    ft.Container(
+                                                    ft.Container(# Promedio
                                                         alignment=ft.alignment.center,
                                                         col=1,
                                                         content=ft.Column(
@@ -1308,7 +1309,7 @@ class UI(ft.ResponsiveRow):
                                 )
                             ]
                         ),
-                        ft.Container(
+                        ft.Container(# Botones parte inferior planeador
                             # bgcolor="blue",
                             margin=ft.margin.only(bottom=10),
                             content=ft.ResponsiveRow(
@@ -1326,7 +1327,7 @@ class UI(ft.ResponsiveRow):
                                             offset=ft.Offset(0, 0),
                                             blur_style=ft.ShadowBlurStyle.OUTER,
                                         ),
-                                        content=cf.created_Button(Text="Personal", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                        content=cf.created_Button(Text="Personal", bgColor=self.color_teal, Icon=None, on_Click=self.personal)
                                     ),
                                     ft.Container(
                                         col=1,
@@ -1365,7 +1366,7 @@ class UI(ft.ResponsiveRow):
                                             offset=ft.Offset(0, 0),
                                             blur_style=ft.ShadowBlurStyle.OUTER,
                                         ),
-                                        content=cf.created_Button(Text="Miercoles", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                        content=cf.created_Button(Text="Miércoles", bgColor=self.color_teal, Icon=None, on_Click=None)
                                     ),
                                     ft.Container(
                                         col=1,
@@ -1404,7 +1405,7 @@ class UI(ft.ResponsiveRow):
                                             offset=ft.Offset(0, 0),
                                             blur_style=ft.ShadowBlurStyle.OUTER,
                                         ),
-                                        content=cf.created_Button(Text="Sabado", bgColor=self.color_teal, Icon=None, on_Click=None)
+                                        content=cf.created_Button(Text="Sábado", bgColor=self.color_teal, Icon=None, on_Click=None)
                                     ),
                                     ft.Container(
                                         col=1,
@@ -2323,6 +2324,544 @@ class UI(ft.ResponsiveRow):
                             ),
                             ft.Tab(# Extras y Adicionales
                                 text="Extras y Adicionales",
+                                content=ft.Column(
+                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                    controls=[
+                                        ft.ResponsiveRow(
+                                            expand=True,
+                                            controls=[
+                                                ft.Container(
+                                                    col=12,
+                                                    margin=ft.Margin(top=20, bottom=20, left=30, right=30),
+                                                    alignment=ft.alignment.center,
+                                                    # bgcolor="red",
+                                                    # border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                    # border_radius=5,
+                                                    content=ft.Column(
+                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                        horizontal_alignment=ft.alignment.center,
+                                                        controls=[
+                                                            ft.ResponsiveRow(
+                                                                expand=True,
+                                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                                vertical_alignment=ft.alignment.center,
+                                                                controls=[
+                                                                    ft.Container(
+                                                                        col=3,
+                                                                        padding=ft.padding.symmetric(horizontal=30, vertical=10),
+                                                                        alignment=ft.alignment.center,
+                                                                        # bgcolor="red",
+                                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                                        border_radius=5,
+                                                                        content=ft.Column(
+                                                                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                            horizontal_alignment="center",
+                                                                            controls=[
+                                                                                ft.Container(
+                                                                                    margin=ft.margin.symmetric(horizontal=0, vertical=10),
+                                                                                    alignment=ft.alignment.center,
+                                                                                    content=ft.Text("TOPPINGS", style=ft.TextStyle(letter_spacing=5))
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            alignment=ft.alignment.center_left,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("$5"),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            content=self.t5
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            alignment=ft.alignment.center_left,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("$10"),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            content=self.t10
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=5,
+                                                                                            alignment=ft.alignment.center_left,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("TOTAL"),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=1,
+                                                                                            alignment=ft.alignment.center_right,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("$", size=16),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            content=self.tt
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                            ]
+                                                                        )
+                                                                    ),
+                                                                    ft.Container(
+                                                                        col=3,
+                                                                        alignment=ft.alignment.center,
+                                                                        padding=ft.padding.symmetric(horizontal=30, vertical=10),
+                                                                        # bgcolor="red",
+                                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                                        border_radius=5,
+                                                                        content=ft.Column(
+                                                                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                            horizontal_alignment="center",
+                                                                            controls=[
+                                                                                ft.Container(
+                                                                                    margin=ft.margin.symmetric(horizontal=0, vertical=10),
+                                                                                    alignment=ft.alignment.center,
+                                                                                    content=ft.Text("SERVICIOS A DOMICILIO", style=ft.TextStyle(letter_spacing=3.5))
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            alignment=ft.alignment.center_left,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("$20"),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            content=self.sd20
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            alignment=ft.alignment.center_left,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("$35"),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            content=self.sd35
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=5,
+                                                                                            alignment=ft.alignment.center_left,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("TOTAL"),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=1,
+                                                                                            alignment=ft.alignment.center_right,
+                                                                                            # bgcolor="blue",
+                                                                                            height=40,
+                                                                                            content=ft.Text("$", size=16),
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            content=self.sdt
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                            ]
+                                                                        )
+                                                                    ),
+                                                                    ft.Container(
+                                                                        col=6,
+                                                                        alignment=ft.alignment.center,
+                                                                        padding=ft.padding.symmetric(horizontal=30, vertical=10),
+                                                                        # bgcolor="red",
+                                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                                        border_radius=5,
+                                                                        content=ft.Column(
+                                                                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                            horizontal_alignment="center",
+                                                                            controls=[
+                                                                                ft.Container(
+                                                                                    alignment=ft.alignment.center,
+                                                                                    content=ft.Text("BALANCE GENERAL", style=ft.TextStyle(letter_spacing=3.5))
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            margin=ft.margin.only(right=10),
+                                                                                            alignment=ft.alignment.center,
+                                                                                            content=ft.ResponsiveRow(
+                                                                                                controls=[
+                                                                                                    ft.Container(
+                                                                                                        col=5,
+                                                                                                        alignment=ft.alignment.center_left,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("INGRESOS"),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=1,
+                                                                                                        alignment=ft.alignment.center_right,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("$", size=16),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=6,
+                                                                                                        content=self.bging
+                                                                                                    )
+                                                                                                ]
+                                                                                            )
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            margin=ft.margin.only(left=10),
+                                                                                            alignment=ft.alignment.center,
+                                                                                            content=ft.ResponsiveRow(
+                                                                                                controls=[
+                                                                                                    ft.Container(
+                                                                                                        col=5,
+                                                                                                        alignment=ft.alignment.center_left,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("EGRESOS"),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=1,
+                                                                                                        alignment=ft.alignment.center_right,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("$", size=16),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=6,
+                                                                                                        content=self.bgegr
+                                                                                                    )
+                                                                                                ]
+                                                                                            )
+                                                                                        ),
+                                                                                    ]
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            margin=ft.margin.only(right=10),
+                                                                                            alignment=ft.alignment.center,
+                                                                                            content=ft.ResponsiveRow(
+                                                                                                controls=[
+                                                                                                    ft.Container(
+                                                                                                        col=5,
+                                                                                                        alignment=ft.alignment.center_left,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("TOTAL DÍA"),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=1,
+                                                                                                        alignment=ft.alignment.center_right,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("$", size=16),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=6,
+                                                                                                        content=self.bgtd
+                                                                                                    )
+                                                                                                ]
+                                                                                            )
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            col=6,
+                                                                                            margin=ft.margin.only(left=10),
+                                                                                            alignment=ft.alignment.center,
+                                                                                            content=ft.ResponsiveRow(
+                                                                                                controls=[
+                                                                                                    ft.Container(
+                                                                                                        col=5,
+                                                                                                        alignment=ft.alignment.center_left,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("TOTAL EFECTIVO"),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=1,
+                                                                                                        alignment=ft.alignment.center_right,
+                                                                                                        # bgcolor="blue",
+                                                                                                        height=40,
+                                                                                                        content=ft.Text("$", size=16),
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=6,
+                                                                                                        content=self.bgte
+                                                                                                    ),
+                                                                                                ]
+                                                                                            )
+                                                                                        ),
+                                                                                    ]
+                                                                                ),
+                                                                            ]
+                                                                        )
+                                                                    ),
+                                                                ]
+                                                            ),
+                                                            ft.ResponsiveRow(
+                                                                expand=True,
+                                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                                vertical_alignment=ft.alignment.center,
+                                                                controls=[
+                                                                    ft.Container(
+                                                                        col=6,
+                                                                        padding=ft.padding.symmetric(horizontal=10, vertical=10),
+                                                                        alignment=ft.alignment.center,
+                                                                        # bgcolor="red",
+                                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                                        border_radius=5,
+                                                                        content=ft.Column(
+                                                                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                            horizontal_alignment="center",
+                                                                            controls=[
+                                                                                ft.Container(
+                                                                                    alignment=ft.alignment.center,
+                                                                                    content=ft.Text("TRANSFERENCIAS", style=ft.TextStyle(letter_spacing=5))
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    expand=True,
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=12,
+                                                                                            # bgcolor="red",
+                                                                                            margin=ft.margin.only(right=10),
+                                                                                            alignment=ft.alignment.center,
+                                                                                            content=ft.ResponsiveRow(
+                                                                                                controls=[
+                                                                                                    ft.Container(
+                                                                                                        col=5.5,
+                                                                                                        # bgcolor="blue",
+                                                                                                        padding=ft.padding.symmetric(horizontal=10, vertical=0),
+                                                                                                        content=ft.Column(
+                                                                                                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                                            controls=[
+                                                                                                                ft.Container(
+                                                                                                                    # bgcolor="blue",
+                                                                                                                    alignment=ft.alignment.center,
+                                                                                                                    content=ft.Column(
+                                                                                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                                        horizontal_alignment="center",
+                                                                                                                        controls=[
+                                                                                                                            ft.Container(
+                                                                                                                                # bgcolor="blue",
+                                                                                                                                content=ft.Text("NO. TRANSFERENCIAS"),
+                                                                                                                            ),
+                                                                                                                            ft.Container(
+                                                                                                                                content=self.trn
+                                                                                                                            ),
+                                                                                                                        ]
+                                                                                                                    )
+                                                                                                                ),
+                                                                                                                ft.Container(
+                                                                                                                    # bgcolor="blue",
+                                                                                                                    alignment=ft.alignment.center,
+                                                                                                                    content=ft.Column(
+                                                                                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                                        horizontal_alignment="center",
+                                                                                                                        controls=[
+                                                                                                                            ft.Container(
+                                                                                                                                # bgcolor="blue",
+                                                                                                                                content=ft.Text("TOTAL TRANSFERENCIAS"),
+                                                                                                                            ),
+                                                                                                                            ft.Row(
+                                                                                                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                                                vertical_alignment="center",
+                                                                                                                                controls=[
+                                                                                                                                    ft.Container(
+                                                                                                                                        content=self.trt
+                                                                                                                                    ),
+                                                                                                                                ]
+                                                                                                                            )
+                                                                                                                        ]
+                                                                                                                    )
+                                                                                                                ),
+                                                                                                            ]
+                                                                                                        )
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=6,
+                                                                                                        # bgcolor="blue",
+                                                                                                        padding=ft.padding.symmetric(horizontal=10, vertical=10),
+                                                                                                        content=ft.Column(
+                                                                                                            controls=[
+                                                                                                                ft.Container(
+                                                                                                                    expand=True,
+                                                                                                                    col=5,
+                                                                                                                    alignment=ft.alignment.center,
+                                                                                                                    # bgcolor="blue",
+                                                                                                                    content=ft.Container(
+                                                                                                                        # bgcolor=self.color_teal,
+                                                                                                                        alignment=ft.alignment.center,
+                                                                                                                        border_radius=5,
+                                                                                                                        padding=1,
+                                                                                                                        shadow=ft.BoxShadow(
+                                                                                                                            spread_radius=1,
+                                                                                                                            blur_radius=15,
+                                                                                                                            color=ft.Colors.BLUE_GREY_100,
+                                                                                                                            offset=ft.Offset(0, 0),
+                                                                                                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                                                        ),
+                                                                                                                        content=self.transf_field
+                                                                                                                    )
+                                                                                                                ),
+                                                                                                            ]
+                                                                                                        )
+                                                                                                    )
+                                                                                                ]
+                                                                                            )
+                                                                                        ),
+                                                                                    ]
+                                                                                ),
+                                                                            ]
+                                                                        )
+                                                                    ),
+                                                                    ft.Container(
+                                                                        col=6,
+                                                                        alignment=ft.alignment.center,
+                                                                        padding=ft.padding.symmetric(horizontal=10, vertical=10),
+                                                                        # bgcolor="red",
+                                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                                        border_radius=5,
+                                                                        content=ft.Column(
+                                                                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                            horizontal_alignment="center",
+                                                                            controls=[
+                                                                                ft.Container(
+                                                                                    alignment=ft.alignment.center,
+                                                                                    content=ft.Text("GASTOS / RETIROS", style=ft.TextStyle(letter_spacing=5))
+                                                                                ),
+                                                                                ft.ResponsiveRow(
+                                                                                    expand=True,
+                                                                                    controls=[
+                                                                                        ft.Container(
+                                                                                            col=12,
+                                                                                            # bgcolor="red",
+                                                                                            margin=ft.margin.only(right=10),
+                                                                                            alignment=ft.alignment.center,
+                                                                                            content=ft.ResponsiveRow(
+                                                                                                controls=[
+                                                                                                    ft.Container(
+                                                                                                        col=5.5,
+                                                                                                        # bgcolor="blue",
+                                                                                                        padding=ft.padding.symmetric(horizontal=10, vertical=0),
+                                                                                                        content=ft.Column(
+                                                                                                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                                            controls=[
+                                                                                                                ft.Container(
+                                                                                                                    # bgcolor="blue",
+                                                                                                                    alignment=ft.alignment.center,
+                                                                                                                    content=ft.Column(
+                                                                                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                                        horizontal_alignment="center",
+                                                                                                                        controls=[
+                                                                                                                            ft.Container(
+                                                                                                                                # bgcolor="blue",
+                                                                                                                                content=ft.Text("NO. GASTOS / RETIROS"),
+                                                                                                                            ),
+                                                                                                                            ft.Container(
+                                                                                                                                content=self.grn
+                                                                                                                            ),
+                                                                                                                        ]
+                                                                                                                    )
+                                                                                                                ),
+                                                                                                                ft.Container(
+                                                                                                                    # bgcolor="blue",
+                                                                                                                    alignment=ft.alignment.center,
+                                                                                                                    content=ft.Column(
+                                                                                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                                        horizontal_alignment="center",
+                                                                                                                        controls=[
+                                                                                                                            ft.Container(
+                                                                                                                                # bgcolor="blue",
+                                                                                                                                content=ft.Text("TOTAL GASTOS / RETIROS"),
+                                                                                                                            ),
+                                                                                                                            ft.Row(
+                                                                                                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                                                vertical_alignment="center",
+                                                                                                                                controls=[
+                                                                                                                                    ft.Container(
+                                                                                                                                        content=self.grt
+                                                                                                                                    ),
+                                                                                                                                ]
+                                                                                                                            )
+                                                                                                                        ]
+                                                                                                                    )
+                                                                                                                ),
+                                                                                                            ]
+                                                                                                        )
+                                                                                                    ),
+                                                                                                    ft.Container(
+                                                                                                        col=6,
+                                                                                                        # bgcolor="blue",
+                                                                                                        padding=ft.padding.symmetric(horizontal=10, vertical=10),
+                                                                                                        content=ft.Column(
+                                                                                                            controls=[
+                                                                                                                ft.Container(
+                                                                                                                    expand=True,
+                                                                                                                    col=5,
+                                                                                                                    alignment=ft.alignment.center,
+                                                                                                                    # bgcolor="blue",
+                                                                                                                    content=ft.Container(
+                                                                                                                        # bgcolor=self.color_teal,
+                                                                                                                        alignment=ft.alignment.center,
+                                                                                                                        border_radius=5,
+                                                                                                                        padding=1,
+                                                                                                                        shadow=ft.BoxShadow(
+                                                                                                                            spread_radius=1,
+                                                                                                                            blur_radius=15,
+                                                                                                                            color=ft.Colors.BLUE_GREY_100,
+                                                                                                                            offset=ft.Offset(0, 0),
+                                                                                                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                                                        ),
+                                                                                                                        content=self.gastos_field
+                                                                                                                    )
+                                                                                                                ),
+                                                                                                            ]
+                                                                                                        )
+                                                                                                    )
+                                                                                                ]
+                                                                                            )
+                                                                                        ),
+                                                                                    ]
+                                                                                ),
+                                                                            ]
+                                                                        )
+                                                                    ),
+                                                                ]
+                                                            ),
+                                                        ]
+                                                    )
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
                             )
                         ]
                     ),
@@ -3066,6 +3605,26 @@ class UI(ft.ResponsiveRow):
 
         pdf.output(f"...Reportes/Reportes_PDV's/{self.fecha_Formateada_RN} - Reporte {self.pdv}.pdf")
 
+    # *** Funciones para el manejo de los campos de texto del Planeador ***
+
+    def personal(self, e):
+        self.sup_Pers_PDV.hint_text = "Ivette Herrera"
+        self.sup_Ops.hint_text = "Omar Tovar"
+        self.sup_CDO.hint_text = "Uriel Martínez"
+        self.ven_Glorieta.hint_text = "Valeria"
+        self.ven_Vips.hint_text = "Donovan Hdez"
+        self.ven_SanMiguel.hint_text = "Uriel"
+        self.ven_SanAntonio.hint_text = "Ivette"
+        self.ven_Ensuenos.hint_text = "Alejandra"
+        self.ven_Operagua.hint_text = "Victor"
+        self.ven_LaPiedad.hint_text = "Isabel"
+        self.ven_Cofradia2.hint_text = "Karla"
+        self.ven_Parques.hint_text = "Omar"
+        self.ven_Cumbria.hint_text = "Jesús"
+        self.ven_Palomas.hint_text = "--"
+        self.ven_Atlanta.hint_text = "--"
+        self.update()
+
     # *** Funciones para el manejo de los campos de texto de la seccion de vasos ***
 
     # Vasos Chicos
@@ -3074,10 +3633,10 @@ class UI(ft.ResponsiveRow):
         try:
             self.num_tci = int(self.tci.value)
             self.num_tcf = int(self.tcf.value)
-            # self.num_tcdif = self.num_tci - self.num_tcf
-            # self.tcdif.value = self.num_tcdif
             self.num_vci = int(self.vci.value)
             self.num_vcf = int(self.vcf.value)
+            # self.num_tcdif = self.num_tci - self.num_tcf
+            # self.tcdif.value = self.num_tcdif
             # self.num_vcdif = self.num_vci - self.num_vcf
             # self.vcdif.value = self.num_vcdif
             self.values_columnSale_vc()
@@ -3093,10 +3652,10 @@ class UI(ft.ResponsiveRow):
         try:
             self.num_tmi = int(self.tmi.value)
             self.num_tmf = int(self.tmf.value)
-            # self.num_tmdif = self.num_tmi - self.num_tmf
-            # self.tmdif.value = self.num_tmdif
             self.num_vmi = int(self.vmi.value)
             self.num_vmf = int(self.vmf.value)
+            # self.num_tmdif = self.num_tmi - self.num_tmf
+            # self.tmdif.value = self.num_tmdif
             # self.num_vmdif = self.num_vmi - self.num_vmf
             # self.vmdif.value = self.num_vmdif
             self.values_columnSale_vm()
@@ -3112,10 +3671,10 @@ class UI(ft.ResponsiveRow):
         try:
             self.num_tgi = int(self.tgi.value)
             self.num_tgf = int(self.tgf.value)
-            # self.num_tgdif = self.num_tgi - self.num_tgf
-            # self.tgdif.value = self.num_tgdif
             self.num_vgi = int(self.vgi.value)
             self.num_vgf = int(self.vgf.value)
+            # self.num_tgdif = self.num_tgi - self.num_tgf
+            # self.tgdif.value = self.num_tgdif
             # self.num_vgdif = self.num_vgi - self.num_vgf
             # self.vgdif.value = self.num_vgdif
             self.values_columnSale_vg()
@@ -3385,11 +3944,11 @@ class UI(ft.ResponsiveRow):
 
     def conversion_n_capture_sD(self, e):
         try:
-            self.num_sd25 = int(self.sd25.value)
+            self.num_sd20 = int(self.sd20.value)
             self.num_sd35 = int(self.sd35.value)
-            self.total_sd25 = self.num_sd25 * 25
+            self.total_sd20 = self.num_sd20 * 20
             self.total_sd35 = self.num_sd35 * 35
-            self.num_sdt = self.total_sd25 + self.total_sd35
+            self.num_sdt = self.total_sd20 + self.total_sd35
             self.sdt.value = self.num_sdt
         except:
             pass
@@ -3397,35 +3956,39 @@ class UI(ft.ResponsiveRow):
             self.update()
 
     def balance_General(self, e):
-        self.num_bgi = self.vcvt.value + self.vmvt.value + self.vgvt.value + self.tt.value + self.sdt.value
-        self.bgi.value = self.num_bgi
+        # self.num_bging = self.vcvt.value + self.vmvt.value + self.vgvt.value + self.tt.value + self.sdt.value + self.trt
+        # self.bging.value = self.num_bging
+        # self.num_bgte = self.trt + self.grt
+        # self.num_bgte = self.bgtd.value - self.num_bgte
 
         try:
             self.num_trt = int(self.trt.value)
             self.num_grt = int(self.grt.value)
-            self.num_bgd = self.num_trt + self.num_grt
-            self.bgd.value = self.num_bgd
-            self.num_bgt = self.bgi.value - self.bgd.value
-            self.bgt.value = self.num_bgt
+            self.num_bging = self.vcvt.value + self.vmvt.value + self.vgvt.value + self.tt.value + self.sdt.value + self.num_trt
+            self.bging.value = self.num_bging
+            self.num_bgegr = self.num_trt + self.num_grt
+            self.bgegr.value = self.num_bgegr
+            self.bgtd.value = self.bging.value
+            self.bgte.value = self.bgtd.value - self.bgegr.value
         except ValueError:
             pass
         finally:
             self.update()
 
     def reset_Fields(self, e):
-        self.variables_vc = [self.tci, self.tcf, self.tcdif, self.vci, self.vcf, self.vcdif, self.vcsv, self.vcven, self.vcvt]
+        self.variables_vc = [self.tci, self.tcf, self.vci, self.vcf, self.vcven, self.vcvt]
         for element in self.variables_vc:
             element.value = ""
 
-        self.variables_vm = [self.tmi, self.tmf, self.tmdif, self.vmi, self.vmf, self.vmdif, self.vmsv, self.vmven, self.vmvt]
+        self.variables_vm = [self.tmi, self.tmf, self.vmi, self.vmf, self.vmven, self.vmvt]
         for element in self.variables_vm:
             element.value = ""
 
-        self.variables_vg = [self.tgi, self.tgf, self.tgdif, self.vgi, self.vgf, self.vgdif, self.vgsv, self.vgven, self.vgvt]
+        self.variables_vg = [self.tgi, self.tgf, self.vgi, self.vgf, self.vgven, self.vgvt]
         for element in self.variables_vg:
             element.value = ""
 
-        self.variables_frutas = [self.fpi, self.fpf, self.fei, self.fef, self.fr, self.fv, self.upi, self.upf, self.uei, self.uef, self.ur, self.uv]
+        self.variables_frutas = [self.fpi, self.fpf, self.fei, self.fef, self.fv, self.upi, self.upf, self.uei, self.uef, self.uv]
         for element in self.variables_frutas:
             element.value = ""
 
@@ -3433,8 +3996,12 @@ class UI(ft.ResponsiveRow):
         for element in self.variables_cremas:
             element.value = ""
 
-        self.extras = [self.t5, self.t10, self.tt, self.sd25, self.sd35, self.sdt, self.trn, self.trt, self.grn, self.grt, self.bgi, self.bgd, self.bgt]
+        self.extras = [self.t5, self.t10, self.tt, self.sd20, self.sd35, self.sdt, self.trn, self.trt, self.grn, self.grt, self.bging, self.bgegr, self.bgtd, self.bgte]
         for element in self.extras:
+            element.value = ""
+
+        self.variables_ventas = [self.fruven, self.creven, self.vtv, self.vvmt]
+        for element in self.variables_ventas:
             element.value = ""
 
         self.update()

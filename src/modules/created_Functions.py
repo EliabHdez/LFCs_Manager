@@ -106,7 +106,7 @@ def create_textfield_WB(Label, Height=30, Color="#d3d3d3", text_Size=25, border_
         on_change=on_Change
     )
 
-def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=None, hint_Text=None, hint_Style=None, read_Only=False):
+def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=None, hint_Text=None, hint_Style=None, read_Only=False, on_Click=None):
     return ft.TextField(
         expand=True,
         value=Value,
@@ -126,38 +126,43 @@ def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=N
         focused_border_width=2,
         hint_text=hint_Text,
         hint_style=hint_Style,
-        read_only=read_Only,
         fit_parent_size=True,
+        read_only=read_Only,
+        on_click=on_Click,
     )
 
 # ***** Función creadora de campos de texto para la seccion de extra y adicionales *****
 
-def create_textField_Extras(Width, Height, Color="#d3d3d3", text_Size=12, border_Color=None, read_Only=False, on_Change=False):
+def create_textField_Extras(Width, Height, Color="white", text_Size=12, text_Style=None, border_Color=None,border_Width=1,focused_Border_Color="white", content_Padding=0, prefix_Text=None, read_Only=False, on_Change=False):
     return ft.TextField(
         text_size=text_Size,
+        text_style=text_Style,
         color=Color,
         width=Width,
         height=Height,
         border_color=border_Color,
+        border_width=border_Width,
         # "#0c52ff" # Color del border_Color a aplicar en una actualizacion a posteriori como predeterminado en lugar del None
         bgcolor=ft.Colors.BLUE_GREY_900,
-        cursor_height=15,
-        cursor_color="#a8a8a8", # gris oscuro
-        content_padding=0,
+        cursor_height=20,
+        # cursor_color="#a8a8a8", # gris oscuro
+        cursor_color="white",
+        content_padding=content_Padding,
         text_align="center",
-        focused_border_color="black",
-        focused_border_width=1.5,
+        focused_border_color=focused_Border_Color,
+        focused_border_width=2,
+        prefix_text=prefix_Text,
         read_only=read_Only,
         on_change=on_Change
     )
 
-def create_textField_RyV(counter_Text, read_Only=True):
+def create_textField_RyV(counter_Text, min_Lines=None, counter_Style=None, read_Only=True):
     return ft.TextField(
         #  bgcolor=ft.Colors.BLUE_GREY_700,
          bgcolor="#292929",
          color="white",
          multiline=True,
-         min_lines=25,
+         min_lines=min_Lines,
          text_size=12,
          cursor_height=15,
          cursor_color="white",
@@ -165,7 +170,7 @@ def create_textField_RyV(counter_Text, read_Only=True):
          border_color="white",
          border_width=1,
          counter_text=counter_Text,
-         counter_style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=5, size=10),
+         counter_style=counter_Style,
          read_only=read_Only
         #  content_padding=ft.Padding(top=50, bottom=5, left=20, right=5)
     )
