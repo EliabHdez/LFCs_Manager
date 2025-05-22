@@ -187,7 +187,7 @@ class UI(ft.ResponsiveRow):
         self.vcf = cf.create_textfield("Finales", suffix_Text="Vasos Finales", on_Focus=cf.Focus, on_Change=self.conversion_n_capture_vc)
         # self.vcdif = cf.create_textfield("Diferencia", suffix_Text="Vasos", read_Only=True)
         # self.vcsv = cf.create_textfield("Sin vender", suffix_Text="Vasos", Color="#ffffff", read_Only=True)
-        self.vcven = cf.create_textfield("Vendidos", Color="#fd0000", text_Size=24, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Text="Vasos", suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=True)
+        self.vcven = cf.create_textfield("Vendidos", Color="#fd0000", text_Size=24, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Text="Vasos", suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=True, on_Change=self.field_totalSale_vc)
         self.vcvt = cf.create_textfield(Label="Venta Total", Color="#ffffff", text_Size=24, label_Style=ft.TextStyle(color="#a2a2a2", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#ffffff", size=12), read_Only=True)
 
         # Variables Vasos Medianos
@@ -3621,16 +3621,16 @@ class UI(ft.ResponsiveRow):
             self.vcven.update()
             self.vcvt.update()
             if self.vcven.value == "---":
-                self.vcvt.value = ""
                 if type(self.vmven.value) != str and type(self.vgven.value) != str:
                     try:
                         self.vtv.value = self.vmven.value + self.vgven.value
                         self.vvmt.value = self.vmvt.value + self.vgvt.value
                         self.vtv.update()
                         self.vvmt.update()
-                    except Exception as e:
+                    except Exception as ex:
                         self.vtv.value = ""
-                        print("Error en suma: vasos medianos totales + vasos grandes totales (funcion cac crema vasos chicos) - Error:", e)
+                        self.vvmt.value = ""
+                        print("Error en suma: vasos medianos totales + vasos grandes totales (funcion cac crema vasos chicos) - Error:", ex)
                     return
                 elif type(self.vmven.value) != str:
                     self.vtv.value = self.vmven.value
@@ -3651,18 +3651,12 @@ class UI(ft.ResponsiveRow):
             self.num_tcf = int(self.tcf.value)
             self.num_vci = int(self.vci.value)
             self.num_vcf = int(self.vcf.value)
-            # self.num_tcdif = self.num_tci - self.num_tcf
-            # self.tcdif.value = self.num_tcdif
-            # self.num_vcdif = self.num_vci - self.num_vcf
-            # self.vcdif.value = self.num_vcdif
-            self.field_totalSale_vc()
-            self.venta_Total_Vasos()
-            self.vcven.update()
-            self.vcvt.update()
+            # self.vcven.update()
+            # self.vcvt.update()
             self.vcven.on_change(e)
             self.vcven.update()
-        except ValueError:
-            pass
+        except Exception as ex:
+            print("Error en funcion conversion y captura vasos chicos: ", ex)
         finally:
             self.update()
 
@@ -3682,9 +3676,9 @@ class UI(ft.ResponsiveRow):
                         self.vvmt.value = self.vcvt.value + self.vgvt.value
                         self.vtv.update()
                         self.vvmt.update()
-                    except Exception as e:
+                    except Exception as ex:
                         self.vtv.value = ""
-                        print("Error en suma: vasos medianos totales + vasos grandes totales (funcion cac crema vasos chicos) - Error:", e)
+                        print("Error en suma: vasos medianos totales + vasos grandes totales (funcion cac crema vasos chicos) - Error:", ex)
                     return
                 elif type(self.vcven.value) != str:
                     self.vtv.value = self.vcven.value
@@ -3705,14 +3699,6 @@ class UI(ft.ResponsiveRow):
             self.num_tmf = int(self.tmf.value)
             self.num_vmi = int(self.vmi.value)
             self.num_vmf = int(self.vmf.value)
-            # self.num_tmdif = self.num_tmi - self.num_tmf
-            # self.tmdif.value = self.num_tmdif
-            # self.num_vmdif = self.num_vmi - self.num_vmf
-            # self.vmdif.value = self.num_vmdif
-            self.field_totalSale_vm()
-            self.venta_Total_Vasos()
-            self.vmven.update()
-            self.vmtv.update()
             self.vmven.on_change(e)
             self.vmven.update()
         except ValueError:
@@ -3736,9 +3722,9 @@ class UI(ft.ResponsiveRow):
                         self.vvmt.value = self.vmvt.value + self.vcvt.value
                         self.vtv.update()
                         self.vvmt.update()
-                    except Exception as e:
+                    except Exception as ex:
                         self.vtv.value = ""
-                        print("Error en suma: vasos medianos totales + vasos chicos (funcion cac crema vasos grandes) - Error:", e)
+                        print("Error en suma: vasos medianos totales + vasos chicos (funcion cac crema vasos grandes) - Error:", ex)
                     return
                 elif type(self.vmven.value) != str:
                     self.vtv.value = self.vmven.value
@@ -3764,7 +3750,7 @@ class UI(ft.ResponsiveRow):
             # self.num_vgdif = self.num_vgi - self.num_vgf
             # self.vgdif.value = self.num_vgdif
             self.field_totalSale_vg()
-            self.venta_Total_Vasos()
+            self.venta_totalVasos()
             self.vgven.update()
             self.vgvt.update()
             self.vgven.on_change(e)
@@ -3776,21 +3762,18 @@ class UI(ft.ResponsiveRow):
 
     # Vasos Chicos
 
-    def field_totalSale_vc(self):
-        # self.num_vcsv = self.num_vcf
-        # self.vcsv.value = self.num_vcsv
-        # self.num_vcven = self.num_vcdif
+    def field_totalSale_vc(self, e):
         self.num_vcven = self.num_vci - self.num_vcf
-        self.vcven.value = self.num_vcven
         self.num_vcvt = self.num_vcven * 50
+        self.vcven.value = self.num_vcven
         self.vcvt.value = self.num_vcvt
+        self.vcven.update()
+        self.vcvt.update()
+        self.venta_totalVasos()
 
     # Vasos Medianos
 
     def field_totalSale_vm(self):
-        # self.num_vmsv = self.num_vmf
-        # self.vmsv.value = self.num_vmsv
-        # self.num_vmven = self.num_vmdif
         self.num_vmven = self.num_vmi - self.num_vmf
         self.vmven.value = self.num_vmven
         self.num_vmvt = self.num_vmven * 70
@@ -3798,42 +3781,53 @@ class UI(ft.ResponsiveRow):
 
     # Vasos Grandes
     def field_totalSale_vg(self):
-        # self.num_vgsv = self.num_vgf
-        # self.vgsv.value = self.num_vgsv
-        # self.num_vgven = self.num_vgdif
         self.num_vgven = self.num_vgi - self.num_vgf
         self.vgven.value = self.num_vgven
         self.num_vgvt = self.num_vgven * 150
         self.vgvt.value = self.num_vgvt
 
     # Venta Total Vasos
-    def venta_Total_Vasos(self):
+    def venta_totalVasos(self):
         self.num_vtv = 0
+        self.num_vvmt = 0
 
-        # if self.vcven.value != "" and self.vmven.value != "" and self.vgven.value != "":
-        #     try:
-        #         self.num_vtv = self.vcven.value + self.vmven.valie + self.vgven.value
-        #     except Exception as e:
-        #         print("Hay valores NO numericos")
-        # elif type(self.vcven.value) == int and 
-        # else:
-        #     self.num_vtv = self.vcven.value
+        self.bloque_or_1 = (type(self.vcven.value) == str or type(self.vmven.value) == str or type(self.vgven.value) == str)
+        self.bloque_or_2 = (type(self.vcvt.value) == str or type(self.vmvt.value) == str or type(self.vgvt.value) == str)
 
-        self.num_vtv = self.vcven.value
-        self.num_vvmt = self.vcvt.value
-        self.vtv.value = self.num_vtv
-        self.vvmt.value = self.num_vvmt
+        if type(self.vcven.value) == str and type(self.vmven.value) == str and type(self.vgven.value) == str and type(self.vcvt.value) == str and type(self.vmvt.value) == str and type(self.vgvt.value) == str:
+            self.vtv.value = ""
+            self.vvmt.value = ""
+            self.vtv.update()
+            self.vvmt.update()
+        elif self.bloque_or_1 and self.bloque_or_2:
+            self.values_bloque1 = [self.vcven.value, self.vmven.value, self.vgven.value]
+            self.values_bloque2 = [self.vcvt.value, self.vmvt.value, self.vgvt.value]
+            self.values_numericos_bloque1 = []
+            self.values_numericos_bloque2 = []
 
-        self.num_vtv = self.num_vtv + self.vmven.value
-        self.num_vvmt = self.num_vvmt + self.vmvt.value
-        self.vtv.value = self.num_vtv
-        self.vvmt.value = self.num_vvmt
+            for e1, e2 in zip(self.values_bloque1, self.values_bloque2):
+                if type(e1) != str and type(e2) != str:
+                    self.values_numericos_bloque1.append(e1)
+                    self.values_numericos_bloque2.append(e2)
 
-        self.num_vtv = self.num_vtv + self.vgven.value
-        self.num_vvmt = self.num_vvmt + self.vgvt.value
-        self.vtv.value = self.num_vtv
-        self.vvmt.value = self.num_vvmt
-        self.update()
+            if (len(self.values_numericos_bloque1) == 2) and (len(self.values_numericos_bloque2) == 2):
+                self.values_numericos_1 = self.values_numericos_bloque1[0] + self.values_numericos_bloque1[1]
+                self.values_numericos_2 = self.values_numericos_bloque2[0] + self.values_numericos_bloque2[1]
+                self.vtv.value = self.values_numericos_1
+                self.vvmt.value = self.values_numericos_2
+                self.vtv.update()
+                self.vvmt.update()
+        else:
+            try:
+                self.num_vtv = self.vcven.value + self.vmven.value + self.vgven.value
+                self.num_vvmt = self.vcvt.value + self.vmvt.value + self.vgvt.value
+                self.vtv.value = self.num_vtv
+                self.vvmt.value = self.num_vvmt
+                self.vtv.update()
+                self.vvmt.update()
+                self.update()
+            except Exception as ex:
+                print("Error: ", ex)
 
     # ***** Funciones para el manejo de los campos de texto de la seccion de frutas *****
 
@@ -3874,8 +3868,8 @@ class UI(ft.ResponsiveRow):
             self.fv.update()
             self.fv.on_change(e)
             self.fruven.update()
-        except Exception as e:
-            print("Error en funcion conversion y captura fresa - Error:", e)
+        except Exception as ex:
+            print("Error en funcion conversion y captura fresa - Error:", ex)
         finally:
             self.update()
 
@@ -3916,8 +3910,8 @@ class UI(ft.ResponsiveRow):
             self.uv.update()
             self.uv.on_change(e)
             self.fruven.update()
-        except Exception as e:
-            print("Error en funcion conversion y captura uva - Error:", e)
+        except Exception as ex:
+            print("Error en funcion conversion y captura uva - Error:", ex)
         finally:
             self.update()
 
@@ -3932,8 +3926,8 @@ class UI(ft.ResponsiveRow):
 
             self.venta_totalFruta()
             self.fruven.update()
-        except Exception as e:
-            print("Error en funcion values_Fresa - Error:", e)
+        except Exception as ex:
+            print("Error en funcion values_Fresa - Error:", ex)
 
         # print("prueba fresa")
         # print("prueba fresa")
@@ -3947,8 +3941,8 @@ class UI(ft.ResponsiveRow):
 
             self.venta_totalFruta()
             self.fruven.update()
-        except Exception as e:
-            print("Error en funcion values_Uva - Error:", e)
+        except Exception as ex:
+            print("Error en funcion values_Uva - Error:", ex)
 
         # print("prueba uva")
         # print("prueba uva")
@@ -3970,8 +3964,8 @@ class UI(ft.ResponsiveRow):
 
                 self.fruven.value = self.num_fruven
                 self.fruven.update()
-            except Exception as e:
-                print("Error en funcion venta_totalFruta - Error:", e)
+            except Exception as ex:
+                print("Error en funcion venta_totalFruta - Error:", ex)
                 pass
 
     # ***** Funciones para el manejo de los campos de texto de la seccion de cremas *****
@@ -3985,9 +3979,9 @@ class UI(ft.ResponsiveRow):
                     try:
                         self.creven.value = self.cchv.value + self.ccav.value
                         self.creven.update()
-                    except Exception as e:
+                    except Exception as ex:
                         self.creven.value = ""
-                        print("Error en suma: crema chocolate vendida + crema cafe vendida (funcion cac crema original) - Error:", e)
+                        print("Error en suma: crema chocolate vendida + crema cafe vendida (funcion cac crema original) - Error:", ex)
                     return
                 elif self.cchv.value != "" or self.cchv.value != "---":
                     self.creven.value = self.cchv.value
@@ -4015,7 +4009,7 @@ class UI(ft.ResponsiveRow):
             self.cov.update()
             self.cov.on_change(e)
             self.creven.update()
-        except:
+        except Exception as ex:
             print("Error en funcion conversion y captura crema original - Error:", e)
         finally:
             self.update()
@@ -4029,9 +4023,9 @@ class UI(ft.ResponsiveRow):
                     try:
                         self.creven.value = self.cov.value + self.ccav.value
                         self.creven.update()
-                    except Exception as e:
+                    except Exception as ex:
                         self.creven.value = ""
-                        print("Error en suma: crema original vendida + crema cafe vendida (funcion cac crema chocolate) - Error:", e)
+                        print("Error en suma: crema original vendida + crema cafe vendida (funcion cac crema chocolate) - Error:", ex)
                         pass
                         print("Sigue ejecutando despues del pass")
                 elif self.cov.value != "" or self.cov.value != "---":
@@ -4060,8 +4054,8 @@ class UI(ft.ResponsiveRow):
             self.cchv.update()
             self.cchv.on_change(e)
             self.creven.update()
-        except:
-            pass
+        except Exception as ex:
+            print("Error en funcion conversion y captura crema chocolate: ", ex)
         finally:
             self.update()
 
@@ -4074,9 +4068,9 @@ class UI(ft.ResponsiveRow):
                     try:
                         self.creven.value = self.cov.value + self.cchv.value
                         self.creven.update()
-                    except Exception as e:
+                    except Exception as ex:
                         self.creven.value = ""
-                        print("Error en suma: crema chocolate vendida + crema original vendida (funcion cac crema cafe) - Error:", e)
+                        print("Error en suma: crema chocolate vendida + crema original vendida (funcion cac crema cafe) - Error:", ex)
                     return
                 elif self.cchv.value != "" or self.cchv.value != "---":
                     self.creven.value = self.cchv.value
@@ -4104,8 +4098,8 @@ class UI(ft.ResponsiveRow):
             self.ccav.update()
             self.ccav.on_change(e)
             self.creven.update()
-        except:
-            pass
+        except Exception as ex:
+            print("Error en funcion conversion y captura crema cafe: ", ex)
         finally:
             self.update()
 
@@ -4115,37 +4109,37 @@ class UI(ft.ResponsiveRow):
 
     def values_cremaOriginal(self, e):
         try:
-            if self.cov.value != "" and self.cov.value != "---":
+            if (self.cov.value) != str:
                 self.creven.value = self.cov.value
 
             self.venta_totalCrema()
             self.creven.update()
-        except Exception as e:
-            print("Error en funcion values_cremaOriginal - Error:", e)
+        except Exception as ex:
+            print("Error en funcion values_cremaOriginal - Error: ", ex)
 
     # CREMA CHOCOLATE
 
     def values_cremaChocolate(self, e):
         try:
-            if self.cchv.value != "" and self.cchv.value != "---":
+            if type(self.cchv.value) != str:
                 self.creven.value = self.cchv.value
 
             self.venta_totalCrema()
             self.creven.update()
-        except Exception as e:
-            print("Error en funcion values_cremaChocolate - Error:", e)
+        except Exception as ex:
+            print("Error en funcion values_cremaChocolate - Error: ", ex)
 
     # CREMA CAFE
 
     def values_cremaCafe(self, e):
         try:
-            if self.ccav.value != "" and self.ccav.value != "---":
+            if type(self.ccav.value) != str:
                 self.creven.value = self.ccav.value
 
             self.venta_totalCrema()
             self.creven.update()
-        except Exception as e:
-            print("Error en funcion values_cremaCafe - Error:", e)
+        except Exception as ex:
+            print("Error en funcion values_cremaCafe - Error: ", ex)
 
     # VENTA TOTAL CREMAS
 
@@ -4154,7 +4148,6 @@ class UI(ft.ResponsiveRow):
 
         if type(self.cov.value) == str and type(self.cchv.value) == str and type(self.ccav.value) == str:
             self.creven.value = ""
-            print("Campos de cremas vendidas son de tipo string")
         elif type(self.cov.value) == str or type(self.cchv.value) == str or type(self.ccav.value) == str:
             self.valuesFields_cremasVendidas = [self.cov.value, self.cchv.value, self.ccav.value]
             self.values_cremasVendidas = []
@@ -4163,10 +4156,10 @@ class UI(ft.ResponsiveRow):
                 if type(e) != str:
                     self.values_cremasVendidas.append(e)
                     
-                    if len(self.values_cremasVendidas) == 2:
-                        self.valuesArray_cremasVendidas = self.values_cremasVendidas[0] + self.values_cremasVendidas[1]
-                        self.creven.value = self.valuesArray_cremasVendidas
-                        self.creven.update()
+            if len(self.values_cremasVendidas) == 2:
+                self.valuesArray_cremasVendidas = self.values_cremasVendidas[0] + self.values_cremasVendidas[1]
+                self.creven.value = self.valuesArray_cremasVendidas
+                self.creven.update()
         else:
             try:
                 self.num_creven = self.cov.value + self.cchv.value + self.ccav.value
@@ -4176,8 +4169,8 @@ class UI(ft.ResponsiveRow):
 
                 self.creven.value = self.num_creven
                 self.creven.update()
-            except Exception as e:
-                print("Error en la funcion venta_totalCrema, No se pudieron sumar todos los campos - Error: ", e)
+            except Exception as ex:
+                print("Error en la funcion venta_totalCrema, No se pudieron sumar todos los campos - Error: ", ex)
 
 
     # ***** Funciones para el manejo de los campos de texto de la seccion de extras y adicionales *****
