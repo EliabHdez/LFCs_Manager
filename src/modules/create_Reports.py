@@ -201,11 +201,18 @@ def create_ReportPDF(ui):
     pdf.cell(47.5, 8, f'INGRESOS', 1, 0, 'C')
     pdf.cell(47.5, 8, f'${ui.bging.value}', 1, 1, 'C')
 
-    pdf.cell(45, 41, f'', 1, 0, 'C')
-    pdf.cell(45, 41, f'', 1, 0, 'C')
+    x, y = pdf.get_x(), pdf.get_y()
+    pdf.multi_cell(22.5, 6.85, f'  - ${ui.tr1.value}\n  - ${ui.tr2.value}\n  - ${ui.tr3.value}\n  - ${ui.tr4.value}\n  - ${ui.tr5.value}\n  - ${ui.tr6.value}\n', border="LTB", align="L")
+
+    pdf.set_xy(x+22.5, y)
+    pdf.multi_cell(22.5, 6.85, f'  - ${ui.tr7.value}\n  - ${ui.tr8.value}\n  - ${ui.tr9.value}\n  - ${ui.tr10.value}\n  - ${ui.tr11.value}\n  - ${ui.tr12.value}\n', border="TRB", align="L")
+
+    pdf.set_xy(x+45, y)
+    pdf.multi_cell(45, 6.85, f'- ${ui.gr1.value}\n- ${ui.gr2.value}\n- ${ui.gr3.value}\n- ${ui.gr4.value}\n- ${ui.gr5.value}\n- ${ui.gr6.value}\n', 1, "C")
 
     # Separador vertical con celda
-    pdf.cell(5, 10, '', 0, 0)
+    # pdf.cell(5, 10, '', 0, 0)
+    pdf.set_xy(x+95, y)
 
     pdf.cell(47.5, 8, 'EGRESOS', 1, 0, 'C')
     pdf.cell(47.5, 8, f'${ui.bgegr.value}', 1, 1, 'C')
@@ -278,8 +285,13 @@ def generar_Reporte(ui):
                                 f"SD20: {ui.sd20.value} | SD35: {ui.sd35.value} | Total: $ {ui.sdt.value}\n\n"
                                 f"--- TRANSFERENCIAS ---\n"
                                 f"No Transferencias: {ui.trn.value} | Monto Total: $ {ui.trt.value}\n\n"
+                                f"  - $ {ui.tr1.value}   - $ {ui.tr2.value}   - $ {ui.tr3.value}   - $ {ui.tr4.value}\n\n"
+                                f"  - $ {ui.tr5.value}   - $ {ui.tr6.value}   - $ {ui.tr7.value}   - $ {ui.tr8.value}\n\n"
+                                f"  - $ {ui.tr9.value}   - $ {ui.tr10.value}   - $ {ui.tr11.value}   - $ {ui.tr12.value}\n\n"
                                 f"--- GASTOS | RETIROS ---\n"
                                 f"Cantidad: {ui.grn.value} | Monto Total: $ {ui.grt.value}\n\n"
+                                f"  - $ {ui.gr1.value}   - $ {ui.gr2.value}   - $ {ui.gr3.value}\n\n"
+                                f"  - $ {ui.gr4.value}   - $ {ui.gr5.value}   - $ {ui.gr6.value}\n\n"
                                 f"--- INGRESOS | EGRESOS ---\n"
                                 f"INGRESOS - Monto Total: $ {ui.bging.value}\n"
                                 f"EGRESOS - Monto Total: $ {ui.bgegr.value}\n\n"
