@@ -6,7 +6,7 @@ color_teal_2 = "#11b78a"
 
 # ***** Función creadora de boton para cambio de tema (Modo Claro / Oscuro) *****
 
-def create_Boton_Switch():
+def create_Button_Switch():
     return ft.Switch(
         adaptive=True,
         tooltip="Modo Nocturno",
@@ -28,7 +28,7 @@ def create_radio(Value, Label):
     return ft.Radio(
         value=Value,
         label=Label,
-        label_style=ft.TextStyle(size=12),
+        label_style=ft.TextStyle(size=10),
         visual_density=ft.VisualDensity.STANDARD,
         fill_color={
             ft.ControlState.DEFAULT: ft.Colors.PINK,
@@ -38,7 +38,7 @@ def create_radio(Value, Label):
 
 # ***** Función creadora de campos de texto para las secciones de vasos, frutas y cremas *****
 
-def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=10), Color="#d3d3d3", text_Size=20, Width=110, border_Color=ft.Colors.WHITE, border_Width=1.5, focused_Border_Color="#08f5a9", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=9), on_Focus=None, read_Only=False, on_Change=None):
+def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=10), Color="#d3d3d3", text_Size=18, Width=110, border_Color=ft.Colors.WHITE, border_Width=1.5, focused_Border_Color="#08f5a9", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=9), on_Focus=None, read_Only=False, on_Change=None):
     return ft.TextField(
         # height=30,
         width=Width,
@@ -74,10 +74,10 @@ def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=10), 
         on_change=on_Change
     )
 
-def create_textfield_WB(Label, Height=30, Color="#d3d3d3", text_Size=25, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=False, on_Change=None):
+def create_textfield_WB(Label, Width=None, Height=30, Color="#d3d3d3", text_Size=24, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=False, on_Change=None):
     return ft.TextField(
         height=Height,
-        # width=200,
+        width=Width,
         # color="#dc0000", # rojo
         text_align="center",
         # label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
@@ -106,54 +106,87 @@ def create_textfield_WB(Label, Height=30, Color="#d3d3d3", text_Size=25, border_
         on_change=on_Change
     )
 
+def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=None, hint_Text=None, hint_Style=None, read_Only=False, on_Click=None):
+    return ft.TextField(
+        expand=True,
+        value=Value,
+        text_style=text_Style,
+        color="black",
+        text_size=12,
+        width=Width,
+        height=Height,
+        bgcolor="white",
+        content_padding=1,
+        border=ft.border.all(width=.5, color="black"),
+        border_radius=0,
+        text_align="center",
+        cursor_height=15,
+        cursor_color="black",
+        focused_border_color="#ff0b0b",
+        focused_border_width=2,
+        hint_text=hint_Text,
+        hint_style=hint_Style,
+        fit_parent_size=True,
+        read_only=read_Only,
+        on_click=on_Click,
+    )
+
 # ***** Función creadora de campos de texto para la seccion de extra y adicionales *****
 
-def create_textField_Extras(Width, Height, Color="#d3d3d3", text_Size=12, border_Color=None, read_Only=False, on_Change=False):
+def create_textField_Extras(Width, Height, Color="white", text_Size=12, cursor_Height=20, bgColor=ft.Colors.BLUE_GREY_900, Value=None, text_Style=None, border_Color=None,border_Width=1,focused_Border_Color="white", content_Padding=0, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=None, read_Only=False, on_Change=False):
     return ft.TextField(
+        value=Value,
         text_size=text_Size,
+        text_style=text_Style,
         color=Color,
         width=Width,
         height=Height,
         border_color=border_Color,
+        border_width=border_Width,
         # "#0c52ff" # Color del border_Color a aplicar en una actualizacion a posteriori como predeterminado en lugar del None
-        bgcolor=ft.Colors.BLUE_GREY_900,
-        cursor_height=15,
-        cursor_color="#a8a8a8", # gris oscuro
-        content_padding=0,
+        bgcolor=bgColor,
+        cursor_height=cursor_Height,
+        # cursor_color="#a8a8a8", # gris oscuro
+        cursor_color="white",
+        content_padding=content_Padding,
         text_align="center",
-        focused_border_color="black",
-        focused_border_width=1.5,
+        focused_border_color=focused_Border_Color,
+        focused_border_width=2,
+        prefix_text=prefix_Text,
+        prefix_style=prefix_Style,
+        suffix_text=suffix_Text,
+        suffix_style=suffix_Style,
         read_only=read_Only,
-        on_change=on_Change
+        on_change=on_Change,
     )
 
-def create_textField_RyV(counter_Text, read_Only=True):
+def create_textField_RyV(counter_Text, text_Size=12, min_Lines=None, counter_Style=None, read_Only=True):
     return ft.TextField(
         #  bgcolor=ft.Colors.BLUE_GREY_700,
          bgcolor="#292929",
          color="white",
          multiline=True,
-         min_lines=25,
-         text_size=12,
+         min_lines=min_Lines,
+         text_size=text_Size,
          cursor_height=15,
          cursor_color="white",
         #  border_color="#0c52ff",
          border_color="white",
          border_width=1,
          counter_text=counter_Text,
-         counter_style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=5, size=10),
+         counter_style=counter_Style,
          read_only=read_Only
         #  content_padding=ft.Padding(top=50, bottom=5, left=20, right=5)
     )
 
-def created_Button(Text, bgColor, Icon, on_Click=None):
+def created_Button(Text, bgColor, Icon, Width, on_Click=None):
     return ft.ElevatedButton(
         text=Text,
         bgcolor=bgColor,
         color="black",
         icon=Icon,
         icon_color="black",
-        width=150,
+        width=Width,
         style=ft.ButtonStyle(text_style={
             ft.ControlState.DEFAULT: ft.TextStyle(size=12),
             ft.ControlState.PRESSED: ft.TextStyle(size=10)
@@ -161,6 +194,22 @@ def created_Button(Text, bgColor, Icon, on_Click=None):
         ),
         on_click=on_Click
     )
+
+def created_Button_Calendary(bgColor, on_Click, Text="Calendario", Width=150, Icon=ft.Icons.CALENDAR_MONTH):
+    return ft.ElevatedButton(
+        text=Text,
+        bgcolor=bgColor,
+        color="black",
+        icon=Icon,
+        icon_color="black",
+        width=Width,
+        style=ft.ButtonStyle(text_style={
+            ft.ControlState.DEFAULT: ft.TextStyle(size=12),
+            ft.ControlState.PRESSED: ft.TextStyle(size=10)
+            }
+        ),
+        on_click=on_Click
+        )
 
 
 # Funciones de control para los elementos creados
