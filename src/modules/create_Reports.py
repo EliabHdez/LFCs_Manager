@@ -1,6 +1,7 @@
 import flet as ft
 from fpdf import FPDF
 import datetime as dt
+import os
 # import os
 
 #====================================================#
@@ -251,7 +252,14 @@ def create_ReportPDF(ui):
 
     pdf.cell(0, 12, '* FIN REPORTE *'.upper(), 0, 1, 'C')
 
-    pdf.output(f"../Reportes_PDV's/{ui.date_receiver} - Reporte {ui.pdv}.pdf")
+    # Condicional para definir la ruta según el sistema
+    if os.name == "posix":  # Linux o Mac
+        ruta = os.path.join(os.environ['HOME'], "Dropbox", "Las_Fresas_con_Crema's", "App", "Reportes_PDVs")
+    else:  # Windows
+        ruta = os.path.join(os.environ['USERPROFILE'], "Dropbox", "Las_Fresas_con_Crema's", "App", "Reportes_PDVs")
+
+    pdf.output(f"{ruta}/{ui.date_receiver} - Reporte {ui.pdv}.pdf")
+    # pdf.output(f"../Reportes_PDV's/{ui.date_receiver} - Reporte {ui.pdv}.pdf")
 
     print("GENERACIÓN DE REPORTE FINALIZADA")
 
