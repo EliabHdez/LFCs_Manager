@@ -6,7 +6,7 @@ def reiniciar_Planeador(ui):
 
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
-    ui.sup_Ops.hint_text = ""
+    ui.sup_Ops.hint_text = "Efrain Hernández"
     ui.sup_CDO.hint_text = ""
 
     # Vendedores
@@ -14,17 +14,17 @@ def reiniciar_Planeador(ui):
     ui.ven_SanMiguel.hint_text = ""
     ui.ven_SanAntonio.hint_text = ""
     ui.ven_Ensuenos.hint_text = ""
-    ui.ven_LaPiedad.hint_text = ""
     ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
     ui.ven_Glorieta.hint_text = ""
 
     # Operadores
     ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
@@ -39,7 +39,7 @@ def reiniciar_Planeador(ui):
     ui.vm_SanMiguel.hint_text = "$"
     ui.vm_SanAntonio.hint_text = "$"
     ui.vm_Ensuenos.hint_text = "$"
-    ui.vm_LaPiedad.hint_text = "$"
+    # ui.vm_Cumbria.hint_text = "$"
     ui.vm_Cofradia2.hint_text = "$"
 
     ui.update()
@@ -55,29 +55,29 @@ def planeador_Lunes(ui):
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
     ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = ""
+    ui.sup_CDO.hint_text = "Zully Brena"
 
     # Vendedores
-    ui.ven_Vips.hint_text = "Ximena"
-    ui.ven_SanMiguel.hint_text = "Ana"
-    ui.ven_SanAntonio.hint_text = "Claudia"
+    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_SanMiguel.hint_text = "Salma"
+    ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Kiara"
-    ui.ven_LaPiedad.hint_text = ""
+    ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
     ui.ven_Glorieta.hint_text = ""
 
     # Operadores
-    ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    ui.ruta1_1.hint_text = "Leonardo"
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
-    ui.cdo_1.hint_text = "Danna"
-    ui.cdo_2.hint_text = "Berenice"
+    ui.cdo_1.hint_text = "Maribel"
+    ui.cdo_2.hint_text = ""
     ui.cdo_3.hint_text = ""
     ui.cdo_4.hint_text = ""
     
@@ -87,7 +87,7 @@ def planeador_Lunes(ui):
     ui.vm_SanAntonio.hint_text = "$6,500"
     ui.vm_Ensuenos.hint_text = "$4,800"
     ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_LaPiedad.hint_text = "$"
+    # ui.vm_Cumbria.hint_text = "$"
     ui.vm_Glorieta.hint_text = "$"
 
     ui.update()
@@ -99,31 +99,31 @@ def planeador_Martes(ui):
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
     ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = ""
+    ui.sup_CDO.hint_text = "Zully Brena"
 
     # Vendedores
-    ui.ven_Vips.hint_text = "Ivette"
-    ui.ven_SanMiguel.hint_text = "Kiara"
-    ui.ven_SanAntonio.hint_text = "Isabel"
+    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_SanMiguel.hint_text = "Salma"
+    ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Ximena"
-    ui.ven_LaPiedad.hint_text = ""
+    ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
     ui.ven_Glorieta.hint_text = ""
 
     # Operadores
-    ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    ui.ruta1_1.hint_text = "Leonardo"
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
-    ui.cdo_1.hint_text = "Danna"
-    ui.cdo_2.hint_text = "Berenice"
-    ui.cdo_3.hint_text = "---"
-    ui.cdo_4.hint_text = "---"
+    ui.cdo_1.hint_text = "Maribel"
+    ui.cdo_2.hint_text = ""
+    ui.cdo_3.hint_text = ""
+    ui.cdo_4.hint_text = ""
     
     # Ventas minimas
     ui.vm_Vips.hint_text = "$3,900"
@@ -131,7 +131,7 @@ def planeador_Martes(ui):
     ui.vm_SanAntonio.hint_text = "$6,500"
     ui.vm_Ensuenos.hint_text = "$4,800"
     ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_LaPiedad.hint_text = "$"
+    # ui.vm_Cumbria.hint_text = "$"
     ui.vm_Glorieta.hint_text = "$"
 
     ui.update()
@@ -143,28 +143,28 @@ def planeador_Miercoles(ui):
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
     ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = ""
+    ui.sup_CDO.hint_text = "Zully Brena"
 
     # Vendedores
-    ui.ven_Vips.hint_text = "Ana"
-    ui.ven_SanMiguel.hint_text = "Claudia"
-    ui.ven_SanAntonio.hint_text = "Isabel"
+    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_SanMiguel.hint_text = "Salma"
+    ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Ximena"
-    ui.ven_LaPiedad.hint_text = ""
+    ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
     ui.ven_Glorieta.hint_text = ""
 
     # Operadores
-    ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    ui.ruta1_1.hint_text = "Leonardo"
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
-    ui.cdo_1.hint_text = "Berenice"
+    ui.cdo_1.hint_text = "Zully"
     ui.cdo_2.hint_text = ""
     ui.cdo_3.hint_text = ""
     ui.cdo_4.hint_text = ""
@@ -175,7 +175,7 @@ def planeador_Miercoles(ui):
     ui.vm_SanAntonio.hint_text = "$6,500"
     ui.vm_Ensuenos.hint_text = "$4,800"
     ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_LaPiedad.hint_text = "$"
+    # ui.vm_Cumbria.hint_text = "$"
     ui.vm_Glorieta.hint_text = "$"
 
     ui.update()
@@ -187,28 +187,28 @@ def planeador_Jueves(ui):
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
     ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = ""
+    ui.sup_CDO.hint_text = "Zully Brena"
 
     # Vendedores
-    ui.ven_Vips.hint_text = "Ana"
-    ui.ven_SanMiguel.hint_text = "Claudia"
-    ui.ven_SanAntonio.hint_text = "Isabel"
-    ui.ven_Ensuenos.hint_text = "Ivette"
-    ui.ven_Cofradia2.hint_text = "Kiara"
-    ui.ven_LaPiedad.hint_text = ""
+    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_SanMiguel.hint_text = "Salma"
+    ui.ven_SanAntonio.hint_text = "Ivette"
+    ui.ven_Ensuenos.hint_text = "Cesar"
+    ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
     ui.ven_Glorieta.hint_text = ""
 
     # Operadores
-    ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    ui.ruta1_1.hint_text = "Leonardo"
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
-    ui.cdo_1.hint_text = "Danna"
+    ui.cdo_1.hint_text = "Maribel"
     ui.cdo_2.hint_text = ""
     ui.cdo_3.hint_text = ""
     ui.cdo_4.hint_text = ""
@@ -219,7 +219,7 @@ def planeador_Jueves(ui):
     ui.vm_SanAntonio.hint_text = "$7,100"
     ui.vm_Ensuenos.hint_text = "$5,000"
     ui.vm_Cofradia2.hint_text = "$4,100"
-    ui.vm_LaPiedad.hint_text = "$"
+    # ui.vm_Cumbria.hint_text = "$"
     ui.vm_Glorieta.hint_text = "$"
 
     ui.update()
@@ -231,29 +231,29 @@ def planeador_Viernes(ui):
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
     ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = ""
+    ui.sup_CDO.hint_text = "Zully Brena"
 
     # Vendedores
-    ui.ven_Vips.hint_text = "Ana"
-    ui.ven_SanMiguel.hint_text = "Claudia"
-    ui.ven_SanAntonio.hint_text = "Isabel"
+    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_SanMiguel.hint_text = "Salma"
+    ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Kiara"
-    ui.ven_LaPiedad.hint_text = "Carlos"
+    ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
     ui.ven_Glorieta.hint_text = ""
 
     # Operadores
-    ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    ui.ruta1_1.hint_text = "Leonardo"
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
-    ui.cdo_1.hint_text = "Danna"
-    ui.cdo_2.hint_text = "Berenice"
+    ui.cdo_1.hint_text = "Maribel"
+    ui.cdo_2.hint_text = ""
     ui.cdo_3.hint_text = ""
     ui.cdo_4.hint_text = ""
     
@@ -263,7 +263,7 @@ def planeador_Viernes(ui):
     ui.vm_SanAntonio.hint_text = "$9,500"
     ui.vm_Ensuenos.hint_text = "$5,500"
     ui.vm_Cofradia2.hint_text = "$5,100"
-    ui.vm_LaPiedad.hint_text = "$4,500"
+    # ui.vm_Cumbria.hint_text = "$"
     ui.vm_Glorieta.hint_text = "$"
 
     ui.update()
@@ -275,29 +275,29 @@ def planeador_Sabado(ui):
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
     ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = ""
+    ui.sup_CDO.hint_text = "Zully Brena"
 
     # Vendedores
-    ui.ven_Vips.hint_text = "Ana"
-    ui.ven_SanMiguel.hint_text = "Claudia"
-    ui.ven_SanAntonio.hint_text = "Isabel"
+    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_SanMiguel.hint_text = "Salma"
+    ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Kiara"
-    ui.ven_LaPiedad.hint_text = "Carlos"
-    ui.ven_Glorieta.hint_text = "Ximena"
+    ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
+    ui.ven_Glorieta.hint_text = ""
 
     # Operadores
-    ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    ui.ruta1_1.hint_text = "Leonardo"
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
-    ui.cdo_1.hint_text = "Danna"
-    ui.cdo_2.hint_text = "Berenice"
+    ui.cdo_1.hint_text = "Maribel"
+    ui.cdo_2.hint_text = ""
     ui.cdo_3.hint_text = ""
     ui.cdo_4.hint_text = ""
     
@@ -307,8 +307,8 @@ def planeador_Sabado(ui):
     ui.vm_SanAntonio.hint_text = "$10,500"
     ui.vm_Ensuenos.hint_text = "$6,000"
     ui.vm_Cofradia2.hint_text = "$5,800"
-    ui.vm_LaPiedad.hint_text = "$4,500"
-    ui.vm_Glorieta.hint_text = "$4,500"
+    # ui.vm_Cumbria.hint_text = "$"
+    ui.vm_Glorieta.hint_text = "$"
 
     ui.update()
 
@@ -319,29 +319,29 @@ def planeador_Domingo(ui):
     # Supervisores
     ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
     ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = ""
+    ui.sup_CDO.hint_text = "Zully Brena"
 
     # Vendedores
-    ui.ven_Vips.hint_text = "Ana"
-    ui.ven_SanMiguel.hint_text = "Claudia"
-    ui.ven_SanAntonio.hint_text = "Isabel"
+    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_SanMiguel.hint_text = "Salma"
+    ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Kiara"
-    ui.ven_LaPiedad.hint_text = "Carlos"
-    ui.ven_Glorieta.hint_text = "Ximena"
+    ui.ven_Cofradia2.hint_text = ""
+    # ui.ven_Cumbria.hint_text = ""
+    ui.ven_Glorieta.hint_text = ""
 
     # Operadores
-    ui.ruta1_1.hint_text = ""
-    ui.ruta1_2.hint_text = ""
-    ui.ruta1_3.hint_text = ""
+    ui.ruta1_1.hint_text = "Leonardo"
+    # ui.ruta1_2.hint_text = ""
+    # ui.ruta1_3.hint_text = ""
     ui.ruta2_1.hint_text = ""
-    ui.ruta2_2.hint_text = ""
-    ui.ruta2_3.hint_text = ""
+    # ui.ruta2_2.hint_text = ""
+    # ui.ruta2_3.hint_text = ""
     ui.ruta_com.hint_text = ""
 
     # Personal CDO
-    ui.cdo_1.hint_text = "Danna"
-    ui.cdo_2.hint_text = "Berenice"
+    ui.cdo_1.hint_text = "Maribel"
+    ui.cdo_2.hint_text = ""
     ui.cdo_3.hint_text = ""
     ui.cdo_4.hint_text = ""
     
@@ -351,7 +351,7 @@ def planeador_Domingo(ui):
     ui.vm_SanAntonio.hint_text = "$10,500"
     ui.vm_Ensuenos.hint_text = "$6,000"
     ui.vm_Cofradia2.hint_text = "$5,800"
-    ui.vm_LaPiedad.hint_text = "$4,500"
-    ui.vm_Glorieta.hint_text = "$4,500"
+    # ui.vm_Cumbria.hint_text = "$"
+    ui.vm_Glorieta.hint_text = "$"
 
     ui.update()

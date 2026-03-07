@@ -28,11 +28,32 @@ def create_radio(Value, Label):
     return ft.Radio(
         value=Value,
         label=Label,
-        label_style=ft.TextStyle(size=10),
+        label_style=ft.TextStyle(size=11),
         visual_density=ft.VisualDensity.STANDARD,
         fill_color={
             ft.ControlState.DEFAULT: ft.Colors.PINK,
             ft.ControlState.SELECTED: color_teal,
+        },
+    )
+
+def create_radio_sd(Value, Label):
+    return ft.Radio(
+        value=Value,
+        label=Label,
+        label_style=ft.TextStyle(size=11),
+        visual_density=ft.VisualDensity.COMFORTABLE,
+        fill_color={
+            ft.ControlState.DEFAULT: ft.Colors.BLUE_GREY_700,
+            ft.ControlState.SELECTED: color_teal,
+        },
+    )
+
+def create_radio_AT():
+    return ft.Radio(
+        visual_density=ft.VisualDensity.STANDARD,
+        fill_color={
+            ft.ControlState.DEFAULT: ft.Colors.BLUE_GREY_900,
+            ft.ControlState.SELECTED: ft.Colors.BLUE_GREY_900,
         },
     )
 
@@ -133,7 +154,7 @@ def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=N
 
 # ***** Función creadora de campos de texto para la seccion de extra y adicionales *****
 
-def create_textField_Extras(Width, Height, Color="white", text_Size=12, cursor_Height=20, bgColor=ft.Colors.BLUE_GREY_900, Value=None, text_Style=None, border_Color=None,border_Width=1,focused_Border_Color="white", content_Padding=0, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=None, read_Only=False, on_Change=False):
+def create_textField_Extras(Width, Height, Color="white", text_Size=12, cursor_Height=20, bgColor=ft.Colors.BLUE_GREY_900, Value=None, text_Style=None, border_Color=None,border_Width=1,focused_Border_Color="white", focused_Border_Width=2, content_Padding=0, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=None, read_Only=False, on_Change=False):
     return ft.TextField(
         value=Value,
         text_size=text_Size,
@@ -151,7 +172,7 @@ def create_textField_Extras(Width, Height, Color="white", text_Size=12, cursor_H
         content_padding=content_Padding,
         text_align="center",
         focused_border_color=focused_Border_Color,
-        focused_border_width=2,
+        focused_border_width=focused_Border_Width,
         prefix_text=prefix_Text,
         prefix_style=prefix_Style,
         suffix_text=suffix_Text,
