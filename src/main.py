@@ -261,7 +261,7 @@ class UI(ft.ResponsiveRow):
         self.vmvt = ce.create_textfield(Label="Venta Total", Color="#fd0000", text_Size=24, label_Style=ft.TextStyle(color="#a2a2a2", size=12), suffix_Text="MX", suffix_Style=ft.TextStyle(color="#a2a2a2", size=10), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#ffffff", size=12), read_Only=True, on_Change=self.values_types_comprobation_vm)
 
         #=================================#
-        #     VARIABLES VASOS GRANDES    #
+        #     VARIABLES VASOS GRANDES     #
         #=================================#
 
         # >>> Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
@@ -2315,13 +2315,13 @@ class UI(ft.ResponsiveRow):
                                                         vertical_alignment="center",
                                                         controls=[
                                                             ft.Container(# Vasos Chicos
-                                                                col=4,
+                                                                col=2.4,
                                                                 # expand=True,
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor="#292929",
                                                                 border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
                                                                 border_radius=5,
-                                                                padding=ft.Padding(top=10, bottom=10, left=0, right=0),
+                                                                padding=ft.Padding(top=10, bottom=10, left=15, right=15),
                                                                 content=ft.Column(
                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                                                                     horizontal_alignment="center",
@@ -2329,7 +2329,7 @@ class UI(ft.ResponsiveRow):
                                                                         ft.Container(
                                                                             alignment=ft.alignment.center,
                                                                             # bgcolor="red",
-                                                                            content=ft.Text("VASOS CHICOS", color="#bfc244", weight=ft.FontWeight.BOLD, size=18, style=ft.TextStyle(letter_spacing=10)),
+                                                                            content=ft.Text("CHICOS", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
                                                                         ),
                                                                         ft.Container(
                                                                             alignment=ft.alignment.center,
@@ -2340,7 +2340,7 @@ class UI(ft.ResponsiveRow):
                                                                                 controls=[
                                                                                     ft.Container(# Tapas chicas iniciales
                                                                                         alignment=ft.alignment.center,
-                                                                                        col=6,
+                                                                                        col=5.75,
                                                                                         # bgcolor="yellow",
                                                                                         content=ft.Container(
                                                                                             # bgcolor=self.color_teal_2,
@@ -2350,7 +2350,7 @@ class UI(ft.ResponsiveRow):
                                                                                     ),
                                                                                     ft.Container(# Tapas chicas finales
                                                                                         alignment=ft.alignment.center,
-                                                                                        col=6,
+                                                                                        col=5.75,
                                                                                         # bgcolor="yellow",
                                                                                         content=ft.Container(
                                                                                             # bgcolor=self.color_teal_2,
@@ -2424,8 +2424,118 @@ class UI(ft.ResponsiveRow):
                                                                     ]
                                                                 )
                                                             ),
+                                                            ft.Container(# Vasos Individuales
+                                                                col=2.4,
+                                                                # expand=True,
+                                                                alignment=ft.alignment.center,
+                                                                # bgcolor="#292929",
+                                                                border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                                border_radius=5,
+                                                                padding=ft.Padding(top=10, bottom=10, left=0, right=0),
+                                                                content=ft.Column(
+                                                                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                    horizontal_alignment="center",
+                                                                    controls=[
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="red",
+                                                                            content=ft.Text("INDIVIDUALES", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
+                                                                        ),
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="blue",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Tapas individuales iniciales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.tci
+                                                                                        )
+                                                                                    ),
+                                                                                    ft.Container(# Tapas individuales finales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.tcf
+                                                                                        ),
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="blue",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Vasos individuales iniciales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vci
+                                                                                        )
+                                                                                    ),
+                                                                                    ft.Container(# Vasos individuales finales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vcf
+                                                                                        ),
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="blue",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Vasos individuales vendidos
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vcven
+                                                                                        )
+                                                                                    ),
+                                                                                    ft.Container(# Vasos individuales venta total
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vcvt
+                                                                                        ),
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                    ]
+                                                                )
+                                                            ),
                                                             ft.Container(# Vasos Medianos
-                                                                col=4,
+                                                                col=2.4,
                                                                 expand=True,
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor="#292929",
@@ -2438,7 +2548,7 @@ class UI(ft.ResponsiveRow):
                                                                         ft.Container(
                                                                             alignment=ft.alignment.center,
                                                                             # bgcolor="red",
-                                                                            content=ft.Text("VASOS MEDIANOS", color="#bfc244", weight=ft.FontWeight.BOLD, size=18, style=ft.TextStyle(letter_spacing=10)),
+                                                                            content=ft.Text("MEDIANOS", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
                                                                         ),
                                                                         ft.Container(
                                                                             alignment=ft.alignment.center,
@@ -2534,7 +2644,7 @@ class UI(ft.ResponsiveRow):
                                                                 )
                                                             ),
                                                             ft.Container(# Vasos Grandes
-                                                                col=4,
+                                                                col=2.4,
                                                                 expand=True,
                                                                 alignment=ft.alignment.center,
                                                                 # bgcolor="#292929",
@@ -2547,7 +2657,7 @@ class UI(ft.ResponsiveRow):
                                                                         ft.Container(
                                                                             alignment=ft.alignment.center,
                                                                             # bgcolor="red",
-                                                                            content=ft.Text("VASOS GRANDES", color="#bfc244", weight=ft.FontWeight.BOLD, size=18, style=ft.TextStyle(letter_spacing=10)),
+                                                                            content=ft.Text("GRANDES", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
                                                                         ),
                                                                         ft.Container(
                                                                             alignment=ft.alignment.center,
@@ -2586,7 +2696,7 @@ class UI(ft.ResponsiveRow):
                                                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                                                                                 vertical_alignment="center",
                                                                                 controls=[
-                                                                                    ft.Container(# Vasos grnades iniciales
+                                                                                    ft.Container(# Vasos grandes iniciales
                                                                                         alignment=ft.alignment.center,
                                                                                         col=6,
                                                                                         # bgcolor="yellow",
@@ -2634,6 +2744,116 @@ class UI(ft.ResponsiveRow):
                                                                                             # bgcolor=self.color_teal_2,
                                                                                             border_radius=5,
                                                                                             content=self.vgvt
+                                                                                        ),
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                    ]
+                                                                )
+                                                            ),
+                                                            ft.Container(# Vasos Megas
+                                                                col=2.4,
+                                                                # expand=True,
+                                                                alignment=ft.alignment.center,
+                                                                # bgcolor="#292929",
+                                                                border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                                border_radius=5,
+                                                                padding=ft.Padding(top=10, bottom=10, left=0, right=0),
+                                                                content=ft.Column(
+                                                                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                    horizontal_alignment="center",
+                                                                    controls=[
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="red",
+                                                                            content=ft.Text("MEGAS", color="#bfc244", weight=ft.FontWeight.BOLD, size=16, style=ft.TextStyle(letter_spacing=10)),
+                                                                        ),
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="blue",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Tapas megas iniciales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.tci
+                                                                                        )
+                                                                                    ),
+                                                                                    ft.Container(# Tapas megas finales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.tcf
+                                                                                        ),
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="blue",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Vasos megas iniciales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vci
+                                                                                        )
+                                                                                    ),
+                                                                                    ft.Container(# Vasos megas finales
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vcf
+                                                                                        ),
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(
+                                                                            alignment=ft.alignment.center,
+                                                                            # bgcolor="blue",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Vasos megas vendidos
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vcven
+                                                                                        )
+                                                                                    ),
+                                                                                    ft.Container(# Vasos megas venta total
+                                                                                        alignment=ft.alignment.center,
+                                                                                        col=6,
+                                                                                        # bgcolor="yellow",
+                                                                                        content=ft.Container(
+                                                                                            # bgcolor=self.color_teal_2,
+                                                                                            border_radius=5,
+                                                                                            content=self.vcvt
                                                                                         ),
                                                                                     ),
                                                                                 ]
