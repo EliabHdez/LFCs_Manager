@@ -59,7 +59,7 @@ def create_radio_AT():
 
 # ***** Función creadora de campos de texto para las secciones de vasos, frutas y cremas *****
 
-def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=10), Color="#d3d3d3", text_Size=18, Width=110, border_Color=ft.Colors.WHITE, border_Width=1.5, focused_Border_Color="#08f5a9", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=9), on_Focus=None, read_Only=False, on_Change=None):
+def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=9), Color="#d3d3d3", text_Size=15, Width=110, border_Color=ft.Colors.WHITE, border_Width=1.5, focused_Border_Color="#08f5a9", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=9), on_Focus=None, read_Only=False, on_Change=None):
     return ft.TextField(
         # height=30,
         width=Width,
