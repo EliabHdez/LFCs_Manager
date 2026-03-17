@@ -10,11 +10,12 @@ def create_Button_Switch():
     return ft.Switch(
         adaptive=True,
         tooltip="Modo Nocturno",
-        value=True,
-        thumb_color="#222222",
+        value=False,
+        thumb_color="#CFF4FF",
         active_track_color=ft.Colors.CYAN,
         # active_color="red",
-        inactive_thumb_color=ft.Colors.BLUE,
+        # inactive_thumb_color=ft.Colors.BLUE,
+        inactive_thumb_color="#000000",
         inactive_track_color=ft.Colors.BLUE_GREY_500,
         thumb_icon={
             ft.ControlState.HOVERED: ft.Icons.DARK_MODE_SHARP,
@@ -28,38 +29,39 @@ def create_radio(Value, Label):
     return ft.Radio(
         value=Value,
         label=Label,
-        label_style=ft.TextStyle(size=11),
+        label_style=ft.TextStyle(size=14),
         visual_density=ft.VisualDensity.STANDARD,
         fill_color={
             ft.ControlState.DEFAULT: ft.Colors.PINK,
-            ft.ControlState.SELECTED: color_teal,
+            ft.ControlState.SELECTED: color_teal_2,
         },
     )
 
-def create_radio_sd(Value, Label):
-    return ft.Radio(
-        value=Value,
-        label=Label,
-        label_style=ft.TextStyle(size=11),
-        visual_density=ft.VisualDensity.COMFORTABLE,
-        fill_color={
-            ft.ControlState.DEFAULT: ft.Colors.BLUE_GREY_700,
-            ft.ControlState.SELECTED: color_teal,
-        },
-    )
+# def create_radio_sd(Value, Label):
+#     return ft.Radio(
+#         value=Value,
+#         label=Label,
+#         label_style=ft.TextStyle(size=11),
+#         visual_density=ft.VisualDensity.COMFORTABLE,
+#         fill_color={
+#             ft.ControlState.DEFAULT: ft.Colors.BLUE_GREY_700,
+#             ft.ControlState.SELECTED: color_teal,
+#         },
+#     )
 
 def create_radio_AT():
     return ft.Radio(
         visual_density=ft.VisualDensity.STANDARD,
         fill_color={
-            ft.ControlState.DEFAULT: ft.Colors.BLUE_GREY_900,
-            ft.ControlState.SELECTED: ft.Colors.BLUE_GREY_900,
+            ft.ControlState.DEFAULT: "#CFF4FF",
+            ft.ControlState.SELECTED: "#CFF4FF",
+            # ft.ControlState.SELECTED: ft.Colors.BLUE_GREY_900,
         },
     )
 
 # ***** Función creadora de campos de texto para las secciones de vasos, frutas y cremas *****
 
-def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=9), Color="#d3d3d3", text_Size=15, Width=110, border_Color=ft.Colors.WHITE, border_Width=1.5, focused_Border_Color="#08f5a9", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=9), on_Focus=None, read_Only=False, on_Change=None):
+def create_textfield(Label, label_Style=ft.TextStyle(color="#151515", size=10), Color="#0c0c0c", text_Size=20, Width=110, border_Color=ft.Colors.BLACK, border_Width=1.5, focused_Border_Color="#00B1A2", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#0F0F0F", size=10), on_Focus=None, read_Only=False, on_Change=None): #focused_Border_Color="#08f5a9"
     return ft.TextField(
         # height=30,
         width=Width,
@@ -72,8 +74,8 @@ def create_textfield(Label, label_Style=ft.TextStyle(color="#a2a2a2", size=9), C
         # bgcolor="white",
         # bgcolor=ft.Colors.BLUE_GREY_900,
         cursor_height=22,
-        # cursor_color="#747474", # gris oscuro
-        cursor_color="#a8a8a8", # gris oscuro
+        cursor_color="#000000",
+        # cursor_color="#a8a8a8", # gris oscuro
         focused_border_color=focused_Border_Color,
         # focused_border_color="#00ebab",
         focused_border_width=2,
@@ -168,7 +170,7 @@ def create_textField_Extras(Width, Height, Color="white", text_Size=12, cursor_H
         bgcolor=bgColor,
         cursor_height=cursor_Height,
         # cursor_color="#a8a8a8", # gris oscuro
-        cursor_color="white",
+        cursor_color="black",
         content_padding=content_Padding,
         text_align="center",
         focused_border_color=focused_Border_Color,
@@ -211,7 +213,11 @@ def created_Button(Text, bgColor, Icon, Width, on_Click=None):
         style=ft.ButtonStyle(text_style={
             ft.ControlState.DEFAULT: ft.TextStyle(size=12),
             ft.ControlState.PRESSED: ft.TextStyle(size=10)
-            }
+            },
+            side={
+                # ft.ControlState.DEFAULT: ft.BorderSide(1, color="#000000"),
+                ft.ControlState.HOVERED: ft.BorderSide(1, color="#000000"),
+            },
         ),
         on_click=on_Click
     )
