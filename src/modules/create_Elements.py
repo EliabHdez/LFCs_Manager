@@ -61,23 +61,16 @@ def create_radio_AT():
 
 # ***** Función creadora de campos de texto para las secciones de vasos, frutas y cremas *****
 
-def create_textfield(Label, label_Style=ft.TextStyle(color="#151515", size=10), Color="#0c0c0c", text_Size=16, Width=120, border_Color=ft.Colors.BLACK, border_Width=1, focused_Border_Color="#00B1A2", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#0F0F0F", size=10), on_Focus=None, read_Only=False, on_Change=None): #focused_Border_Color="#08f5a9"
+def create_textfield(Label, label_Style=ft.TextStyle(color="#777777", size=10), Color="#0c0c0c", text_Size=18, Width=120, border_Color=ft.Colors.BLACK, border_Width=1, focused_Border_Color="#00B1A2", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#0F0F0F", size=10), on_Focus=None, read_Only=False, on_Change=None): #focused_Border_Color="#08f5a9"
     return ft.TextField(
         height=40,
         width=Width,
-        # color="#dc0000", # rojo
+        bgcolor="#CFF4FF",
         text_align="center",
-        # label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
-        # label_style=ft.TextStyle(color="#c1c1c1", size=10), # color = gris claro
         label_style=label_Style, # color = gris claro
-        # content_padding=2,
-        # bgcolor="white",
-        # bgcolor=ft.Colors.BLUE_GREY_900,
         cursor_height=18,
         cursor_color="#000000",
-        # cursor_color="#a8a8a8", # gris oscuro
         focused_border_color=focused_Border_Color,
-        # focused_border_color="#00ebab",
         focused_border_width=1.5,
         on_focus=on_Focus,
         label=Label,
@@ -97,23 +90,18 @@ def create_textfield(Label, label_Style=ft.TextStyle(color="#151515", size=10), 
         on_change=on_Change
     )
 
-def create_textfield_WB(Label, Width=None, Height=30, Color="#d3d3d3", text_Size=24, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#a2a2a2", size=12), read_Only=False, on_Change=None):
+def create_textfield_WB(Label, Width=None, Height=45, Color="#000000", text_Size=24, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#000000", size=16), read_Only=False, on_Change=None):
     return ft.TextField(
         height=Height,
         width=Width,
-        # color="#dc0000", # rojo
         text_align="center",
-        # label_style=ft.TextStyle(color="#545454", size=10), # color = gris claro
-        # label_style=ft.TextStyle(color="#c1c1c1", size=10), # color = gris claro
-        label_style=ft.TextStyle(color="#a2a2a2", size=14), # color = gris claro
+        label_style=ft.TextStyle(color="#000000", size=16, italic=True),
         content_padding=3,
-        # bgcolor="white",
-        bgcolor="#292929",
+        bgcolor="#CFF4FF",
         cursor_height=18,
-        # cursor_color="#747474", # gris oscuro
         cursor_color="#a8a8a8", # gris oscuro
         focused_border_color=focused_Border_Color,
-        focused_border_width=.5,
+        focused_border_width=1,
         label=Label,
         color=Color,
         text_size=text_Size,
@@ -156,7 +144,7 @@ def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=N
 
 # ***** Función creadora de campos de texto para la seccion de extra y adicionales *****
 
-def create_textField_Extras(Width, Height, Color="white", text_Size=12, cursor_Height=20, bgColor=ft.Colors.BLUE_GREY_900, Value=None, text_Style=None, border_Color=None,border_Width=1,focused_Border_Color="white", focused_Border_Width=2, content_Padding=0, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=None, read_Only=False, on_Change=False):
+def create_textField_Extras(Width, Height, Color="#000000", text_Size=15, cursor_Height=20, bgColor="#CFF4FF", Value=None, text_Style=None, border_Color=ft.Colors.BLACK, border_Width=1,focused_Border_Color="#00B1A2", focused_Border_Width=2, content_Padding=0, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=None, read_Only=False, on_Change=False):
     return ft.TextField(
         value=Value,
         text_size=text_Size,
@@ -188,12 +176,12 @@ def create_textField_RyV(counter_Text, text_Size=12, min_Lines=None, counter_Sty
         #  bgcolor=ft.Colors.BLUE_GREY_700,
         #  bgcolor="#D2F2FC",
          bgcolor="#CFF4FF",
-         color="#00000000",
+         color="#000000",
          multiline=True,
          min_lines=min_Lines,
          text_size=text_Size,
          cursor_height=15,
-         cursor_color="white",
+         cursor_color="black",
         #  border_color="#0c52ff",
          border_color="black",
          border_width=1,

@@ -15,6 +15,7 @@ def create_ReportPDF(ui):
     # f_pdv = ui.pdv
 
     pdf = FPDF(orientation="P", unit="mm", format="A4")
+    pdf.set_auto_page_break(True, margin=5)
     pdf.add_page()
 
     pdf.set_font("Arial", "", 10)
@@ -42,6 +43,13 @@ def create_ReportPDF(ui):
     pdf.cell(15, 8, f'{ui.vcf.value}', 1, 0, 'C')
     pdf.cell(25, 8, f'{ui.vcven.value}', 1, 0, 'C')
     pdf.cell(35, 8, f'${ui.vcvt.value}', 1, 1, 'C')
+    pdf.cell(70, 8, 'VASOS INDIVIDUALES', 1, 0)
+    pdf.cell(15, 8, f'{ui.tii.value}', 1, 0, 'C')
+    pdf.cell(15, 8, f'{ui.tif.value}', 1, 0, 'C')
+    pdf.cell(15, 8, f'{ui.vii.value}', 1, 0, 'C')
+    pdf.cell(15, 8, f'{ui.vif.value}', 1, 0, 'C')
+    pdf.cell(25, 8, f'{ui.viven.value}', 1, 0, 'C')
+    pdf.cell(35, 8, f'${ui.vivt.value}', 1, 1, 'C')
     pdf.cell(70, 8, 'VASOS MEDIANOS', 1, 0)
     pdf.cell(15, 8, f'{ui.tmi.value}', 1, 0, 'C')
     pdf.cell(15, 8, f'{ui.tmf.value}', 1, 0, 'C')
@@ -55,7 +63,14 @@ def create_ReportPDF(ui):
     pdf.cell(15, 8, f'{ui.vgi.value}', 1, 0, 'C')
     pdf.cell(15, 8, f'{ui.vgf.value}', 1, 0, 'C')
     pdf.cell(25, 8, f'{ui.vgven.value}', 1, 0, 'C')
-    pdf.cell(35, 8, f'${ui.vgvt.value}', 1, 1, 'C')    
+    pdf.cell(35, 8, f'${ui.vgvt.value}', 1, 1, 'C')
+    pdf.cell(70, 8, 'VASOS MEGAS', 1, 0)
+    pdf.cell(15, 8, f'{ui.tmgi.value}', 1, 0, 'C')
+    pdf.cell(15, 8, f'{ui.tmgf.value}', 1, 0, 'C')
+    pdf.cell(15, 8, f'{ui.vmgi.value}', 1, 0, 'C')
+    pdf.cell(15, 8, f'{ui.vmgf.value}', 1, 0, 'C')
+    pdf.cell(25, 8, f'{ui.vmgven.value}', 1, 0, 'C')
+    pdf.cell(35, 8, f'${ui.vmgvt.value}', 1, 1, 'C')    
 
     # Separador con celda
     pdf.cell(0, 5, '', 0, 1)    
@@ -236,8 +251,8 @@ def create_ReportPDF(ui):
     # Separador vertical con celda
     pdf.cell(5, 10, '', 0, 0)
 
-    pdf.cell(47.5, 8, f'INGRESOS EFECTIVO PDV', 1, 0, 'C')
-    pdf.cell(47.5, 8, f'${ui.bging.value}', 1, 1, 'C')
+    pdf.cell(47.5, 8, f'INGRESOS TOTALES PDV', 1, 0, 'C')
+    pdf.cell(47.5, 8, f'${ui.bgtd.value}', 1, 1, 'C')
 
     x, y = pdf.get_x(), pdf.get_y()
     pdf.multi_cell(22.5, 6.85, f'  - ${ui.tr1.value}\n  - ${ui.tr2.value}\n  - ${ui.tr3.value}\n  - ${ui.tr4.value}\n  - ${ui.tr5.value}\n  - ${ui.tr6.value}\n', border="LTB", align="L")
@@ -287,7 +302,7 @@ def create_ReportPDF(ui):
     # Separador con celda
     pdf.cell(0, 10, '', 0, 1)
 
-    pdf.cell(0, 12, '* FIN REPORTE *'.upper(), 0, 1, 'C')
+    pdf.cell(0, 10, '* FIN REPORTE *'.upper(), 0, 1, 'C')
 
     # Condicional para definir la ruta según el sistema
     if os.name == "posix":  # Linux o Mac
@@ -308,14 +323,17 @@ def generar_Reporte(ui):
         # print(f"La sucursal seleccionada es: {e.control.value}")
         # fecha_Actual_TF = dt.datetime.today().date()
         # fecha_Formateada = fecha_Actual_TF.strftime("%d-%b-%Y")
-        ui.report_field.value = (
-                                f"                                                                                                 {ui.date_receiver}\n\n"
+        try:
+            ui.report_field.value = (
+                                f"                                                                                                       {ui.date_receiver}\n\n"
                                 f"{ui.pdv.upper()}\n"
                                 f"Encargado(a): {ui.encSuc.value.upper()}\n\n"
                                 f"→  VASOS\n"
                                 f"     •  Chicos - TI: {ui.tci.value} | TP: {ui.tcf.value} | VI: {ui.vci.value} | VF: {ui.vcf.value} | VV: {ui.vcven.value} | VENTA: $ {ui.vcvt.value}\n"
+                                f"     •  Individuales - TI: {ui.tii.value} | TP: {ui.tif.value} | VI: {ui.vii.value} | VF: {ui.vif.value} | VV: {ui.viven.value} | VENTA: $ {ui.vivt.value}\n"
                                 f"     •  Medianos - TI: {ui.tmi.value} | TP: {ui.tmf.value} | VI: {ui.vmi.value} | VF: {ui.vmf.value} | VV: {ui.vmven.value} | VENTA: $ {ui.vmvt.value}\n"
-                                f"     •  Grandes - TI: {ui.tgi.value} | TP: {ui.tgf.value} | VI: {ui.vgi.value} | VF: {ui.vgf.value} | VV: {ui.vgven.value} | VENTA: $ {ui.vgvt.value}\n\n"
+                                f"     •  Grandes - TI: {ui.tgi.value} | TP: {ui.tgf.value} | VI: {ui.vgi.value} | VF: {ui.vgf.value} | VV: {ui.vgven.value} | VENTA: $ {ui.vgvt.value}\n"
+                                f"     •  Megas - TI: {ui.tmgi.value} | TP: {ui.tmgf.value} | VI: {ui.vmgi.value} | VF: {ui.vmgf.value} | VV: {ui.vmgven.value} | VENTA: $ {ui.vmgvt.value}\n\n"
                                 f"→  FRUTA\n"
                                 f"     •  Fresa - FI: {ui.fi.value} | 1S: {ui.f1s.value} | 2S: {ui.f2s.value} | 3S: {ui.f3s.value} | 4S: {ui.f4s.value} | FF: {ui.ff.value} | FV: {ui.fv.value} bote(s)\n"
                                 f"     •  Uva - UI: {ui.ui.value} | 1S: {ui.u1s.value} | 2S: {ui.u2s.value} | 3S: {ui.u3s.value} | 4S: {ui.u4s.value} | UF: {ui.uf.value} | UV: {ui.uv.value} bote(s)\n\n"
@@ -332,7 +350,7 @@ def generar_Reporte(ui):
                                 f"→  GASTOS | RETIROS\n"
                                 f"     •  Cantidad: {ui.grn.value} | Total: $ {ui.grt.value}\n\n"
                                 f"→  INGRESOS | DEDUCCIONES\n"
-                                f"     •  Ingresos efectivo PDV: $ {ui.bging.value}\n"
+                                f"     •  Ingresos PDV: $ {ui.bgtd.value}\n"
                                 f"     •  Deducciones: $ {ui.bgegr.value}\n\n"
                                 f"→  TOTAL DIA PDV\n"
                                 f"     •  Efectivo: $ {ui.bgte.value}\n"
@@ -340,3 +358,12 @@ def generar_Reporte(ui):
 
                                 f"<<< FIN DEL REPORTE >>>"
                             )
+        except:
+            initial_dialog = ft.CupertinoAlertDialog(
+                title=ft.Text("Por favor seleccione un Punto de Venta", size=13),
+                actions=[
+                    ft.CupertinoDialogAction("Aceptar", is_destructive_action=True, on_click=lambda e: (ui.page.close(e.control.parent), ui.page.update()))
+                ]
+            )
+
+            ui.page.open(initial_dialog)
