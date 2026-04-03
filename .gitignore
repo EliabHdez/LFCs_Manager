@@ -26,3 +26,7 @@ Thumbs.db
 
 # Archivos de dependencias
 *.lock
+
+# Archivos de empaquetado y ejecutable
+build/
+dist/

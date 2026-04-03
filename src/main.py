@@ -102,18 +102,18 @@ class UI(ft.ResponsiveRow):
         #     VARIABLES PERSONAL PDV'S     #
         #==================================#
 
-        self.ven_Vips = ce.create_textfield_planeador(hint_Text="Areli", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.ven_SanMiguel = ce.create_textfield_planeador(hint_Text="Salma", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ven_Vips = ce.create_textfield_planeador(hint_Text="Carmen", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ven_SanMiguel = ce.create_textfield_planeador(hint_Text="Berenice", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_SanAntonio = ce.create_textfield_planeador(hint_Text="Ivette", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_Ensuenos = ce.create_textfield_planeador(hint_Text="Cesar", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.ven_Cofradia2 = ce.create_textfield_planeador(hint_Text="Carmen", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ven_Cofradia2 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_Glorieta = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
         #======================================#
         #     VARIABLES OPERADORES DE RUTA     #
         #======================================#
 
-        self.ruta_unica = ce.create_textfield_planeador(hint_Text="Leonardo", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ruta_unica = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ruta1 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ruta2 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
@@ -2447,7 +2447,7 @@ class UI(ft.ResponsiveRow):
                                                                 spacing=0,
                                                                 controls=[
                                                                     ft.Text("TOTAL", color="#ff1765", weight=ft.FontWeight.BOLD, size=40, style=ft.TextStyle(letter_spacing=10)),
-                                                                    ft.Text("GENERAL", color="#ff1765", weight=ft.FontWeight.BOLD, size=30, style=ft.TextStyle(letter_spacing=6)),
+                                                                    ft.Text("GENERAL", color="#ff1765", weight=ft.FontWeight.BOLD, size=30, style=ft.TextStyle(letter_spacing=5)),
                                                                 ]
                                                             )
                                                         ),
@@ -4778,33 +4778,6 @@ class UI(ft.ResponsiveRow):
             self.validation_totales_extras()
             self.sdt.on_change(e)
             self.update()
-            
-    # def validation_serviciosDomicilioTR(self, e):
-    #     try:
-    #         if self.sd20tr.value != "" and self.sd35tr.value != "":
-    #             self.total_sd20tr = int(self.sd20tr.value) * 20
-    #             self.total_sd35tr = int(self.sd35tr.value) * 35
-    #             self.sdttr.value = self.total_sd20tr + self.total_sd35tr
-    #             self.sdttr.update()
-    #         elif self.sd20tr.value != "":
-    #             self.total_sd20tr = int(self.sd20tr.value) * 20
-    #             self.sdttr.value = int(self.sd20tr.value) * 20
-    #             self.sdttr.update()
-    #         elif self.sd35tr.value != "":
-    #             self.total_sd35tr = int(self.sd35tr.value) * 35
-    #             self.sdttr.value = int(self.sd35tr.value) * 35
-    #             self.sdttr.update()
-    #         else:
-    #             self.sd20tr.value == "" and self.sd35tr.value == ""
-    #             self.total_sd20tr = ""
-    #             self.total_sd35tr = ""
-    #             self.sdttr.value = ""
-    #             self.sdttr.update()
-    #     except Exception as ex:
-    #         print("Error en funcion de validacion y recalculamiento de sd con transferencia: ", ex)
-    #         pass
-    #     finally:
-    #         self.update()
 
     def validation_totales_extras(self):
         if self.tet.value and self.sdt.value:
