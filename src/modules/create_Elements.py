@@ -123,7 +123,7 @@ def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=N
         value=Value,
         text_style=text_Style,
         color="black",
-        text_size=12,
+        text_size=14,
         width=Width,
         height=Height,
         bgcolor="white",
