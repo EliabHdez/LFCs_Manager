@@ -29,6 +29,7 @@ def create_radio(Value, Label):
     return ft.Radio(
         value=Value,
         label=Label,
+        toggleable=True,
         label_style=ft.TextStyle(size=14),
         visual_density=ft.VisualDensity.STANDARD,
         fill_color={
@@ -61,7 +62,7 @@ def create_radio_AT():
 
 # ***** Función creadora de campos de texto para las secciones de vasos, frutas y cremas *****
 
-def create_textfield(Label, label_Style=ft.TextStyle(color="#777777", size=10), Color="#0c0c0c", text_Size=18, Width=120, border_Color=ft.Colors.BLACK, border_Width=1, focused_Border_Color="#00B1A2", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#0F0F0F", size=10), on_Focus=None, read_Only=False, on_Change=None): #focused_Border_Color="#08f5a9"
+def create_textfield(Label, label_Style=ft.TextStyle(color="#777777", size=10), Color="#0c0c0c", text_Size=16, Width=120, border_Color=ft.Colors.BLACK, border_Width=1, focused_Border_Color="#00B1A2", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, suffix_Text=None, suffix_Style=ft.TextStyle(color="#0c0c0c", size=9), on_Focus=None, read_Only=False, on_Change=None): #focused_Border_Color="#08f5a9"
     return ft.TextField(
         height=40,
         width=Width,
@@ -95,7 +96,7 @@ def create_textfield_WB(Label, Width=None, Height=45, Color="#000000", text_Size
         height=Height,
         width=Width,
         text_align="center",
-        label_style=ft.TextStyle(color="#000000", size=16, italic=True),
+        label_style=ft.TextStyle(color="#9E9E9E", size=16, italic=True),
         content_padding=3,
         bgcolor="#CFF4FF",
         cursor_height=18,
@@ -122,8 +123,8 @@ def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=N
         expand=True,
         value=Value,
         text_style=text_Style,
-        color="black",
-        text_size=12,
+        # color="black",
+        # text_size=14,
         width=Width,
         height=Height,
         bgcolor="white",
@@ -131,7 +132,7 @@ def create_textfield_planeador(Value=None, text_Style=None, Width=None, Height=N
         border=ft.border.all(width=.5, color="black"),
         border_radius=0,
         text_align="center",
-        cursor_height=15,
+        cursor_height=18,
         cursor_color="black",
         focused_border_color="#ff0b0b",
         focused_border_width=2,

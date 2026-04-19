@@ -5,7 +5,17 @@ import modules.create_Elements as ce
 import modules.button_Actions as ba
 import modules.create_Reports as cr
 import asyncio
+import os
+import sys
 
+def get_resource_path(relative_path):
+    if hasattr(sys, "_MEIPASS"):
+        # Si está empaquetado, usa la ruta temporal
+        base_path = sys._MEIPASS
+    else:
+        # Si está en desarrollo, sube desde src hasta la raíz
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    return os.path.join(base_path, relative_path)
 
 class UI(ft.ResponsiveRow):
     def __init__(self, page):
@@ -107,13 +117,13 @@ class UI(ft.ResponsiveRow):
         self.ven_SanAntonio = ce.create_textfield_planeador(hint_Text="Ivette", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_Ensuenos = ce.create_textfield_planeador(hint_Text="Cesar", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_Cofradia2 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.ven_Glorieta = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ven_Glorieta = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
         #======================================#
         #     VARIABLES OPERADORES DE RUTA     #
         #======================================#
 
-        self.ruta_unica = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ruta_unica = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ruta1 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ruta2 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
@@ -122,7 +132,7 @@ class UI(ft.ResponsiveRow):
         #=========================================#
 
         self.cdo_1 = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.cdo_2 = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.cdo_2 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.cdo_3 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.cdo_4 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
@@ -135,7 +145,7 @@ class UI(ft.ResponsiveRow):
         self.vm_SanAntonio = ce.create_textfield_planeador(hint_Text="$6,500", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.vm_Ensuenos = ce.create_textfield_planeador(hint_Text="$4,800", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.vm_Cofradia2 = ce.create_textfield_planeador(hint_Text="$3,900", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.vm_Glorieta = ce.create_textfield_planeador(hint_Text="$3,500", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.vm_Glorieta = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
         #=============================== ====#
         #     VARIABLES SECCION PROMEDIO     #
@@ -190,6 +200,8 @@ class UI(ft.ResponsiveRow):
             )
         )
 
+        self.pdv_suc = ""
+
         #================================#
         #     VARIABLES VASOS CHICOS     #
         #================================#
@@ -219,8 +231,8 @@ class UI(ft.ResponsiveRow):
         self.vif = ce.create_textfield("Finales", suffix_Text="Vasos Finales", on_Focus=ce.Focus, on_Change=self.conversion_n_capture_vi)
         # self.vcdif = ce.create_textfield("Diferencia", suffix_Text="Vasos", read_Only=True)
         # self.vcsv = ce.create_textfield("Sin vender", suffix_Text="Vasos", Color="#ffffff", read_Only=True)
-        self.viven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
-        self.vivt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vi)
+        self.viven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
+        self.vivt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vi)
 
         #==================================#
         #     VARIABLES VASOS MEDIANOS     #
@@ -235,8 +247,8 @@ class UI(ft.ResponsiveRow):
         self.vmf = ce.create_textfield("Finales", suffix_Text=" Vasos Finales", on_Focus=ce.Focus, on_Change=self.conversion_n_capture_vm)
         # self.vmdif = ce.create_textfield("Diferencia", read_Only=True)
         # self.vmsv = ce.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
-        self.vmven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
-        self.vmvt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vm)
+        self.vmven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
+        self.vmvt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vm)
 
         #=================================#
         #     VARIABLES VASOS GRANDES     #
@@ -251,8 +263,8 @@ class UI(ft.ResponsiveRow):
         self.vgf = ce.create_textfield("Finales", suffix_Text="Vasos Finales", on_Focus=ce.Focus, on_Change=self.conversion_n_capture_vg)
         # self.vgdif = ce.create_textfield("Diferencia", read_Only=True)
         # self.vgsv = ce.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
-        self.vgven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
-        self.vgvt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vg)
+        self.vgven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
+        self.vgvt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vg)
 
         #==================================#
         #     VARIABLES VASOS MEGAS     #
@@ -267,8 +279,8 @@ class UI(ft.ResponsiveRow):
         self.vmgf = ce.create_textfield("Finales", suffix_Text=" Vasos Finales", on_Focus=ce.Focus, on_Change=self.conversion_n_capture_vmg)
         # self.vmdif = ce.create_textfield("Diferencia", read_Only=True)
         # self.vmsv = ce.create_textfield("Sin Vender", Color="#ffffff", read_Only=True)
-        self.vmgven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
-        self.vmgvt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=24, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vmg)
+        self.vmgven = ce.create_textfield(Label="Vendidos", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="VASOS", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), focused_Border_Color="#08f5a9", read_Only=True)
+        self.vmgvt = ce.create_textfield(Label="Venta Total", label_Style=ft.TextStyle(size=12), Color="#fd0000", text_Size=20, suffix_Text="MX", suffix_Style=ft.TextStyle(color="#0d0d0d", size=12), border_Color="#fd0000", focused_Border_Color="#08f5a9", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#0d0d0d", size=12), read_Only=True, on_Change=self.values_types_comprobation_vmg)
 
         #=====================================#
         #     VARIABLES VENTA TOTAL VASOS     #
@@ -276,8 +288,8 @@ class UI(ft.ResponsiveRow):
 
         # >>> Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
 
-        self.vtv = ce.create_textfield_WB(Label="Total Vasos", Color="#FF0000", text_Size=28, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0000", suffix_Text="Vasos ", suffix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
-        self.vvmt = ce.create_textfield_WB(Label="Total Venta", Color="#FF0000", text_Size=28, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0000", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#000000", size=20), suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
+        self.vtv = ce.create_textfield_WB(Label="Total Vasos", Color="#FF0000", text_Size=24, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0000", suffix_Text="Vasos ", suffix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
+        self.vvmt = ce.create_textfield_WB(Label="Total Venta", Color="#FF0000", text_Size=24, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0000", prefix_Text=" $", prefix_Style=ft.TextStyle(color="#000000", size=20), suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
 
         #==========================#
         #     VARIABLES FRUTAS     #
@@ -288,24 +300,24 @@ class UI(ft.ResponsiveRow):
         # --- Fresa ---
 
         # self.tgi = ce.create_textfield("Iniciales", suffix_Text="Tapas Iniciales", on_Focus=ce.Focus, on_Change=self.conversion_n_capture_vg)
-        self.fi = ce.create_textfield("Inicial", label_Style=ft.TextStyle(size=12), suffix_Text="Botes", Width=100, on_Change=self.conversion_n_capture_fr)
-        self.f1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_fr)
-        self.f2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_fr)
-        self.f3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_fr)
-        self.f4s = ce.create_textfield("4to Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_fr)
-        self.ff = ce.create_textfield("Final", label_Style=ft.TextStyle(size=12), suffix_Text="Botes", Width=100, on_Change=self.conversion_n_capture_fr)
-        self.fv = ce.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ff0000", text_Size=22, label_Style=ft.TextStyle(size=14), suffix_Style=ft.TextStyle(color="#000000", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True, on_Change=self.values_Fresa)
+        self.fi = ce.create_textfield("Inicial", label_Style=ft.TextStyle(size=12), text_Size=17, suffix_Text="Bote(s)", Width=100, on_Change=self.conversion_n_capture_fr)
+        self.f1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_fr)
+        self.f2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_fr)
+        self.f3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_fr)
+        self.f4s = ce.create_textfield("4to Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_fr)
+        self.ff = ce.create_textfield("Final", label_Style=ft.TextStyle(size=12), text_Size=17, suffix_Text="Bote(s)", Width=100, on_Change=self.conversion_n_capture_fr)
+        self.fv = ce.create_textfield(Label="Vendidos", suffix_Text="Bote(s)", Color="#ff0000", text_Size=19, label_Style=ft.TextStyle(size=14), suffix_Style=ft.TextStyle(color="#000000", size=11), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True, on_Change=self.values_Fresa)
         # self.fr = ce.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         # --- Uva ---
 
-        self.ui = ce.create_textfield("Inicial", label_Style=ft.TextStyle(size=12), suffix_Text="Botes", Width=100, on_Change=self.conversion_n_capture_uva)
-        self.u1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_uva)
-        self.u2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_uva)
-        self.u3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_uva)
-        self.u4s = ce.create_textfield("4to Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=85, on_Change=self.conversion_n_capture_uva)
-        self.uf = ce.create_textfield("Final", label_Style=ft.TextStyle(size=12), suffix_Text="Botes", Width=100, on_Change=self.conversion_n_capture_uva)
-        self.uv = ce.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#ff0000", text_Size=22, label_Style=ft.TextStyle(size=14), suffix_Style=ft.TextStyle(color="#000000", size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True, on_Change=self.values_Uva)
+        self.ui = ce.create_textfield("Inicial", label_Style=ft.TextStyle(size=12), text_Size=17, suffix_Text="Bote(s)", Width=100, on_Change=self.conversion_n_capture_uva)
+        self.u1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_uva)
+        self.u2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_uva)
+        self.u3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_uva)
+        self.u4s = ce.create_textfield("4to Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Bote(s)", Width=90, on_Change=self.conversion_n_capture_uva)
+        self.uf = ce.create_textfield("Final", label_Style=ft.TextStyle(size=12), text_Size=17, suffix_Text="Bote(s)", Width=100, on_Change=self.conversion_n_capture_uva)
+        self.uv = ce.create_textfield(Label="Vendidos", suffix_Text="Bote(s)", Color="#ff0000", text_Size=19, label_Style=ft.TextStyle(size=14), suffix_Style=ft.TextStyle(color="#000000", size=11), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", read_Only=True, on_Change=self.values_Uva)
         # self.ur = ce.create_textfield(Label="Remanente", Color="#ffffff", text_Size=15, border_Color="#0c52ff", border_Width=1.5, focused_Border_Color="#0c52ff", hint_Text="Botes", hint_Style=ft.TextStyle(color="#5b5b5b", size=10), read_Only=True)
 
         #==========================#
@@ -316,30 +328,30 @@ class UI(ft.ResponsiveRow):
 
         # --- Crema Original ---
 
-        self.coi = ce.create_textfield("Inicial", suffix_Text="Botes", Width=90, on_Change=self.conversion_n_capture_co)
-        self.cof = ce.create_textfield("Final", suffix_Text="Botes", Width=90, on_Change=self.conversion_n_capture_co)
-        self.cov = ce.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#000000", text_Size=22, Width=100, label_Style=ft.TextStyle(size=12), suffix_Style=ft.TextStyle(size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", on_Change=self.values_cremaOriginal, read_Only=True)
-        self.co1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
-        self.co2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
-        self.co3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
+        self.coi = ce.create_textfield("Inicial", suffix_Text="Bote(s)", Width=95, on_Change=self.conversion_n_capture_co)
+        self.cof = ce.create_textfield("Final", suffix_Text="Bote(s)", Width=95, on_Change=self.conversion_n_capture_co)
+        self.cov = ce.create_textfield(Label="Vendidos", suffix_Text="Bote(s)", Color="#ff0000", text_Size=16, Width=100, label_Style=ft.TextStyle(size=12), suffix_Style=ft.TextStyle(size=10), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", on_Change=self.values_cremaOriginal, read_Only=True)
+        self.co1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
+        self.co2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
+        self.co3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
 
         # --- Crema Chocolate ---
 
-        self.cchi = ce.create_textfield("Inicial", suffix_Text="Botes", Width=90, on_Change=self.conversion_n_capture_cch)
-        self.cchf = ce.create_textfield("Final", suffix_Text="Botes", Width=90, on_Change=self.conversion_n_capture_cch)
-        self.cchv = ce.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#000000", text_Size=22, Width=100, label_Style=ft.TextStyle(size=12), suffix_Style=ft.TextStyle(size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", on_Change=self.values_cremaChocolate, read_Only=True)
-        self.cch1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
-        self.cch2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
-        self.cch3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
+        self.cchi = ce.create_textfield("Inicial", suffix_Text="Bote(s)", Width=95, on_Change=self.conversion_n_capture_cch)
+        self.cchf = ce.create_textfield("Final", suffix_Text="Bote(s)", Width=95, on_Change=self.conversion_n_capture_cch)
+        self.cchv = ce.create_textfield(Label="Vendidos", suffix_Text="Bote(s)", Color="#ff0000", text_Size=16, Width=100, label_Style=ft.TextStyle(size=12), suffix_Style=ft.TextStyle(size=10), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", on_Change=self.values_cremaChocolate, read_Only=True)
+        self.cch1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
+        self.cch2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
+        self.cch3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
 
         # --- Crema Cafe ---
 
-        self.ccai = ce.create_textfield("Inicial", suffix_Text="Botes", Width=90, on_Change=self.conversion_n_capture_cca)
-        self.ccaf = ce.create_textfield("Final", suffix_Text="Botes", Width=90, on_Change=self.conversion_n_capture_cca)
-        self.ccav = ce.create_textfield(Label="Vendidos", suffix_Text="Botes", Color="#000000", text_Size=22, Width=100, label_Style=ft.TextStyle(size=12), suffix_Style=ft.TextStyle(size=12), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", on_Change=self.values_cremaCafe, read_Only=True)
-        self.cca1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
-        self.cca2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
-        self.cca3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), suffix_Text="Botes", Width=80)
+        self.ccai = ce.create_textfield("Inicial", suffix_Text="Bote(s)", Width=95, on_Change=self.conversion_n_capture_cca)
+        self.ccaf = ce.create_textfield("Final", suffix_Text="Bote(s)", Width=95, on_Change=self.conversion_n_capture_cca)
+        self.ccav = ce.create_textfield(Label="Vendidos", suffix_Text="Bote(s)", Color="#ff0000", text_Size=16, Width=100, label_Style=ft.TextStyle(size=12), suffix_Style=ft.TextStyle(size=10), border_Color="#fd0000", border_Width=1.5, focused_Border_Color="#fd0000", on_Change=self.values_cremaCafe, read_Only=True)
+        self.cca1s = ce.create_textfield("1er Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
+        self.cca2s = ce.create_textfield("2do Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
+        self.cca3s = ce.create_textfield("3er Surtido", label_Style=ft.TextStyle(size=9), text_Size=14, suffix_Text="Bote(s)", Width=85)
 
         #==========================================#
         #     VARIABLES FRUTA Y CREMA VENDIDAS     #
@@ -347,8 +359,8 @@ class UI(ft.ResponsiveRow):
 
         # >>> Opciones a configurar en la funcion create_textfield: Label, Color="#d3d3d3", text_Size=13, border_Color="#11b78a", border_Width=None, focused_Border_Color="#00ebab", hint_Text=None, hint_Style=None, prefix_Text=None, prefix_Style=None, read_Only=False, on_Change=None
 
-        self.fruven = ce.create_textfield_WB(Label="Fruta", Color="#FF0000", text_Size=28, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0404", suffix_Text="Botes ", read_Only=True)
-        self.creven = ce.create_textfield_WB(Label="Cremas", Color="#FF0000", text_Size=28, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0000", suffix_Text="Botes ", read_Only=True)
+        self.fruven = ce.create_textfield_WB(Label="Fruta", Color="#FF0000", text_Size=24, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0404", suffix_Text="Bote(s) ", read_Only=True)
+        self.creven = ce.create_textfield_WB(Label="Cremas", Color="#FF0000", text_Size=24, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0000", suffix_Text="Bote(s) ", read_Only=True)
 
         #========================================#
         #     VARIABLES ADICIONALES Y EXTRAS     #
@@ -358,17 +370,17 @@ class UI(ft.ResponsiveRow):
 
         # --- Toppings Extras ---
 
-        self.t5 = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_toppingsExtras)
-        self.t10 = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_toppingsExtras)
-        self.tet = ce.create_textField_Extras(text_Size=22, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
+        self.t5 = ce.create_textField_Extras(text_Size=18, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_toppingsExtras)
+        self.t10 = ce.create_textField_Extras(text_Size=18, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_toppingsExtras)
+        self.tet = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
 
         # --- Servicios a Domicilio ---
 
         self.sdxtr = ft.Text("TR")
         self.sdxef = ft.Text("EF")
-        self.sd20 = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_serviciosDomicilio)
-        self.sd35 = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_serviciosDomicilio)
-        self.sdt = ce.create_textField_Extras(text_Size=22, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
+        self.sd20 = ce.create_textField_Extras(text_Size=18, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_serviciosDomicilio)
+        self.sd35 = ce.create_textField_Extras(text_Size=18, text_Style=None, Width=None, Height=40, read_Only=False, on_Change=self.validation_serviciosDomicilio)
+        self.sdt = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
         # self.sd20tr = ce.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="white", read_Only=False, on_Change=self.validation_serviciosDomicilioTR)
         # self.sd35tr = ce.create_textField_Extras(text_Size=15, text_Style=None, Color="white", Width=None, Height=40, border_Color="white", read_Only=False, on_Change=self.validation_serviciosDomicilioTR)
         # self.sdttr = ce.create_textField_Extras(text_Size=18, text_Style=None, Color="white", Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#ffffff", size=10), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True)
@@ -381,26 +393,26 @@ class UI(ft.ResponsiveRow):
 
         # --- Transferencias ---
 
-        self.trn = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=60, Height=35, read_Only=True)
-        self.trt = ce.create_textField_Extras(text_Size=22, text_Style=None, Width=100, Height=35, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#FF0000", prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=16), suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=12), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
+        self.trn = ce.create_textField_Extras(text_Size=18, text_Style=None, Width=60, Height=35, read_Only=True)
+        self.trt = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=120, Height=35, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#FF0000", prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=16), suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=12), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
         
-        self.tr1 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr2 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr3 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr4 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr5 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr6 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr7 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr8 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr9 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr10 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr11 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
-        self.tr12 = ce.create_textField_Extras(Value="", text_Size=15, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr1 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr2 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr3 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr4 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr5 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr6 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr7 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr8 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr9 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr10 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr11 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
+        self.tr12 = ce.create_textField_Extras(Value="", text_Size=14, Width=60, Height=23, border_Color="black", border_Width=.5, focused_Border_Width=1, cursor_Height=12, prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=10), content_Padding=ft.padding.symmetric(horizontal=7, vertical=0), read_Only=False, on_Change=self.plus_trans)
 
         # --- Gastos / Retiros ---
 
         self.grn = ce.create_textField_Extras(text_Size=18, text_Style=None, Width=60, Height=35, read_Only=True)
-        self.grt = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=100, Height=35, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#FF0000", prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=16), suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=12), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
+        self.grt = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=120, Height=35, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#FF0000", prefix_Text="$", prefix_Style=ft.TextStyle(color="#000000", size=16), suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=12), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True, on_Change=self.balance_General)
 
         self.gr1 = ce.create_textField_Extras(Value="", text_Size=15, Width=80, Height=25, border_Width=.5, focused_Border_Width=1, cursor_Height=14, read_Only=False, on_Change=self.plus_gasRes)
         self.gr2 = ce.create_textField_Extras(Value="", text_Size=15, Width=80, Height=25, border_Width=.5, focused_Border_Width=1, cursor_Height=14, read_Only=False, on_Change=self.plus_gasRes)
@@ -412,9 +424,9 @@ class UI(ft.ResponsiveRow):
         # --- Balance ---
 
         # self.bging = ce.create_textField_Extras(text_Size=25, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=15), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True)
-        self.bgegr = ce.create_textField_Extras(text_Size=25, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=16), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=18), read_Only=True)
-        self.bgtd = ce.create_textField_Extras(text_Size=25, Color="#FF0000", text_Style=ft.TextStyle(italic=True), Width=130, Height=40, border_Color="#FF0000", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=18), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
-        self.bgte = ce.create_textField_Extras(text_Size=25, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=16), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=18), read_Only=True)
+        self.bgegr = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=12), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=18), read_Only=True)
+        self.bgte = ce.create_textField_Extras(text_Size=20, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=12), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=18), read_Only=True)
+        self.bgtd = ce.create_textField_Extras(text_Size=23, Color="#FF0000", text_Style=ft.TextStyle(italic=True), Width=150, Height=40, border_Color="#FF0000", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=14), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
 
         #=======================================================#
         #     VARIABLES BOTONES INFERIORES VENTANA REGISTRO     #
@@ -500,42 +512,54 @@ class UI(ft.ResponsiveRow):
                                 bgColor=self.color_teal,
                                 Icon=ft.Icons.DOCUMENT_SCANNER_OUTLINED,
                                 on_Click=lambda e: page.open(
-                                    ft.CupertinoAlertDialog(
-                                        title=ft.Text(f"Reporte  {self.pdv}\n"),
-                                        content=ft.Text(color="black", size=9, value=(
-                                                f"→  VASOS\n"
-                                                f"     •  Chicos - TI: {self.tci.value} | TP: {self.tcf.value} | VI: {self.vci.value} | VF: {self.vcf.value} | VV: {self.vcven.value} | VENTA: $ {self.vcvt.value}\n"
-                                                f"     •  Individuales - TI: {self.tii.value} | TP: {self.tif.value} | VI: {self.vii.value} | VF: {self.vif.value} | VV: {self.viven.value} | VENTA: $ {self.vivt.value}\n"
-                                                f"     •  Medianos - TI: {self.tmi.value} | TP: {self.tmf.value} | VI: {self.vmi.value} | VF: {self.vmf.value} | VV: {self.vmven.value} | VENTA: $ {self.vmvt.value}\n"
-                                                f"     •  Grandes - TI: {self.tgi.value} | TP: {self.tgf.value} | VI: {self.vgi.value} | VF: {self.vgf.value} | VV: {self.vgven.value} | VENTA: $ {self.vgvt.value}\n"
-                                                f"     •  Megas - TI: {self.tmgi.value} | TP: {self.tmgf.value} | VI: {self.vmgi.value} | VF: {self.vmgf.value} | VV: {self.vmgven.value} | VENTA: $ {self.vmgvt.value}\n\n"
-                                                f"→  FRUTA\n"
-                                                f"     •  Fresa - FI: {self.fi.value} | 1S: {self.f1s.value} | 2S: {self.f2s.value} | 3S: {self.f3s.value} | 4S: {self.f4s.value} | FF: {self.ff.value} | FV: {self.fv.value} bote(s)\n"
-                                                f"     •  Uva - UI: {self.ui.value} | 1S: {self.u1s.value} | 2S: {self.u2s.value} | 3S: {self.u3s.value} | 4S: {self.u4s.value} | UF: {self.uf.value} | UV: {self.uv.value} bote(s)\n\n"
-                                                f"→  CREMAS\n"
-                                                f"     •  Original - In: {self.coi.value} | 1S: {self.co1s.value} | 2S: {self.co2s.value} | 3S: {self.co3s.value} | Fi: {self.cof.value} | COV: {self.cov.value} bote(s)\n"
-                                                f"     •  Chocolate - In: {self.cchi.value} | 1S: {self.cch1s.value} | 2S: {self.cch2s.value} | 3S: {self.cch3s.value} | Fi: {self.cchf.value} | CCHV: {self.cchv.value} bote(s)\n"
-                                                f"     •  Cafe - In: {self.ccai.value} | 1S: {self.cca1s.value} | 2S: {self.cca2s.value} | 3S: {self.cca3s.value} | Fi: {self.ccaf.value} | CCV: {self.ccav.value} bote(s)\n\n"
-                                                f"→  TOPPINGS EXTRAS\n"
-                                                f"     •  TE5: {self.t5.value} | TE10: {self.t10.value} | Total: $ {self.tet.value}\n\n"
-                                                f"→  SERVICIOS A DOMICILIO\n"
-                                                f"     •  SD20: {self.sd20.value} | SD35: {self.sd35.value} | Total: $ {self.sdt.value}\n\n"
-                                                f"→  TRANSFERENCIAS\n"
-                                                f"     •  No Transferencias: {self.trn.value} | Total: $ {self.trt.value}\n\n"
-                                                f"→  GASTOS | RETIROS\n"
-                                                f"     •  Cantidad: {self.grn.value} | Total: $ {self.grt.value}\n\n"
-                                                f"→  INGRESOS | DEDUCCIONES\n"
-                                                # f"     •  Ingresos efectivo PDV: $ {self.bging.value}\n"
-                                                f"     •  Ingresos PDV: $ {self.bgtd.value}\n"
-                                                f"     •  Deducciones: $ {self.bgegr.value}\n\n"
-                                                f"→  TOTAL DIA PDV\n"
-                                                f"     •  Efectivo: $ {self.bgte.value}\n"
-                                                f"     •  Venta Total: $ {self.bgtd.value}\n\n"
+                                    # ft.CupertinoAlertDialog(
+                                    ft.AlertDialog(
+                                        # title=ft.Text(f"Reporte  {self.pdv}\n"),
+                                        content=ft.Container(
+                                            width=420,
+                                            content=ft.Column(
+                                                alignment=ft. MainAxisAlignment.CENTER,
+                                                horizontal_alignment="center",
+                                                spacing=30,
+                                                controls=[
+                                                    ft.Text(color="black", size=20, value=f'"Reporte {self.pdv_suc}"', weight="bold"),
+                                                    ft.Text(color="black", size=10, value=(
+                                                        f"→  VASOS\n"
+                                                        f"     •  Chicos - TI: {self.tci.value} | TP: {self.tcf.value} | VI: {self.vci.value} | VF: {self.vcf.value} | VV: {self.vcven.value} | VENTA: $ {self.vcvt.value}\n"
+                                                        f"     •  Individuales - TI: {self.tii.value} | TP: {self.tif.value} | VI: {self.vii.value} | VF: {self.vif.value} | VV: {self.viven.value} | VENTA: $ {self.vivt.value}\n"
+                                                        f"     •  Medianos - TI: {self.tmi.value} | TP: {self.tmf.value} | VI: {self.vmi.value} | VF: {self.vmf.value} | VV: {self.vmven.value} | VENTA: $ {self.vmvt.value}\n"
+                                                        f"     •  Grandes - TI: {self.tgi.value} | TP: {self.tgf.value} | VI: {self.vgi.value} | VF: {self.vgf.value} | VV: {self.vgven.value} | VENTA: $ {self.vgvt.value}\n"
+                                                        f"     •  Megas - TI: {self.tmgi.value} | TP: {self.tmgf.value} | VI: {self.vmgi.value} | VF: {self.vmgf.value} | VV: {self.vmgven.value} | VENTA: $ {self.vmgvt.value}\n\n"
+                                                        f"→  FRUTA\n"
+                                                        f"     •  Fresa - FI: {self.fi.value} | 1S: {self.f1s.value} | 2S: {self.f2s.value} | 3S: {self.f3s.value} | 4S: {self.f4s.value} | FF: {self.ff.value} | FV: {self.fv.value} bote(s)\n"
+                                                        f"     •  Uva - UI: {self.ui.value} | 1S: {self.u1s.value} | 2S: {self.u2s.value} | 3S: {self.u3s.value} | 4S: {self.u4s.value} | UF: {self.uf.value} | UV: {self.uv.value} bote(s)\n\n"
+                                                        f"→  CREMAS\n"
+                                                        f"     •  Original - In: {self.coi.value} | 1S: {self.co1s.value} | 2S: {self.co2s.value} | 3S: {self.co3s.value} | Fi: {self.cof.value} | COV: {self.cov.value} bote(s)\n"
+                                                        f"     •  Chocolate - In: {self.cchi.value} | 1S: {self.cch1s.value} | 2S: {self.cch2s.value} | 3S: {self.cch3s.value} | Fi: {self.cchf.value} | CCHV: {self.cchv.value} bote(s)\n"
+                                                        f"     •  Cafe - In: {self.ccai.value} | 1S: {self.cca1s.value} | 2S: {self.cca2s.value} | 3S: {self.cca3s.value} | Fi: {self.ccaf.value} | CCV: {self.ccav.value} bote(s)\n\n"
+                                                        f"→  TOPPINGS EXTRAS\n"
+                                                        f"     •  TE5: {self.t5.value} | TE10: {self.t10.value} | Total: $ {self.tet.value}\n\n"
+                                                        f"→  SERVICIOS A DOMICILIO\n"
+                                                        f"     •  SD20: {self.sd20.value} | SD35: {self.sd35.value} | Total: $ {self.sdt.value}\n\n"
+                                                        f"→  TRANSFERENCIAS\n"
+                                                        f"     •  No Transferencias: {self.trn.value} | Total: $ {self.trt.value}\n\n"
+                                                        f"→  GASTOS | RETIROS\n"
+                                                        f"     •  Cantidad: {self.grn.value} | Total: $ {self.grt.value}\n\n"
+                                                        f"→  INGRESOS | DEDUCCIONES\n"
+                                                        # f"     •  Ingresos efectivo PDV: $ {self.bging.value}\n"
+                                                        f"     •  Ingresos PDV: $ {self.bgtd.value}\n"
+                                                        f"     •  Deducciones: $ {self.bgegr.value}\n\n"
+                                                        f"→  TOTAL DIA PDV\n"
+                                                        f"     •  Efectivo: $ {self.bgte.value}\n"
+                                                        f"     •  Venta Total: $ {self.bgtd.value}\n\n"
+                                                        ),
+                                                    ),
+                                                ]
                                             ),
                                         ),
                                         actions=[
-                                            ft.CupertinoDialogAction("Ok",
-                                                is_destructive_action=True,
+                                            ft.TextButton("CERRAR VISTA PREVIA",
+                                                # is_destructive_action=True,
                                                 on_click=lambda e: page.close(e.control.parent)
                                             )
                                         ]
@@ -2706,7 +2730,7 @@ class UI(ft.ResponsiveRow):
                                                                                     vertical_alignment="center",
                                                                                     controls=[
                                                                                         ft.Container(
-                                                                                            col=7,
+                                                                                            col=6.5,
                                                                                             expand=True,
                                                                                             # bgcolor="red",
                                                                                             alignment=ft.alignment.center,
@@ -2719,11 +2743,11 @@ class UI(ft.ResponsiveRow):
                                                                                                     ft.ResponsiveRow(
                                                                                                         controls=[
                                                                                                             ft.Container(
-                                                                                                                col=7,
+                                                                                                                col=6,
                                                                                                                 # bgcolor="blue",
                                                                                                                 alignment=ft.alignment.center_left,
                                                                                                                 height=40,
-                                                                                                                content=ft.Text("TOTAL DEDUCCIONES", size=15),
+                                                                                                                content=ft.Text("DEDUCCIONES", size=15),
                                                                                                             ),
                                                                                                             # ft.Container(
                                                                                                             #     col=1,
@@ -2733,7 +2757,7 @@ class UI(ft.ResponsiveRow):
                                                                                                             #     content=ft.Text("$", size=20),
                                                                                                             # ),
                                                                                                             ft.Container(
-                                                                                                                col=5,
+                                                                                                                col=6,
                                                                                                                 # bgcolor="blue",
                                                                                                                 alignment=ft.alignment.center,
                                                                                                                 content=self.bgegr
@@ -2743,11 +2767,11 @@ class UI(ft.ResponsiveRow):
                                                                                                     ft.ResponsiveRow(
                                                                                                         controls=[
                                                                                                             ft.Container(
-                                                                                                                col=7,
+                                                                                                                col=6,
                                                                                                                 alignment=ft.alignment.center_left,
                                                                                                                 # bgcolor="blue",
                                                                                                                 height=40,
-                                                                                                                content=ft.Text("TOTAL EFECTIVO PDV", size=15),
+                                                                                                                content=ft.Text("EFECTIVO PDV", size=15),
                                                                                                             ),
                                                                                                             # ft.Container(
                                                                                                             #     col=1,
@@ -2757,7 +2781,7 @@ class UI(ft.ResponsiveRow):
                                                                                                             #     content=ft.Text("$", size=20),
                                                                                                             # ),
                                                                                                             ft.Container(
-                                                                                                                col=5,
+                                                                                                                col=6,
                                                                                                                 content=self.bgte
                                                                                                             )
                                                                                                         ]
@@ -2766,7 +2790,7 @@ class UI(ft.ResponsiveRow):
                                                                                             )
                                                                                         ),
                                                                                         ft.Container(
-                                                                                            col=5,
+                                                                                            col=5.5,
                                                                                             expand=True,
                                                                                             # bgcolor="#222222",
                                                                                             border_radius=10,
@@ -3381,7 +3405,8 @@ class UI(ft.ResponsiveRow):
                                     ft.Container(# Campo de texto para reportes
                                         padding=20,
                                         alignment=ft.alignment.center,
-                                        col=4.75,
+                                        # col=4.75,
+                                        col=5.5,
                                         # bgcolor=self.color_teal,
                                         content=ft.Container(
                                             bgcolor="#C3F1FF",
@@ -3400,7 +3425,7 @@ class UI(ft.ResponsiveRow):
                                         )
                                     ),
                                     ft.Container(# Botones interactivos para archivos
-                                        col=2.5,
+                                        col=2,
                                         # bgcolor="black",
                                         alignment=ft.alignment.center,
                                         content=ft.Column(
@@ -3443,7 +3468,7 @@ class UI(ft.ResponsiveRow):
                                     ft.Container(# Campo de texto para ventas
                                         padding=20,
                                         alignment=ft.alignment.center,
-                                        col=4.75,
+                                        col=4.5,
                                         # bgcolor=self.color_teal,
                                         content=ft.Container(
                                             bgcolor="#C3F1FF",
@@ -3633,20 +3658,16 @@ class UI(ft.ResponsiveRow):
     #=============================================================================#
 
     def pdv_selection(self, e):
-        if e.control.value == "glorieta":
-            self.pdv = "Suc. Glorieta"
-        if e.control.value == "sanmiguel":
-            self.pdv = "Suc. San Miguel"
-        elif e.control.value == "vips":
-            self.pdv = "Suc. Vips"
-        elif e.control.value == "cofradia2":
-            self.pdv = "Suc. Cofradía 2"
-        elif e.control.value == "ensueños":
-            self.pdv = "Suc. Ensueños"
-        elif e.control.value == "sanantonio":
-            self.pdv = "Suc. San Antonio"
-        # elif e.control.value == "cumbria":
-        #     self.pdv = "Suc. Cumbria"
+        mapa = {
+        "glorieta": "Suc. Glorieta",
+        "sanmiguel": "Suc. San Miguel",
+        "vips": "Suc. Vips",
+        "cofradia2": "Suc. Cofradía 2",
+        "ensueños": "Suc. Ensueños",
+        "sanantonio": "Suc. San Antonio",
+        }
+
+        self.pdv_suc = mapa.get(e.control.value, "")
 
     #===================================================================================#
     #     CARGA DE INFORMACION REPORTE EN EL CAMPO DE TEXTO DE LA VENTANA DE VENTAS     #
@@ -3733,6 +3754,7 @@ class UI(ft.ResponsiveRow):
             pass
         finally:
             self.update()
+            self.balance_General(e)
 
 
     # ---> Comprobacion del tipo de valor en los campos
@@ -3806,6 +3828,7 @@ class UI(ft.ResponsiveRow):
             pass
         finally:
             self.update()
+            self.balance_General(e)
 
 
     # ---> Comprobacion del tipo de valor en los campos
@@ -3878,6 +3901,7 @@ class UI(ft.ResponsiveRow):
             pass
         finally:
             self.update()
+            self.balance_General(e)
 
     # ---> Comprobacion del tipo de valor en los campos
     def values_types_comprobation_vm(self):
@@ -3949,6 +3973,7 @@ class UI(ft.ResponsiveRow):
             pass
         finally:
             self.update()
+            self.balance_General(e)
 
     # ---> Comprobacion del tipo de valor en los campos
     def values_types_comprobation_vg(self):
@@ -4020,6 +4045,7 @@ class UI(ft.ResponsiveRow):
             pass
         finally:
             self.update()
+            self.balance_General(e)
 
     # ---> Comprobacion del tipo de valor en los campos
     def values_types_comprobation_vmg(self):
@@ -4084,18 +4110,11 @@ class UI(ft.ResponsiveRow):
             self.values_numericos_bloque1 = []
             self.values_numericos_bloque2 = []
 
-            print(self.values_bloque2)
-
             # Emparejar y filtrar solo si ambos no son str
             for e1, e2 in zip(self.values_bloque1, self.values_bloque2):
                 if type(e1) != str and type(e2) != str:
                     self.values_numericos_bloque1.append(e1)
                     self.values_numericos_bloque2.append(e2)
-
-            # print(self.values_numericos_bloque1)
-            # print(len(self.values_numericos_bloque1))        
-            # print(self.values_numericos_bloque2)
-            # print(len(self.values_numericos_bloque2))
 
             # Si hay entre 2 y 4 campos con valores numericos
             if (len(self.values_numericos_bloque1) >= 2) and (len(self.values_numericos_bloque2) >= 2) and (len(self.values_numericos_bloque1) < 5) and (len(self.values_numericos_bloque2) < 5):
@@ -4957,6 +4976,10 @@ class UI(ft.ResponsiveRow):
 
         self.encSuc.value = ""
 
+        self.pdv.value = ""
+        self.pdv_suc = ""
+
+        self.pdv.update()
         self.update()
 
     #===============================================#
@@ -5015,6 +5038,7 @@ def main(page: ft.Page):
     page.title = "Control - Las Fresas con Crema's"
     page.window.maximized = True
     page.window.resizable = True
+    page.window.icon = get_resource_path("assets/Images/icon_program_03.ico")
     # page.window_opacity = .95
     page.add(UI(page))
 
