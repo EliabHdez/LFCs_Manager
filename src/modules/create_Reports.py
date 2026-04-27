@@ -348,7 +348,7 @@ def generar_Reporte(ui): # Reporte para pagina de ventas y reporte
         # print(f"La sucursal seleccionada es: {e.control.value}")
         # fecha_Actual_TF = dt.datetime.today().date()
         # fecha_Formateada = fecha_Actual_TF.strftime("%d-%b-%Y")
-        if ui.pdv_suc != "":
+        if ui.pdv_suc != "" and ui.encSuc.value != "":
             try:
                 ui.report_field.value = (
                                 f"                                                                                                             {ui.date_receiver}\n\n"
@@ -384,10 +384,27 @@ def generar_Reporte(ui): # Reporte para pagina de ventas y reporte
 
                                 f"<<< FIN DEL REPORTE >>>"
                             )
+                report_created = ft.AlertDialog(
+                    modal=True,
+                    # title=ft.Text("Cuentas"),
+                    content=ft.Text('Reporte generado con éxito'),
+                    actions=[
+                    ft.TextButton("OK", on_click=lambda e: ui.page.close(e.control.parent))
+                    ]
+                )
+                ui.page.open(report_created)
             except Exception as ex:
                 print(ex)
-
-        else:
+        elif ui.pdv_suc == "" and ui.encSuc.value == "":
+            noPDVandEncargado_dialog = ft.CupertinoAlertDialog(
+                modal=True,
+                title=ft.Text("Por favor, selecciona un Punto de Venta e ingresa el nombre del Encargado(a)", size=13),
+                actions=[
+                    ft.CupertinoDialogAction("Aceptar", is_destructive_action=True, on_click=lambda e: (ui.page.close(e.control.parent), ui.page.update()))
+                ]
+            )
+            ui.page.open(noPDVandEncargado_dialog)
+        elif ui.pdv_suc == "":
             noSelectPDV_dialog = ft.CupertinoAlertDialog(
                 modal=True,
                 title=ft.Text("Por favor, selecciona un Punto de Venta", size=13),
@@ -395,8 +412,16 @@ def generar_Reporte(ui): # Reporte para pagina de ventas y reporte
                     ft.CupertinoDialogAction("Aceptar", is_destructive_action=True, on_click=lambda e: (ui.page.close(e.control.parent), ui.page.update()))
                 ]
             )
-
             ui.page.open(noSelectPDV_dialog)
+        else:
+            noEncargado_dialog = ft.CupertinoAlertDialog(
+                modal=True,
+                title=ft.Text("Ingresa el nombre del Encargado(a)", size=13),
+                actions=[
+                    ft.CupertinoDialogAction("Aceptar", is_destructive_action=True, on_click=lambda e: (ui.page.close(e.control.parent), ui.page.update()))
+                ]
+            )
+            ui.page.open(noEncargado_dialog)
 
             # noSelectPDV = ft.AlertDialog(
             #     modal=True,

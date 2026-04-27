@@ -117,7 +117,7 @@ def planeador_Lunes(ui):
     ui.vm_SanAntonio.hint_text = "$6,500"
     ui.vm_Ensuenos.hint_text = "$4,800"
     ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_Glorieta.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "$3,500"
 
     ui.update()
 
@@ -178,7 +178,7 @@ def planeador_Martes(ui):
     ui.vm_SanAntonio.hint_text = "$6,500"
     ui.vm_Ensuenos.hint_text = "$4,800"
     ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_Glorieta.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "$3,500"
 
     ui.update()
 
@@ -239,7 +239,7 @@ def planeador_Miercoles(ui):
     ui.vm_SanAntonio.hint_text = "$6,500"
     ui.vm_Ensuenos.hint_text = "$4,800"
     ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_Glorieta.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "$3,500"
 
     ui.update()
 
@@ -300,7 +300,7 @@ def planeador_Jueves(ui):
     ui.vm_SanAntonio.hint_text = "$7,100"
     ui.vm_Ensuenos.hint_text = "$5,000"
     ui.vm_Cofradia2.hint_text = "$4,100"
-    ui.vm_Glorieta.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "$3,700"
 
     ui.update()
 
@@ -344,7 +344,7 @@ def planeador_Viernes(ui):
     ui.cdo_4.value = ""
 
     ui.cdo_1.hint_text = "Ahidet"
-    ui.cdo_2.hint_text = " Mishelle"
+    ui.cdo_2.hint_text = "Mishelle"
     ui.cdo_3.hint_text = ""
     ui.cdo_4.hint_text = ""
     
@@ -361,7 +361,7 @@ def planeador_Viernes(ui):
     ui.vm_SanAntonio.hint_text = "$9,500"
     ui.vm_Ensuenos.hint_text = "$5,500"
     ui.vm_Cofradia2.hint_text = "$5,100"
-    ui.vm_Glorieta.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "$4,100"
 
     ui.update()
 
@@ -422,7 +422,7 @@ def planeador_Sabado(ui):
     ui.vm_SanAntonio.hint_text = "$10,500"
     ui.vm_Ensuenos.hint_text = "$6,000"
     ui.vm_Cofradia2.hint_text = "$5,800"
-    ui.vm_Glorieta.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "$4,800"
 
     ui.update()
 
@@ -483,6 +483,6 @@ def planeador_Domingo(ui):
     ui.vm_SanAntonio.hint_text = "$10,500"
     ui.vm_Ensuenos.hint_text = "$6,000"
     ui.vm_Cofradia2.hint_text = "$5,800"
-    ui.vm_Glorieta.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "$4,800"
 
     ui.update()
