@@ -3756,14 +3756,48 @@ class UI(ft.ResponsiveRow):
                                                     ]
                                                 )
                                             ),
-                                            ft.Container(
+                                            ft.Column(
                                                 col=6,
-                                                alignment=ft.alignment.center,
-                                                padding=ft.padding.symmetric(horizontal=2, vertical=15),
-                                                bgcolor="#B2E7FF",
-                                                border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
-                                                border_radius=5,
-                                            ),
+                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                horizontal_alignment="center",
+                                                controls=[
+                                                    ft.Container(
+                                                        expand=75,
+                                                        alignment=ft.alignment.center,
+                                                        padding=ft.padding.symmetric(horizontal=2, vertical=15),
+                                                        bgcolor="#B2E7FF",
+                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                        border_radius=5,
+                                                    ),
+                                                    ft.Container(
+                                                        expand=25,
+                                                        alignment=ft.alignment.center,
+                                                        padding=ft.padding.symmetric(horizontal=10, vertical=10),
+                                                        bgcolor="#B2E7FF",
+                                                        border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
+                                                        border_radius=5,
+                                                        content=ft.ResponsiveRow(
+                                                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                            vertical_alignment="center",
+                                                            controls=[
+                                                                ft.Container(
+                                                                    col=9.5,
+                                                                ),
+                                                                ft.Container(
+                                                                    col=2.2,
+                                                                    border_radius=150,
+                                                                    padding=5,
+                                                                    border=ft.border.all(width=1, color=ft.Colors.BLACK),
+                                                                    content=ft.Container(
+                                                                        border_radius=150,
+                                                                        bgcolor="green"
+                                                                    )
+                                                                )
+                                                            ]
+                                                        )
+                                                    ),
+                                                ]
+                                            )
                                         ]
                                     )
                                 )
