@@ -77,10 +77,10 @@ def planeador_Lunes(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Berenice"
+    ui.ven_Vips.hint_text = "Sayuri"
     ui.ven_SanMiguel.hint_text = "Carmen"
     ui.ven_SanAntonio.hint_text = "Ivette"
-    ui.ven_Ensuenos.hint_text = "Areli"
+    ui.ven_Ensuenos.hint_text = "Berenice"
     ui.ven_Cofradia2.hint_text = "---"
     ui.ven_Glorieta.hint_text = "---"
 
@@ -138,7 +138,7 @@ def planeador_Martes(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_Vips.hint_text = "Berenice"
     ui.ven_SanMiguel.hint_text = "Carmen"
     ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
@@ -199,7 +199,7 @@ def planeador_Miercoles(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Berenice"
+    ui.ven_Vips.hint_text = "Sayuri"
     ui.ven_SanMiguel.hint_text = "Carmen"
     ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
@@ -260,7 +260,7 @@ def planeador_Jueves(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Areli"
+    ui.ven_Vips.hint_text = "Sayuri"
     ui.ven_SanMiguel.hint_text = "Berenice"
     ui.ven_SanAntonio.hint_text = "Ivette"
     ui.ven_Ensuenos.hint_text = "Cesar"
@@ -321,11 +321,11 @@ def planeador_Viernes(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Areli"
-    ui.ven_SanMiguel.hint_text = "Berenice"
+    ui.ven_Vips.hint_text = "Berenice"
+    ui.ven_SanMiguel.hint_text = "Carmen"
     ui.ven_SanAntonio.hint_text = "Ivette - Sayuri"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Carmen"
+    ui.ven_Cofradia2.hint_text = ""
     ui.ven_Glorieta.hint_text = "---"
 
     # Operadores
@@ -382,11 +382,11 @@ def planeador_Sabado(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Areli"
-    ui.ven_SanMiguel.hint_text = "Berenice"
+    ui.ven_Vips.hint_text = "Berenice"
+    ui.ven_SanMiguel.hint_text = "Carmen"
     ui.ven_SanAntonio.hint_text = "Ivette - Sayuri"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Carmen"
+    ui.ven_Cofradia2.hint_text = ""
     ui.ven_Glorieta.hint_text = "---"
 
     # Operadores
@@ -443,11 +443,11 @@ def planeador_Domingo(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Areli"
-    ui.ven_SanMiguel.hint_text = "Berenice"
+    ui.ven_Vips.hint_text = "Berenice"
+    ui.ven_SanMiguel.hint_text = "Carmen"
     ui.ven_SanAntonio.hint_text = "Ivette - Sayuri"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "Carmen"
+    ui.ven_Cofradia2.hint_text = ""
     ui.ven_Glorieta.hint_text = "---"
 
     # Operadores
