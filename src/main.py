@@ -411,9 +411,9 @@ class UI(ft.ResponsiveRow):
         self.fruven = ce.create_textfield_WB(Label="Fruta", Color="#FF0000", text_Size=24, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0404", suffix_Text="Bote(s) ", read_Only=True)
         self.creven = ce.create_textfield_WB(Label="Cremas", Color="#FF0000", text_Size=24, border_Color="#000000", border_Width=1, focused_Border_Color="#FF0000", suffix_Text="Bote(s) ", read_Only=True)
 
-        #========================================#
-        #     VARIABLES ADICIONALES Y EXTRAS     #
-        #========================================#
+        #==========================#
+        #     VARIABLES EXTRAS     #
+        #==========================#
 
         # >>> Opciones a configurar en la funcion create_textfield_Extras: Width, Height, Color="#d3d3d3", text_Size=12, border_Color=None, read_Only=False, on_Change=False
 
@@ -475,12 +475,44 @@ class UI(ft.ResponsiveRow):
         self.gr7 = ce.create_textField_Extras(Value="", text_Size=15, Width=80, Height=30, border_Width=.5, focused_Border_Width=1, cursor_Height=15, read_Only=False, on_Change=self.plus_gasRes)
         self.gr8 = ce.create_textField_Extras(Value="", text_Size=15, Width=80, Height=30, border_Width=.5, focused_Border_Width=1, cursor_Height=15, read_Only=False, on_Change=self.plus_gasRes)
 
+        #===================================#
+        #     VARIABLES BALANCE GENERAL     #
+        #===================================#
+
         # --- Balance ---
 
         # self.bging = ce.create_textField_Extras(text_Size=25, text_Style=None, Width=None, Height=40, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=15), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), read_Only=True)
         self.bgegr = ce.create_textField_Extras(text_Size=25, text_Style=None, Width=None, Height=50, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=16), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
         self.bgte = ce.create_textField_Extras(text_Size=25, text_Style=None, Width=None, Height=50, border_Color="#ff0b0b", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=16), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=20), read_Only=True)
-        self.bgtd = ce.create_textField_Extras(text_Size=28, Color="#FF0000", text_Style=ft.TextStyle(italic=True), Width=170, Height=60, border_Color="#FF0000", border_Width=1.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=20), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=25), read_Only=True)
+        self.bgtd = ce.create_textField_Extras(text_Size=28, Color="#FF0000", text_Style=ft.TextStyle(italic=True), Width=170, Height=60, border_Color="#00FF11", border_Width=2.5, focused_Border_Color="#750000", suffix_Text="MX ", suffix_Style=ft.TextStyle(color="#000000", size=20), content_Padding=ft.padding.symmetric(horizontal=5, vertical=0), prefix_Text=" $ ", prefix_Style=ft.TextStyle(color="#000000", size=25), read_Only=True)
+
+        # --- Reporte totales ---
+
+        self.report_field_totales = ce.create_textField_RyV("REPORTE TOTALES", text_Size=10, min_Lines=30, counter_Style=ft.TextStyle(weight=ft.FontWeight.BOLD, italic=True, letter_spacing=5, size=12, color="black"), read_Only=True)
+
+        self.total_vc = ce.create_textfield_totales(text_Size=18, Width=40, Height=23, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
+        self.total_vi = ce.create_textfield_totales(text_Size=18, Width=40, Height=23, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
+        self.total_vm = ce.create_textfield_totales(text_Size=18, Width=40, Height=23, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
+        self.total_vg = ce.create_textfield_totales(text_Size=18, Width=40, Height=23, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
+        self.total_vm = ce.create_textfield_totales(text_Size=18, Width=40, Height=23, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
+        self.total_vasos = ce.create_textfield_totales(text_Size=30, Width=60, Height=50, content_Padding=ft.padding.only(left=6, bottom=2, right=0, top=0))
+
+        # --- Validación venta-consumo ---
+
+        self.validation_vc = ft.Container(
+                col=2.2,
+                border_radius=150,
+                padding=5,
+                border=ft.border.all(width=1, color=ft.Colors.BLACK),
+                content=ft.Container(
+                    alignment=ft.alignment.center,
+                    padding=2,
+                    border_radius=150,
+                    bgcolor="#2F2F2F",
+                    # bgcolor="#00FF0D",
+                    content=ft.Text("Validación", size=12, color="white")
+                )
+            )
 
         #=======================================================#
         #     VARIABLES BOTONES INFERIORES VENTANA REGISTRO     #
@@ -3429,7 +3461,7 @@ class UI(ft.ResponsiveRow):
                                 )
                             ),
                             ft.Tab(# BALANCE GENERAL
-                                text="Balance general",
+                                text="Balance General",
                                 content=ft.Container(
                                     margin=ft.Margin(top=20, bottom=20, left=30, right=30),
                                     alignment=ft.alignment.center,
@@ -3470,7 +3502,7 @@ class UI(ft.ResponsiveRow):
                                             #     )
                                             # ),
                                             ft.Container(# Balance General
-                                                col=6,
+                                                col=5,
                                                 alignment=ft.alignment.center,
                                                 padding=ft.padding.symmetric(horizontal=0, vertical=10),
                                                 bgcolor="#B2E7FF",
@@ -3488,7 +3520,7 @@ class UI(ft.ResponsiveRow):
                                                             alignment=ft.MainAxisAlignment.CENTER,
                                                             vertical_alignment="center",
                                                             controls=[
-                                                                ft.Container(
+                                                                ft.Container(# Texto vertical
                                                                     col=.75,
                                                                     padding=ft.padding.symmetric(horizontal=2, vertical=15),
                                                                     alignment=ft.alignment.center,
@@ -3516,13 +3548,13 @@ class UI(ft.ResponsiveRow):
                                                                         ]
                                                                     )
                                                                 ),
-                                                                ft.Container(
+                                                                ft.Container(# Separador
                                                                     col=.25,
                                                                     bgcolor="#FF0000",
                                                                     width=.75,
                                                                     height=400,
                                                                 ),
-                                                                ft.Container(
+                                                                ft.Container(# Campos totales y textos
                                                                     col=10,
                                                                     expand=True,
                                                                     # bgcolor="red",
@@ -3616,7 +3648,7 @@ class UI(ft.ResponsiveRow):
                                                                                                         horizontal_alignment="center",
                                                                                                         # spacing=-3,
                                                                                                         controls=[
-                                                                                                            ft.Text("VENTA TOTAL DEL DÍA", size=25, color="#ff1765", weight=ft.FontWeight.BOLD),
+                                                                                                            ft.Text("VENTA TOTAL DEL DÍA", size=25, color="#fe0000", weight=ft.FontWeight.BOLD, italic=True),
                                                                                                             # ft.Text("DEL DÍA", size=22, color="#ff1765", weight=ft.FontWeight.BOLD),
                                                                                                         ]
                                                                                                     )
@@ -3637,139 +3669,257 @@ class UI(ft.ResponsiveRow):
                                                                 
                                                             ]
                                                         ),
-                                                        # ft.ResponsiveRow(
-                                                        #     controls=[
-                                                        #         ft.Container(
-                                                        #             col=6,
-                                                        #             margin=ft.margin.only(right=10),
-                                                        #             alignment=ft.alignment.center,
-                                                        #             content=ft.ResponsiveRow(
-                                                        #                 controls=[
-                                                        #                     ft.Container(
-                                                        #                         col=5,
-                                                        #                         alignment=ft.alignment.center_left,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("INGRESOS EN EFECTIVO PDV", size=12),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=1,
-                                                        #                         alignment=ft.alignment.center_right,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("$", size=16),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=6,
-                                                        #                         content=self.bging
-                                                        #                     )
-                                                        #                 ]
-                                                        #             )
-                                                        #         ),
-                                                        #         ft.Container(
-                                                        #             col=6,
-                                                        #             margin=ft.margin.only(left=10),
-                                                        #             alignment=ft.alignment.center,
-                                                        #             content=ft.ResponsiveRow(
-                                                        #                 controls=[
-                                                        #                     ft.Container(
-                                                        #                         col=5,
-                                                        #                         alignment=ft.alignment.center_left,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("DEDUCCIONES", size=13),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=1,
-                                                        #                         alignment=ft.alignment.center_right,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("$", size=16),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=6,
-                                                        #                         content=self.bgegr
-                                                        #                     )
-                                                        #                 ]
-                                                        #             )
-                                                        #         ),
-                                                        #     ]
-                                                        # ),
-                                                        # ft.ResponsiveRow(
-                                                        #     controls=[
-                                                        #         ft.Container(
-                                                        #             col=6,
-                                                        #             margin=ft.margin.only(right=10),
-                                                        #             alignment=ft.alignment.center,
-                                                        #             content=ft.ResponsiveRow(
-                                                        #                 controls=[
-                                                        #                     ft.Container(
-                                                        #                         col=5,
-                                                        #                         alignment=ft.alignment.center_left,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("TOTAL DÍA"),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=1,
-                                                        #                         alignment=ft.alignment.center_right,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("$", size=16),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=6,
-                                                        #                         content=self.bgtd
-                                                        #                     )
-                                                        #                 ]
-                                                        #             )
-                                                        #         ),
-                                                        #         ft.Container(
-                                                        #             col=6,
-                                                        #             margin=ft.margin.only(left=10),
-                                                        #             alignment=ft.alignment.center,
-                                                        #             content=ft.ResponsiveRow(
-                                                        #                 controls=[
-                                                        #                     ft.Container(
-                                                        #                         col=5,
-                                                        #                         alignment=ft.alignment.center_left,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("TOTAL EFECTIVO"),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=1,
-                                                        #                         alignment=ft.alignment.center_right,
-                                                        #                         # bgcolor="blue",
-                                                        #                         height=40,
-                                                        #                         content=ft.Text("$", size=16),
-                                                        #                     ),
-                                                        #                     ft.Container(
-                                                        #                         col=6,
-                                                        #                         content=self.bgte
-                                                        #                     ),
-                                                        #                 ]
-                                                        #             )
-                                                        #         ),
-                                                        #     ]
-                                                        # ),
                                                     ]
                                                 )
                                             ),
-                                            ft.Column(
-                                                col=6,
+                                            ft.Column(# Campo de reporte de totales
+                                                col=7,
                                                 alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                                                 horizontal_alignment="center",
                                                 controls=[
                                                     ft.Container(
                                                         expand=75,
                                                         alignment=ft.alignment.center,
-                                                        padding=ft.padding.symmetric(horizontal=2, vertical=15),
+                                                        padding=ft.padding.symmetric(horizontal=5, vertical=5),
                                                         bgcolor="#B2E7FF",
                                                         border=ft.border.all(width=.75, color=ft.Colors.BLUE_GREY_800),
                                                         border_radius=5,
+                                                        # content=self.report_field_totales
+                                                        content=ft.ResponsiveRow(
+                                                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                            vertical_alignment="center",
+                                                            controls=[
+                                                                ft.Column(
+                                                                    col=.8,
+                                                                    alignment=ft.MainAxisAlignment.CENTER,
+                                                                    horizontal_alignment="center",
+                                                                    spacing=2,
+                                                                    controls=[
+                                                                        ft.Text("C", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("I", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("F", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("R", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("A", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("S", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("", size=12, color="black", weight="bold"),
+                                                                        ft.Text("T", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("O", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("T", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("A", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("L", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("E", size=12, color="black", weight="bold", italic= True),
+                                                                        ft.Text("S", size=12, color="black", weight="bold", italic= True),
+                                                                    ]
+                                                                ),
+                                                                ft.Container(
+                                                                    col=.2,
+                                                                    bgcolor="#FF3838",
+                                                                    width=.5,
+                                                                    height=300,
+                                                                ),
+                                                                ft.Column(# Totales lado izquierdo
+                                                                    col=5.5,
+                                                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                    horizontal_alignment="center",
+                                                                    controls=[
+                                                                        ft.Container(# Vasos
+                                                                            expand=50,
+                                                                            bgcolor="red",
+                                                                            content=ft.Column(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                horizontal_alignment="center",
+                                                                                spacing=0,
+                                                                                controls=[
+                                                                                    ft.Container(
+                                                                                        expand=15,
+                                                                                        bgcolor="blue",
+                                                                                        # padding=2,
+                                                                                        alignment=ft.alignment.center,
+                                                                                        content=ft.Text("TOTAL VASOS", size=18, color="black", weight=ft.FontWeight.BOLD, italic=True),
+                                                                                    ),
+                                                                                    ft.ResponsiveRow(
+                                                                                        expand=85,
+                                                                                        alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                        vertical_alignment="center",
+                                                                                        controls=[
+                                                                                            ft.Container(# Totales por tamaño de vasos
+                                                                                                col=7,
+                                                                                                bgcolor="yellow",
+                                                                                                padding=5,
+                                                                                                alignment=ft.alignment.center,
+                                                                                                content=ft.ResponsiveRow(
+                                                                                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                                    vertical_alignment="center",
+                                                                                                    controls=[
+                                                                                                        ft.Column(
+                                                                                                            col=7.5,
+                                                                                                            spacing=0,
+                                                                                                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                                                            horizontal_alignment="center",
+                                                                                                            controls=[
+                                                                                                                ft.Text("CHICOS:", size=14, color="black", weight="bold"),
+                                                                                                                ft.Text("INDIVIDUALES:", size=14, color="black", weight="bold"),
+                                                                                                                ft.Text("MEDIANOS:", size=14, color="black", weight="bold"),
+                                                                                                                ft.Text("GRANDES:", size=14, color="black", weight="bold"),
+                                                                                                                ft.Text("MEGAS:", size=14, color="black", weight="bold"),
+                                                                                                            ]
+                                                                                                        ),
+                                                                                                        ft.Column(
+                                                                                                            col=4.5,
+                                                                                                            spacing=0,
+                                                                                                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                                                                                            horizontal_alignment="start",
+                                                                                                            controls=[
+                                                                                                                self.total_vc,
+                                                                                                                self.total_vi,
+                                                                                                                self.total_vm,
+                                                                                                                self.total_vg,
+                                                                                                                self.total_vm,
+                                                                                                            ]
+                                                                                                        ),
+                                                                                                    ]
+                                                                                                )
+                                                                                            ),
+                                                                                            ft.Container(# Totales de vasos en general
+                                                                                                col=5,
+                                                                                                bgcolor="yellow",
+                                                                                                content=ft.Column(
+                                                                                                    alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                    horizontal_alignment="center",
+                                                                                                    spacing=-5,
+                                                                                                    controls=[
+                                                                                                        ft.Container(
+                                                                                                            alignment=ft.alignment.center,
+                                                                                                            # bgcolor="blue",
+                                                                                                            content=ft.Column(
+                                                                                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                                horizontal_alignment="center",
+                                                                                                                spacing=0,
+                                                                                                                controls=[
+                                                                                                                    ft.Text("VASOS", size=18, color="black", weight="bold", italic=True),
+                                                                                                                    ft.Text("TOTALES", size=18, color="black", weight="bold", italic=True)
+                                                                                                                ]
+                                                                                                            )
+                                                                                                        ),
+                                                                                                        # ft.Container(
+                                                                                                        #     alignment=ft.alignment.center,
+                                                                                                        #     # bgcolor="green",
+                                                                                                        #     # padding=5,
+                                                                                                        #     content=self.total_vasos
+                                                                                                        # )
+                                                                                                        self.total_vasos
+                                                                                                    ]
+                                                                                                )
+                                                                                            ),
+                                                                                        ]
+                                                                                    )
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(# Frutas
+                                                                            expand=20,
+                                                                            bgcolor="red",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Totales de cada fruta
+                                                                                        col=7,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                    ft.Container(# Total de fruta en general
+                                                                                        col=5,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(# Cremas
+                                                                            expand=30,
+                                                                            bgcolor="red",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Totales de cada crema
+                                                                                        col=7,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                    ft.Container(# Total de crema en general
+                                                                                        col=5,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                    ]
+                                                                ),
+                                                                ft.Column(# Totales lado derecho
+                                                                    col=5.5,
+                                                                    alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                    horizontal_alignment="center",
+                                                                    controls=[
+                                                                        ft.Container(# Toppings
+                                                                            expand=30,
+                                                                            bgcolor="red",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Total toppings por precio
+                                                                                        col=7,
+                                                                                        bgcolor="yellow",
+                                                                                        
+                                                                                    ),
+                                                                                    ft.Container(# Total de toppings en general
+                                                                                        col=5,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(# Servicios a domicilio
+                                                                            expand=30,
+                                                                            bgcolor="red",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Total de SD por precio
+                                                                                        col=7,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                    ft.Container(# Total de SD en general
+                                                                                        col=5,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                        ft.Container(# Transferencias y Gastos | Retiros
+                                                                            expand=40,
+                                                                            bgcolor="red",
+                                                                            content=ft.ResponsiveRow(
+                                                                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                                                                                vertical_alignment="center",
+                                                                                controls=[
+                                                                                    ft.Container(# Transferencias
+                                                                                        col=6,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                    ft.Container(# Gastos | Retiros
+                                                                                        col=6,
+                                                                                        bgcolor="yellow",
+                                                                                    ),
+                                                                                ]
+                                                                            )
+                                                                        ),
+                                                                    ]
+                                                                ),
+                                                            ]
+                                                        )
                                                     ),
-                                                    ft.Container(
+                                                    ft.Container(# Campo de validacion venta-consumo
                                                         expand=25,
                                                         alignment=ft.alignment.center,
                                                         padding=ft.padding.symmetric(horizontal=10, vertical=10),
@@ -3783,16 +3933,7 @@ class UI(ft.ResponsiveRow):
                                                                 ft.Container(
                                                                     col=9.5,
                                                                 ),
-                                                                ft.Container(
-                                                                    col=2.2,
-                                                                    border_radius=150,
-                                                                    padding=5,
-                                                                    border=ft.border.all(width=1, color=ft.Colors.BLACK),
-                                                                    content=ft.Container(
-                                                                        border_radius=150,
-                                                                        bgcolor="green"
-                                                                    )
-                                                                )
+                                                                self.validation_vc
                                                             ]
                                                         )
                                                     ),
@@ -4189,10 +4330,12 @@ class UI(ft.ResponsiveRow):
             self.vcven.value = self.vci.value - self.vcf.value
             self.vcvt.value = int(self.vcven.value * 50)
             self.vtv.value = self.vcven.value
+            self.total_vasos.value = self.vtv.value
             self.vvmt.value = self.vcvt.value
             # self.bging.value = self.vvmt.value
             self.bgtd.value = self.vvmt.value
             self.vtv.update()
+            self.total_vasos.update()
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
@@ -4216,8 +4359,10 @@ class UI(ft.ResponsiveRow):
                 if type(self.viven.value) != str and type(self.vmven.value) != str and type(self.vgven.value) != str and type(self.vmgven.value) != str:
                     try:
                         self.vtv.value = self.viven.value + self.vmven.value + self.vgven.value + self.vmgven.value
+                        self.total_vasos.value = self.vtv.value
                         self.vvmt.value = self.vivt.value + self.vmvt.value + self.vgvt.value + self.vmgvt.value
                         self.vtv.update()
+                        self.total_vasos.update()
                         self.vvmt.update()
                     except Exception as ex:
                         self.vtv.value = ""
@@ -4226,21 +4371,26 @@ class UI(ft.ResponsiveRow):
                     return
                 elif type(self.viven.value) != str:
                     self.vtv.value = self.viven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vivt.value
                 elif type(self.vmven.value) != str:
                     self.vtv.value = self.vmven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmvt.value
                 elif type(self.vgven.value) != str:
                     self.vtv.value = self.vgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vgvt.value
                 elif type(self.vmgven.value) != str:
                     self.vtv.value = self.vmgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmgvt.value
                 else:
                     self.vtv.value = ""
                     self.vvmt.value = ""
 
                 self.vtv.update()
+                self.total_vasos.update()
                 self.vvmt.update()
             return
 
@@ -4263,10 +4413,12 @@ class UI(ft.ResponsiveRow):
             self.viven.value = self.vii.value - self.vif.value
             self.vivt.value = int(self.viven.value * 75)
             self.vtv.value = self.viven.value
+            self.total_vasos.value = self.vtv.value
             self.vvmt.value = self.vivt.value
             # self.bging.value = self.vvmt.value
             self.bgtd.value = self.vvmt.value
             self.vtv.update()
+            self.total_vasos.update()
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
@@ -4290,8 +4442,10 @@ class UI(ft.ResponsiveRow):
                 if type(self.vcven.value) != str and type(self.vmven.value) != str and type(self.vgven.value) != str and type(self.vmgven.value) != str:
                     try:
                         self.vtv.value = self.vcven.value + self.vmven.value + self.vgven.value + self.vmgven.value
+                        self.total_vasos.value = self.vtv.value
                         self.vvmt.value = self.vcvt.value + self.vmvt.value + self.vgvt.value + self.vmgvt.value
                         self.vtv.update()
+                        self.total_vasos.update()
                         self.vvmt.update()
                     except Exception as ex:
                         self.vtv.value = ""
@@ -4300,21 +4454,26 @@ class UI(ft.ResponsiveRow):
                     return
                 elif type(self.vcven.value) != str:
                     self.vtv.value = self.vcven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vcvt.value
                 elif type(self.vmven.value) != str:
                     self.vtv.value = self.vmven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmvt.value
                 elif type(self.vgven.value) != str:
                     self.vtv.value = self.vgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vgvt.value
                 elif type(self.vmgven.value) != str:
                     self.vtv.value = self.vmgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmgvt.value
                 else:
                     self.vtv.value = ""
                     self.vvmt.value = ""
 
                 self.vtv.update()
+                self.total_vasos.update()
                 self.vvmt.update()
             return
 
@@ -4336,10 +4495,12 @@ class UI(ft.ResponsiveRow):
             self.vmven.value = self.vmi.value - self.vmf.value
             self.vmvt.value = int(self.vmven.value * 100)
             self.vtv.value = self.vmven.value
+            self.total_vasos.value = self.vtv.value
             self.vvmt.value = self.vmvt.value
             # self.bging.value = self.vvmt.value
             self.bgtd.value = self.vvmt.value
             self.vtv.update()
+            self.total_vasos.update()
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
@@ -4362,8 +4523,10 @@ class UI(ft.ResponsiveRow):
                 if type(self.vcven.value) != str and type(self.viven.value) != str and type(self.vgven.value) != str and type(self.vmgven.value) != str:
                     try:
                         self.vtv.value = self.vcven.value + self.viven.value + self.vgven.value + self.vmgven.value
+                        self.total_vasos.value = self.vtv.value
                         self.vvmt.value = self.vcvt.value + self.vivt.value + self.vgvt.value + self.vmgvt.value
                         self.vtv.update()
+                        self.total_vasos.update()
                         self.vvmt.update()
                     except Exception as ex:
                         self.vtv.value = ""
@@ -4372,21 +4535,26 @@ class UI(ft.ResponsiveRow):
                     return
                 elif type(self.vcven.value) != str:
                     self.vtv.value = self.vcven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vcvt.value
                 elif type(self.viven.value) != str:
                     self.vtv.value = self.viven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vivt.value
                 elif type(self.vgven.value) != str:
                     self.vtv.value = self.vgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vgvt.value
                 elif type(self.vmgven.value) != str:
                     self.vtv.value = self.vmgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmgvt.value
                 else:
                     self.vtv.value = ""
                     self.vvmt.value = ""
 
                 self.vtv.update()
+                self.total_vasos.update()
                 self.vvmt.update()
             return
 
@@ -4408,10 +4576,12 @@ class UI(ft.ResponsiveRow):
             self.vgven.value = self.vgi.value - self.vgf.value
             self.vgvt.value = int(self.vgven.value * 150)
             self.vtv.value = self.vgven.value
+            self.total_vasos.value = self.vtv.value
             self.vvmt.value = self.vgvt.value
             # self.bging.value = self.vvmt.value
             self.bgtd.value = self.vvmt.value
             self.vtv.update()
+            self.total_vasos.update()
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
@@ -4434,8 +4604,10 @@ class UI(ft.ResponsiveRow):
                 if type(self.vcven.value) != str and type(self.viven.value) != str and type(self.vmven.value) != str and type(self.vmgven.value) != str:
                     try:
                         self.vtv.value = self.vcven.value + self.viven.value + self.vmven.value + self.vmgven.value
+                        self.total_vasos.value = self.vtv.value
                         self.vvmt.value = self.vcvt.value + self.vivt.value + self.vmvt.value + self.vmgvt.value
                         self.vtv.update()
+                        self.total_vasos.update()
                         self.vvmt.update()
                     except Exception as ex:
                         self.vtv.value = ""
@@ -4444,21 +4616,26 @@ class UI(ft.ResponsiveRow):
                     return
                 elif type(self.vcven.value) != str:
                     self.vtv.value = self.vcven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vcvt.value
                 elif type(self.viven.value) != str:
                     self.vtv.value = self.viven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vivt.value
                 elif type(self.vmven.value) != str:
                     self.vtv.value = self.vmven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmvt.value
                 elif type(self.vmgven.value) != str:
                     self.vtv.value = self.vmgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmgvt.value
                 else:
                     self.vtv.value = ""
                     self.vvmt.value = ""
 
                 self.vtv.update()
+                self.total_vasos.update()
                 self.vvmt.update()
             return
 
@@ -4480,10 +4657,12 @@ class UI(ft.ResponsiveRow):
             self.vmgven.value = self.vmgi.value - self.vmgf.value
             self.vmgvt.value = int(self.vmgven.value * 200)
             self.vtv.value = self.vmgven.value
+            self.total_vasos.value = self.vtv.value
             self.vvmt.value = self.vmgvt.value
             # self.bging.value = self.vvmt.value
             self.bgtd.value = self.vvmt.value
             self.vtv.update()
+            self.total_vasos.update()
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
@@ -4506,8 +4685,10 @@ class UI(ft.ResponsiveRow):
                 if type(self.vcven.value) != str and type(self.viven.value) != str and type(self.vmven.value) != str and type(self.vgven.value) != str:
                     try:
                         self.vtv.value = self.vcven.value + self.viven.value + self.vmven.value + self.vgven.value
+                        self.total_vasos.value = self.vtv.value
                         self.vvmt.value = self.vcvt.value + self.vivt.value + self.vmvt.value + self.vgvt.value
                         self.vtv.update()
+                        self.total_vasos.update()
                         self.vvmt.update()
                     except Exception as ex:
                         self.vtv.value = ""
@@ -4516,21 +4697,26 @@ class UI(ft.ResponsiveRow):
                     return
                 elif type(self.vcven.value) != str:
                     self.vtv.value = self.vcven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vcvt.value
                 elif type(self.viven.value) != str:
                     self.vtv.value = self.viven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vivt.value
                 elif type(self.vmven.value) != str:
                     self.vtv.value = self.vmven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vmvt.value
                 elif type(self.vgven.value) != str:
                     self.vtv.value = self.vgven.value
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.vgvt.value
                 else:
                     self.vtv.value = ""
                     self.vvmt.value = ""
 
                 self.vtv.update()
+                self.total_vasos.update()
                 self.vvmt.update()
             return
 
@@ -4570,10 +4756,12 @@ class UI(ft.ResponsiveRow):
                     self.values_numericos_1 = self.values_numericos_bloque1[0] + self.values_numericos_bloque1[1]
                     self.values_numericos_2 = self.values_numericos_bloque2[0] + self.values_numericos_bloque2[1]
                     self.vtv.value = self.values_numericos_1
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.values_numericos_2
                     # self.bging.value = self.vvmt.value
                     self.bgtd.value = self.vvmt.value
                     self.vtv.update()
+                    self.total_vasos.update()
                     self.vvmt.update()
                     # self.bging.update()
                     self.bgtd.update()
@@ -4582,10 +4770,12 @@ class UI(ft.ResponsiveRow):
                     self.values_numericos_1 = self.values_numericos_bloque1[0] + self.values_numericos_bloque1[1] + self.values_numericos_bloque1[2]
                     self.values_numericos_2 = self.values_numericos_bloque2[0] + self.values_numericos_bloque2[1] + self.values_numericos_bloque2[2]
                     self.vtv.value = self.values_numericos_1
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.values_numericos_2
                     # self.bging.value = self.vvmt.value
                     self.bgtd.value = self.vvmt.value
                     self.vtv.update()
+                    self.total_vasos.update()
                     self.vvmt.update()
                     # self.bging.update()
                     self.bgtd.update()
@@ -4594,10 +4784,12 @@ class UI(ft.ResponsiveRow):
                     self.values_numericos_1 = self.values_numericos_bloque1[0] + self.values_numericos_bloque1[1] + self.values_numericos_bloque1[2] + self.values_numericos_bloque1[3]
                     self.values_numericos_2 = self.values_numericos_bloque2[0] + self.values_numericos_bloque2[1] + self.values_numericos_bloque2[2] + self.values_numericos_bloque2[3]
                     self.vtv.value = self.values_numericos_1
+                    self.total_vasos.value = self.vtv.value
                     self.vvmt.value = self.values_numericos_2
                     # self.bging.value = self.vvmt.value
                     self.bgtd.value = self.vvmt.value
                     self.vtv.update()
+                    self.total_vasos.update()
                     self.vvmt.update()
                     # self.bging.update()
                     self.bgtd.update()
@@ -4609,10 +4801,12 @@ class UI(ft.ResponsiveRow):
                 self.num_vtv = self.vcven.value + self.viven.value + self.vmven.value + self.vgven.value + self.vmgven.value
                 self.num_vvmt = self.vcvt.value + self.vivt.value + self.vmvt.value + self.vgvt.value + self.vmgvt.value
                 self.vtv.value = self.num_vtv
+                self.total_vasos.value = self.vtv.value
                 self.vvmt.value = self.num_vvmt
                 # self.bging.value = self.vvmt.value
                 self.bgtd.value = self.vvmt.value
                 self.vtv.update()
+                self.total_vasos.update()
                 self.vvmt.update()
                 # self.bging.update()
                 self.bgtd.update()
