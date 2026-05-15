@@ -234,7 +234,7 @@ def created_Button_Calendary(bgColor, on_Click, Text="Calendario", Width=150, Ic
 
 def create_textfield_totales(text_Size, Width, Height, content_Padding, read_Only=True): #focused_Border_Color="#08f5a9"
     return ft.TextField(
-        value=99,
+        # value=30,
         color="#000000",
         border_width=0,
         text_size=text_Size,
