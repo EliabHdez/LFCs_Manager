@@ -160,7 +160,7 @@ class UI(ft.ResponsiveRow):
 
         self.ven_Vips = ce.create_textfield_planeador(hint_Text="Berenice", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_SanMiguel = ce.create_textfield_planeador(hint_Text="Carmen", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.ven_SanAntonio = ce.create_textfield_planeador(hint_Text="Ivette", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ven_SanAntonio = ce.create_textfield_planeador(hint_Text="Salma", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_Ensuenos = ce.create_textfield_planeador(hint_Text="Cesar", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_Cofradia2 = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ven_Glorieta = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
@@ -169,7 +169,7 @@ class UI(ft.ResponsiveRow):
         #     VARIABLES OPERADORES DE RUTA     #
         #======================================#
 
-        self.ruta_unica = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.ruta_unica = ce.create_textfield_planeador(hint_Text="Leonardo", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ruta1 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.ruta2 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
@@ -177,8 +177,8 @@ class UI(ft.ResponsiveRow):
         #     VARIABLES CENTRO DE OPERACIONES     #
         #=========================================#
 
-        self.cdo_1 = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.cdo_2 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.cdo_1 = ce.create_textfield_planeador(hint_Text="Ahidet", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.cdo_2 = ce.create_textfield_planeador(hint_Text="Mishelle", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.cdo_3 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.cdo_4 = ce.create_textfield_planeador(hint_Text="", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
@@ -190,8 +190,8 @@ class UI(ft.ResponsiveRow):
         self.vm_SanMiguel = ce.create_textfield_planeador(hint_Text="$4,800", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.vm_SanAntonio = ce.create_textfield_planeador(hint_Text="$6,500", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
         self.vm_Ensuenos = ce.create_textfield_planeador(hint_Text="$4,800", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.vm_Cofradia2 = ce.create_textfield_planeador(hint_Text="$3,900", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
-        self.vm_Glorieta = ce.create_textfield_planeador(hint_Text="$3,500", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.vm_Cofradia2 = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
+        self.vm_Glorieta = ce.create_textfield_planeador(hint_Text="---", hint_Style=ft.TextStyle(color="black", size=14, weight="bold"), text_Style=ft.TextStyle(color="black", size=14, weight=ft.FontWeight.BOLD))
 
         #=============================== ====#
         #     VARIABLES SECCION PROMEDIO     #
@@ -499,7 +499,7 @@ class UI(ft.ResponsiveRow):
         self.total_vi = ce.create_textfield_totales(text_Size=15, Width=50, Height=20, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
         self.total_vm = ce.create_textfield_totales(text_Size=15, Width=50, Height=20, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
         self.total_vg = ce.create_textfield_totales(text_Size=15, Width=50, Height=20, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
-        self.total_vm = ce.create_textfield_totales(text_Size=15, Width=50, Height=20, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
+        self.total_vmg = ce.create_textfield_totales(text_Size=15, Width=50, Height=20, content_Padding=ft.padding.only(left=3, bottom=2, right=0, top=0))
         self.total_vasos = ce.create_textfield_totales(text_Size=30, Width=80, Height=50, content_Padding=ft.padding.only(left=0, bottom=2, right=0, top=0))
 
         # --- Fruta ---
@@ -1121,7 +1121,7 @@ class UI(ft.ResponsiveRow):
                                                                                                             #bgcolor="#6adb00",
                                                                                                             # bgcolor="#00B112",
                                                                                                             bgcolor="#00DA16",
-                                                                                                            content=ft.Text("Supervisor(a) de Personal Puntos de Venta", color="black", size=11, weight="bold")
+                                                                                                            content=ft.Text("Supervisor(a) de Personal PDV's", color="black", size=11, weight="bold")
                                                                                                         ),
                                                                                                         ft.Container(
                                                                                                             expand=True,
@@ -1135,7 +1135,7 @@ class UI(ft.ResponsiveRow):
                                                                                                         ),
                                                                                                         ft.Container(
                                                                                                             expand=True,
-                                                                                                            alignment=ft.alignment.center_left,
+                                                                                                            alignment=ft.alignment.center,
                                                                                                             border=ft.border.all(color="black", width=.5),
                                                                                                             padding=5,
                                                                                                             # height=45,
@@ -1507,14 +1507,23 @@ class UI(ft.ResponsiveRow):
                                                                                             spacing=0,
                                                                                             controls=[
                                                                                                 ft.Container(
-                                                                                                    col=5,
+                                                                                                    col=4.8,
                                                                                                     bgcolor="#00b687",
                                                                                                     alignment=ft.alignment.center,
                                                                                                     border=ft.border.all(color="black", width=.5),
-                                                                                                    content=ft.Text("Operaciones\ny Transporte", color="white",size=25)
+                                                                                                    # content=ft.Text("Logística\ny Transporte", color="white",size=25)
+                                                                                                    content=ft.Column(
+                                                                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                        horizontal_alignment="center",
+                                                                                                        spacing=0,
+                                                                                                        controls=[
+                                                                                                            ft.Text("Logística y", color="white",size=26),
+                                                                                                            ft.Text("Transporte", color="white",size=26),
+                                                                                                        ]
+                                                                                                    )
                                                                                                 ),
                                                                                                 ft.Column(
-                                                                                                    col=3,
+                                                                                                    col=2.7,
                                                                                                     horizontal_alignment="center",
                                                                                                     spacing=0,
                                                                                                     controls=[
@@ -1542,7 +1551,7 @@ class UI(ft.ResponsiveRow):
                                                                                                     ]
                                                                                                 ),
                                                                                                 ft.Column(
-                                                                                                    col=4,
+                                                                                                    col=4.5,
                                                                                                     horizontal_alignment="center",
                                                                                                     spacing=0,
                                                                                                     controls=[
@@ -1581,14 +1590,23 @@ class UI(ft.ResponsiveRow):
                                                                                             controls=[
                                                                                                 ft.Container(
                                                                                                     expand=True,
-                                                                                                    col=8,
+                                                                                                    col=7.5,
                                                                                                     bgcolor="#fe8410",
                                                                                                     alignment=ft.alignment.center,
                                                                                                     border=ft.border.all(color="black", width=.5),
-                                                                                                    content=ft.Text("Centro de Operaciones", color="white",size=26)
+                                                                                                    content=ft.Column(
+                                                                                                        alignment=ft.MainAxisAlignment.CENTER,
+                                                                                                        horizontal_alignment="center",
+                                                                                                        spacing=-5,
+                                                                                                        controls=[
+                                                                                                            ft.Text("Centro de", color="white",size=28),
+                                                                                                            ft.Text("Operaciones", color="white",size=28),
+                                                                                                            # ft.Text("(CEDIS / CDO)", color="white",size=15),
+                                                                                                        ]
+                                                                                                    )
                                                                                                 ),
                                                                                                 ft.Column(
-                                                                                                    col=4,
+                                                                                                    col=4.5,
                                                                                                     horizontal_alignment="center",
                                                                                                     spacing=0,
                                                                                                     controls=[
@@ -2959,7 +2977,7 @@ class UI(ft.ResponsiveRow):
                                                                 ft.Container(
                                                                     margin=ft.margin.symmetric(horizontal=0, vertical=5),
                                                                     alignment=ft.alignment.center,
-                                                                    content=ft.Text("TOPPINGS EXTRAS", size=18, style=ft.TextStyle(letter_spacing=5))
+                                                                    content=ft.Text("TOPPINGS EXTRAS", size=18, color="#ff1765", weight="bold", style=ft.TextStyle(letter_spacing=5))
                                                                 ),
                                                                 ft.ResponsiveRow(
                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
@@ -3036,7 +3054,7 @@ class UI(ft.ResponsiveRow):
                                                                 ft.Container(
                                                                     margin=ft.margin.symmetric(horizontal=0, vertical=5),
                                                                     alignment=ft.alignment.center,
-                                                                    content=ft.Text("SERVICIOS A DOMICILIO", size=18, style=ft.TextStyle(letter_spacing=5))
+                                                                    content=ft.Text("SERVICIOS A DOMICILIO", size=18, color="#ff1765", weight="bold", style=ft.TextStyle(letter_spacing=5))
                                                                 ),
                                                                 ft.ResponsiveRow(
                                                                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
@@ -3119,7 +3137,7 @@ class UI(ft.ResponsiveRow):
                                                             controls=[
                                                                 ft.Container(
                                                                     alignment=ft.alignment.center,
-                                                                    content=ft.Text("TRANSFERENCIAS", size=18, style=ft.TextStyle(letter_spacing=5))
+                                                                    content=ft.Text("TRANSFERENCIAS", size=18, color="#ff1765", weight="bold", style=ft.TextStyle(letter_spacing=5))
                                                                 ),
                                                                 ft.ResponsiveRow(
                                                                     expand=True,
@@ -3305,7 +3323,7 @@ class UI(ft.ResponsiveRow):
                                                             controls=[
                                                                 ft.Container(
                                                                     alignment=ft.alignment.center,
-                                                                    content=ft.Text("GASTOS | RETIROS", size=16, style=ft.TextStyle(letter_spacing=5))
+                                                                    content=ft.Text("GASTOS | RETIROS", size=16, color="#ff1765", weight="bold", style=ft.TextStyle(letter_spacing=5))
                                                                 ),
                                                                 ft.ResponsiveRow(
                                                                     expand=True,
@@ -3837,7 +3855,7 @@ class UI(ft.ResponsiveRow):
                                                                                                                 self.total_vi,
                                                                                                                 self.total_vm,
                                                                                                                 self.total_vg,
-                                                                                                                self.total_vm,
+                                                                                                                self.total_vmg,
                                                                                                             ]
                                                                                                         ),
                                                                                                     ]
@@ -4581,6 +4599,7 @@ class UI(ft.ResponsiveRow):
             self.vci.value = int(self.vci.value)
             self.vcf.value = int(self.vcf.value)
             self.vcven.value = self.vci.value - self.vcf.value
+            self.total_vc.value = self.vcven.value
             self.vcvt.value = int(self.vcven.value * 50)
             self.vtv.value = self.vcven.value
             self.total_vasos.value = self.vtv.value
@@ -4592,6 +4611,7 @@ class UI(ft.ResponsiveRow):
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
+            self.total_vc.update()
             self.venta_totalVasos()
         except Exception as ex:
             print("Error en funcion conversion y captura vasos chicos: ", ex)
@@ -4664,6 +4684,7 @@ class UI(ft.ResponsiveRow):
             self.vii.value = int(self.vii.value)
             self.vif.value = int(self.vif.value)
             self.viven.value = self.vii.value - self.vif.value
+            self.total_vi.value = self.viven.value
             self.vivt.value = int(self.viven.value * 75)
             self.vtv.value = self.viven.value
             self.total_vasos.value = self.vtv.value
@@ -4675,6 +4696,7 @@ class UI(ft.ResponsiveRow):
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
+            self.total_vi.update()
             self.venta_totalVasos()
         except Exception as ex:
             print("Error en funcion conversion y captura vasos individuales: ", ex)
@@ -4746,6 +4768,7 @@ class UI(ft.ResponsiveRow):
             self.vmi.value = int(self.vmi.value)
             self.vmf.value = int(self.vmf.value)
             self.vmven.value = self.vmi.value - self.vmf.value
+            self.total_vm.value = self.vmven.value
             self.vmvt.value = int(self.vmven.value * 100)
             self.vtv.value = self.vmven.value
             self.total_vasos.value = self.vtv.value
@@ -4757,6 +4780,7 @@ class UI(ft.ResponsiveRow):
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
+            self.total_vm.update()
             self.venta_totalVasos()
         except Exception as ex:
             print("Error en funcion conversion y captura vasos medianos: ", ex)
@@ -4827,6 +4851,7 @@ class UI(ft.ResponsiveRow):
             self.vgi.value = int(self.vgi.value)
             self.vgf.value = int(self.vgf.value)
             self.vgven.value = self.vgi.value - self.vgf.value
+            self.total_vg.value = self.vgven.value
             self.vgvt.value = int(self.vgven.value * 150)
             self.vtv.value = self.vgven.value
             self.total_vasos.value = self.vtv.value
@@ -4838,6 +4863,7 @@ class UI(ft.ResponsiveRow):
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
+            self.total_vg.update()
             self.venta_totalVasos()
         except Exception as ex:
             print("Error en funcion conversion y captura vasos grandes: ", ex)
@@ -4908,6 +4934,7 @@ class UI(ft.ResponsiveRow):
             self.vmgi.value = int(self.vmgi.value)
             self.vmgf.value = int(self.vmgf.value)
             self.vmgven.value = self.vmgi.value - self.vmgf.value
+            self.total_vmg.value = self.vmgven.value
             self.vmgvt.value = int(self.vmgven.value * 200)
             self.vtv.value = self.vmgven.value
             self.total_vasos.value = self.vtv.value
@@ -4919,6 +4946,7 @@ class UI(ft.ResponsiveRow):
             self.vvmt.update()
             # self.bging.update()
             self.bgtd.update()
+            self.total_vmg.update()
             self.venta_totalVasos()
         except Exception as ex:
             print("Error en funcion conversion y captura vasos grandes: ", ex)
@@ -5300,13 +5328,19 @@ class UI(ft.ResponsiveRow):
             self.cov.update()
             if self.cov.value == "" and self.cchv.value != "" and self.ccav.value != "":
                 self.creven.value = self.cchv.value + self.ccav.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             elif self.cov.value == "" and self.cchv.value != "" and self.ccav.value == "":
                 self.creven.value = self.cchv.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             else:
                 self.creven.value = self.ccav.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             return
 
         self.supply_co = [self.coi, self.co1s, self.co2s, self.co3s]
@@ -5346,11 +5380,14 @@ class UI(ft.ResponsiveRow):
                     if abs(self.less_valuesCo - round(self.less_valuesCo)) < 1e-9: # Tolerancia (epsilon)
                         self.less_valuesCo = int(round(self.less_valuesCo))
                         self.cov.value = self.less_valuesCo
+                        self.total_or.value = self.cov.value
                     else:
                         # Mostrar como máximo 2 decimales
                         self.cov.value = round(self.less_valuesCo, 2)
+                        self.total_or.value = self.cov.value
 
                     self.cov.update()
+                    self.total_or.update()
                     self.update()
                 except Exception as ex:
                     co_val = "" # por si acaso se mete algo raro
@@ -5373,13 +5410,19 @@ class UI(ft.ResponsiveRow):
             self.cchv.update()
             if self.cchv.value == "" and self.cov.value != "" and self.ccav.value != "":
                 self.creven.value = self.cov.value + self.ccav.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             elif self.cchv.value == "" and self.cov.value != "" and self.ccav.value == "":
                 self.creven.value = self.cov.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             else:
                 self.creven.value = self.ccav.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             return
 
         self.supply_cch = [self.cchi, self.cch1s, self.cch2s, self.cch3s]
@@ -5419,11 +5462,14 @@ class UI(ft.ResponsiveRow):
                     if abs(self.less_valuesCch - round(self.less_valuesCch)) < 1e-9: # Tolerancia (epsilon)
                         self.less_valuesCch = int(round(self.less_valuesCch))
                         self.cchv.value = self.less_valuesCch
+                        self.total_ch.value = self.cchv.value
                     else:
                         # Mostrar como máximo 2 decimales
                         self.cchv.value = round(self.less_valuesCch, 2)
+                        self.total_ch.value = self.cchv.value
 
                     self.cchv.update()
+                    self.total_ch.update()
                     self.update()
                 except Exception as ex:
                     co_val = "" # por si acaso se mete algo raro
@@ -5446,13 +5492,19 @@ class UI(ft.ResponsiveRow):
             self.ccav.update()
             if self.ccav.value == "" and self.cov.value != "" and self.cchv.value != "":
                 self.creven.value = self.cov.value + self.cchv.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             elif self.cchv.value == "" and self.cov.value != "" and self.ccav.value == "":
                 self.creven.value = self.cov.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             else:
                 self.creven.value = self.cchv.value
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             return
 
         self.supply_cca = [self.ccai, self.cca1s, self.cca2s, self.cca3s]
@@ -5492,11 +5544,14 @@ class UI(ft.ResponsiveRow):
                     if abs(self.less_valuesCca - round(self.less_valuesCca)) < 1e-9: # Tolerancia (epsilon)
                         self.less_valuesCca = int(round(self.less_valuesCca))
                         self.ccav.value = self.less_valuesCca
+                        self.total_ca.value = self.ccav.value
                     else:
                         # Mostrar como máximo 2 decimales
                         self.ccav.value = round(self.less_valuesCca, 2)
+                        self.total_ca.value = self.ccav.value
 
                     self.ccav.update()
+                    self.total_ca.update()
                     self.update()
                 except Exception as ex:
                     co_val = "" # por si acaso se mete algo raro
@@ -5521,9 +5576,11 @@ class UI(ft.ResponsiveRow):
         try:
             if type(self.cov.value) != str:
                 self.creven.value = self.cov.value
+                self.total_cremas.value = self.creven.value
 
             self.venta_totalCrema()
             self.creven.update()
+            self.total_cremas.update()
         except Exception as ex:
             print("Error en funcion values_cremaOriginal - Error: ", ex)
 
@@ -5533,9 +5590,11 @@ class UI(ft.ResponsiveRow):
         try:
             if type(self.cchv.value) != str:
                 self.creven.value = self.cchv.value
+                self.total_cremas.value = self.creven.value
 
             self.venta_totalCrema()
             self.creven.update()
+            self.total_cremas.update()
         except Exception as ex:
             print("Error en funcion values_cremaChocolate - Error: ", ex)
 
@@ -5545,9 +5604,11 @@ class UI(ft.ResponsiveRow):
         try:
             if type(self.ccav.value) != str:
                 self.creven.value = self.ccav.value
+                self.total_cremas.value = self.creven.value
 
             self.venta_totalCrema()
             self.creven.update()
+            self.total_cremas.update()
         except Exception as ex:
             print("Error en funcion values_cremaCafe - Error: ", ex)
 
@@ -5573,7 +5634,9 @@ class UI(ft.ResponsiveRow):
             if len(self.values_cremasVendidas) == 2:
                 self.valuesArray_cremasVendidas = self.values_cremasVendidas[0] + self.values_cremasVendidas[1]
                 self.creven.value = self.valuesArray_cremasVendidas
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
         else:
             try:
                 self.num_creven = self.cov.value + self.cchv.value + self.ccav.value
@@ -5584,7 +5647,9 @@ class UI(ft.ResponsiveRow):
                     self.num_creven = round(self.num_creven, 2)
 
                 self.creven.value = self.num_creven
+                self.total_cremas.value = self.creven.value
                 self.creven.update()
+                self.total_cremas.update()
             except Exception as ex:
                 print("Error en la funcion venta_totalCrema, No se pudieron sumar todos los campos - Error: ", ex)
 
@@ -5885,6 +5950,10 @@ class UI(ft.ResponsiveRow):
 
         self.variables_ventas = [self.fruven, self.creven, self.vtv, self.vvmt]
         for element in self.variables_ventas:
+            element.value = ""
+
+        self.totales_BG = [self.total_vc, self.total_vi, self.total_vm, self.total_vg, self.total_vmg, self.total_vasos, self.total_fresa, self.total_uva, self.total_fruta, self.total_or, self.total_ch, self.total_ca, self.total_cremas]
+        for element in self.totales_BG:
             element.value = ""
 
         self.encSuc.value = ""

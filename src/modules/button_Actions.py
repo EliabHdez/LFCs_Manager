@@ -23,7 +23,7 @@ def reiniciar_Planeador(ui):
     ui.ven_SanMiguel.hint_text = ""
     ui.ven_SanAntonio.hint_text = ""
     ui.ven_Ensuenos.hint_text = ""
-    ui.ven_Cofradia2.hint_text = ""
+    ui.ven_Cofradia2.hint_text = "---"
     ui.ven_Glorieta.hint_text = "---"
 
     # Operadores
@@ -51,7 +51,7 @@ def reiniciar_Planeador(ui):
     ui.vm_SanMiguel.value = "$"
     ui.vm_SanAntonio.value = "$"
     ui.vm_Ensuenos.value = "$"
-    ui.vm_Cofradia2.value = "$"
+    ui.vm_Cofradia2.value = "---"
     ui.vm_Glorieta.value = "---"
 
     ui.update()
@@ -77,9 +77,9 @@ def planeador_Lunes(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Sayuri"
-    ui.ven_SanMiguel.hint_text = "Carmen"
-    ui.ven_SanAntonio.hint_text = "Ivette"
+    ui.ven_Vips.hint_text = "Ivette"
+    ui.ven_SanMiguel.hint_text = "Mary"
+    ui.ven_SanAntonio.hint_text = "Salma"
     ui.ven_Ensuenos.hint_text = "Berenice"
     ui.ven_Cofradia2.hint_text = "---"
     ui.ven_Glorieta.hint_text = "---"
@@ -89,129 +89,7 @@ def planeador_Lunes(ui):
     ui.ruta1.value = ""
     ui.ruta2.value = ""
 
-    ui.ruta_unica.hint_text = "Efrain"
-    ui.ruta1.hint_text = ""
-    ui.ruta2.hint_text = ""
-
-    # Personal CDO
-    ui.cdo_1.value = ""
-    ui.cdo_2.value = ""
-    ui.cdo_3.value = ""
-    ui.cdo_4.value = ""
-
-    ui.cdo_1.hint_text = "Ahidet"
-    ui.cdo_2.hint_text = ""
-    ui.cdo_3.hint_text = ""
-    ui.cdo_4.hint_text = ""
-    
-    # Ventas minimas
-    ui.vm_Vips.value = ""
-    ui.vm_SanMiguel.value = ""
-    ui.vm_SanAntonio.value = ""
-    ui.vm_Ensuenos.value = ""
-    ui.vm_Cofradia2.value = ""
-    ui.vm_Glorieta.value = ""
-
-    ui.vm_Vips.hint_text = "$3,900"
-    ui.vm_SanMiguel.hint_text = "$4,800"
-    ui.vm_SanAntonio.hint_text = "$6,500"
-    ui.vm_Ensuenos.hint_text = "$4,800"
-    ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_Glorieta.hint_text = "$3,500"
-
-    ui.update()
-
-# --- Martes ---
-def planeador_Martes(ui):
-    # --- Personal ---
-
-    # Supervisores
-    ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
-    ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = "Zully Brena"
-
-    # Vendedores
-    ui.ven_Vips.value = ""
-    ui.ven_SanMiguel.value = ""
-    ui.ven_SanAntonio.value = ""
-    ui.ven_Ensuenos.value = ""
-    ui.ven_Cofradia2.value = ""
-    ui.ven_Glorieta.value = ""
-
-    ui.ven_Vips.hint_text = "Berenice"
-    ui.ven_SanMiguel.hint_text = "Carmen"
-    ui.ven_SanAntonio.hint_text = "Ivette"
-    ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "---"
-    ui.ven_Glorieta.hint_text = "---"
-
-    # Operadores
-    ui.ruta_unica.value = ""
-    ui.ruta1.value = ""
-    ui.ruta2.value = ""
-
-    ui.ruta_unica.hint_text = "Efrain"
-    ui.ruta1.hint_text = ""
-    ui.ruta2.hint_text = ""
-
-    # Personal CDO
-    ui.cdo_1.value = ""
-    ui.cdo_2.value = ""
-    ui.cdo_3.value = ""
-    ui.cdo_4.value = ""
-
-    ui.cdo_1.hint_text = "Mishelle"
-    ui.cdo_2.hint_text = ""
-    ui.cdo_3.hint_text = ""
-    ui.cdo_4.hint_text = ""
-    
-    # Ventas minimas
-    ui.vm_Vips.value = ""
-    ui.vm_SanMiguel.value = ""
-    ui.vm_SanAntonio.value = ""
-    ui.vm_Ensuenos.value = ""
-    ui.vm_Cofradia2.value = ""
-    ui.vm_Glorieta.value = ""
-   
-    ui.vm_Vips.hint_text = "$3,900"
-    ui.vm_SanMiguel.hint_text = "$4,800"
-    ui.vm_SanAntonio.hint_text = "$6,500"
-    ui.vm_Ensuenos.hint_text = "$4,800"
-    ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_Glorieta.hint_text = "$3,500"
-
-    ui.update()
-
-# --- Miercoles ---
-def planeador_Miercoles(ui):
-    # --- Personal ---
-
-    # Supervisores
-    ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
-    ui.sup_Ops.hint_text = "Efrain Hernandez"
-    ui.sup_CDO.hint_text = "Zully Brena"
-
-    # Vendedores
-    ui.ven_Vips.value = ""
-    ui.ven_SanMiguel.value = ""
-    ui.ven_SanAntonio.value = ""
-    ui.ven_Ensuenos.value = ""
-    ui.ven_Cofradia2.value = ""
-    ui.ven_Glorieta.value = ""
-
-    ui.ven_Vips.hint_text = "Sayuri"
-    ui.ven_SanMiguel.hint_text = "Carmen"
-    ui.ven_SanAntonio.hint_text = "Ivette"
-    ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = "---"
-    ui.ven_Glorieta.hint_text = "---"
-
-    # Operadores
-    ui.ruta_unica.value = ""
-    ui.ruta1.value = ""
-    ui.ruta2.value = ""
-
-    ui.ruta_unica.hint_text = "Efrain"
+    ui.ruta_unica.hint_text = "Leonardo"
     ui.ruta1.hint_text = ""
     ui.ruta2.hint_text = ""
 
@@ -233,13 +111,135 @@ def planeador_Miercoles(ui):
     ui.vm_Ensuenos.value = ""
     ui.vm_Cofradia2.value = ""
     ui.vm_Glorieta.value = ""
+
+    ui.vm_Vips.hint_text = "$3,900"
+    ui.vm_SanMiguel.hint_text = "$4,800"
+    ui.vm_SanAntonio.hint_text = "$6,500"
+    ui.vm_Ensuenos.hint_text = "$4,800"
+    ui.vm_Cofradia2.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "---"
+
+    ui.update()
+
+# --- Martes ---
+def planeador_Martes(ui):
+    # --- Personal ---
+
+    # Supervisores
+    ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
+    ui.sup_Ops.hint_text = "Efrain Hernandez"
+    ui.sup_CDO.hint_text = "Zully Brena"
+
+    # Vendedores
+    ui.ven_Vips.value = ""
+    ui.ven_SanMiguel.value = ""
+    ui.ven_SanAntonio.value = ""
+    ui.ven_Ensuenos.value = ""
+    ui.ven_Cofradia2.value = ""
+    ui.ven_Glorieta.value = ""
+
+    ui.ven_Vips.hint_text = "Ivette"
+    ui.ven_SanMiguel.hint_text = "Berenice"
+    ui.ven_SanAntonio.hint_text = "Salma"
+    ui.ven_Ensuenos.hint_text = "Cesar"
+    ui.ven_Cofradia2.hint_text = "---"
+    ui.ven_Glorieta.hint_text = "---"
+
+    # Operadores
+    ui.ruta_unica.value = ""
+    ui.ruta1.value = ""
+    ui.ruta2.value = ""
+
+    ui.ruta_unica.hint_text = "Leonardo"
+    ui.ruta1.hint_text = ""
+    ui.ruta2.hint_text = ""
+
+    # Personal CDO
+    ui.cdo_1.value = ""
+    ui.cdo_2.value = ""
+    ui.cdo_3.value = ""
+    ui.cdo_4.value = ""
+
+    ui.cdo_1.hint_text = "Ahidet"
+    ui.cdo_2.hint_text = "---"
+    ui.cdo_3.hint_text = ""
+    ui.cdo_4.hint_text = ""
+    
+    # Ventas minimas
+    ui.vm_Vips.value = ""
+    ui.vm_SanMiguel.value = ""
+    ui.vm_SanAntonio.value = ""
+    ui.vm_Ensuenos.value = ""
+    ui.vm_Cofradia2.value = ""
+    ui.vm_Glorieta.value = ""
+   
+    ui.vm_Vips.hint_text = "$3,900"
+    ui.vm_SanMiguel.hint_text = "$4,800"
+    ui.vm_SanAntonio.hint_text = "$6,500"
+    ui.vm_Ensuenos.hint_text = "$4,800"
+    ui.vm_Cofradia2.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "---"
+
+    ui.update()
+
+# --- Miercoles ---
+def planeador_Miercoles(ui):
+    # --- Personal ---
+
+    # Supervisores
+    ui.sup_Pers_PDV.hint_text = "Ivette Herrera"
+    ui.sup_Ops.hint_text = "Efrain Hernandez"
+    ui.sup_CDO.hint_text = "Zully Brena"
+
+    # Vendedores
+    ui.ven_Vips.value = ""
+    ui.ven_SanMiguel.value = ""
+    ui.ven_SanAntonio.value = ""
+    ui.ven_Ensuenos.value = ""
+    ui.ven_Cofradia2.value = ""
+    ui.ven_Glorieta.value = ""
+
+    ui.ven_Vips.hint_text = "Berenice"
+    ui.ven_SanMiguel.hint_text = "Mary"
+    ui.ven_SanAntonio.hint_text = "Ivette"
+    ui.ven_Ensuenos.hint_text = "Cesar"
+    ui.ven_Cofradia2.hint_text = "---"
+    ui.ven_Glorieta.hint_text = "---"
+
+    # Operadores
+    ui.ruta_unica.value = ""
+    ui.ruta1.value = ""
+    ui.ruta2.value = ""
+
+    ui.ruta_unica.hint_text = "Efrain"
+    ui.ruta1.hint_text = ""
+    ui.ruta2.hint_text = ""
+
+    # Personal CDO
+    ui.cdo_1.value = ""
+    ui.cdo_2.value = ""
+    ui.cdo_3.value = ""
+    ui.cdo_4.value = ""
+
+    ui.cdo_1.hint_text = "---"
+    ui.cdo_2.hint_text = "Mishelle"
+    ui.cdo_3.hint_text = ""
+    ui.cdo_4.hint_text = ""
+    
+    # Ventas minimas
+    ui.vm_Vips.value = ""
+    ui.vm_SanMiguel.value = ""
+    ui.vm_SanAntonio.value = ""
+    ui.vm_Ensuenos.value = ""
+    ui.vm_Cofradia2.value = ""
+    ui.vm_Glorieta.value = ""
     
     ui.vm_Vips.hint_text = "$3,900"
     ui.vm_SanMiguel.hint_text = "$4,800"
     ui.vm_SanAntonio.hint_text = "$6,500"
     ui.vm_Ensuenos.hint_text = "$4,800"
-    ui.vm_Cofradia2.hint_text = "$3,900"
-    ui.vm_Glorieta.hint_text = "$3,500"
+    ui.vm_Cofradia2.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "---"
 
     ui.update()
 
@@ -260,9 +260,9 @@ def planeador_Jueves(ui):
     ui.ven_Cofradia2.value = ""
     ui.ven_Glorieta.value = ""
 
-    ui.ven_Vips.hint_text = "Sayuri"
-    ui.ven_SanMiguel.hint_text = "Berenice"
-    ui.ven_SanAntonio.hint_text = "Ivette"
+    ui.ven_Vips.hint_text = "Berenice"
+    ui.ven_SanMiguel.hint_text = "Mary"
+    ui.ven_SanAntonio.hint_text = "Salma"
     ui.ven_Ensuenos.hint_text = "Cesar"
     ui.ven_Cofradia2.hint_text = "---"
     ui.ven_Glorieta.hint_text = "---"
@@ -272,7 +272,7 @@ def planeador_Jueves(ui):
     ui.ruta1.value = ""
     ui.ruta2.value = ""
 
-    ui.ruta_unica.hint_text = "Efrain"
+    ui.ruta_unica.hint_text = "Leonardo"
     ui.ruta1.hint_text = ""
     ui.ruta2.hint_text = ""
 
@@ -299,8 +299,8 @@ def planeador_Jueves(ui):
     ui.vm_SanMiguel.hint_text = "$5,000"
     ui.vm_SanAntonio.hint_text = "$7,100"
     ui.vm_Ensuenos.hint_text = "$5,000"
-    ui.vm_Cofradia2.hint_text = "$4,100"
-    ui.vm_Glorieta.hint_text = "$3,700"
+    ui.vm_Cofradia2.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "---"
 
     ui.update()
 
@@ -322,10 +322,10 @@ def planeador_Viernes(ui):
     ui.ven_Glorieta.value = ""
 
     ui.ven_Vips.hint_text = "Berenice"
-    ui.ven_SanMiguel.hint_text = "Carmen"
-    ui.ven_SanAntonio.hint_text = "Ivette - Sayuri"
+    ui.ven_SanMiguel.hint_text = "Mary"
+    ui.ven_SanAntonio.hint_text = "Salma"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = ""
+    ui.ven_Cofradia2.hint_text = "---"
     ui.ven_Glorieta.hint_text = "---"
 
     # Operadores
@@ -333,7 +333,7 @@ def planeador_Viernes(ui):
     ui.ruta1.value = ""
     ui.ruta2.value = ""
 
-    ui.ruta_unica.hint_text = "Efrain"
+    ui.ruta_unica.hint_text = "Leonardo - Angel"
     ui.ruta1.hint_text = ""
     ui.ruta2.hint_text = ""
 
@@ -360,8 +360,8 @@ def planeador_Viernes(ui):
     ui.vm_SanMiguel.hint_text = "$5,500"
     ui.vm_SanAntonio.hint_text = "$9,500"
     ui.vm_Ensuenos.hint_text = "$5,500"
-    ui.vm_Cofradia2.hint_text = "$5,100"
-    ui.vm_Glorieta.hint_text = "$4,100"
+    ui.vm_Cofradia2.hint_text = "---"
+    ui.vm_Glorieta.hint_text = "---"
 
     ui.update()
 
@@ -383,10 +383,10 @@ def planeador_Sabado(ui):
     ui.ven_Glorieta.value = ""
 
     ui.ven_Vips.hint_text = "Berenice"
-    ui.ven_SanMiguel.hint_text = "Carmen"
-    ui.ven_SanAntonio.hint_text = "Ivette - Sayuri"
+    ui.ven_SanMiguel.hint_text = "Mary"
+    ui.ven_SanAntonio.hint_text = "Salma"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = ""
+    ui.ven_Cofradia2.hint_text = "Operaciones"
     ui.ven_Glorieta.hint_text = "---"
 
     # Operadores
@@ -394,7 +394,7 @@ def planeador_Sabado(ui):
     ui.ruta1.value = ""
     ui.ruta2.value = ""
 
-    ui.ruta_unica.hint_text = "Efrain"
+    ui.ruta_unica.hint_text = "Leonardo - Angel"
     ui.ruta1.hint_text = ""
     ui.ruta2.hint_text = ""
 
@@ -422,7 +422,7 @@ def planeador_Sabado(ui):
     ui.vm_SanAntonio.hint_text = "$10,500"
     ui.vm_Ensuenos.hint_text = "$6,000"
     ui.vm_Cofradia2.hint_text = "$5,800"
-    ui.vm_Glorieta.hint_text = "$4,800"
+    ui.vm_Glorieta.hint_text = "---"
 
     ui.update()
 
@@ -444,10 +444,10 @@ def planeador_Domingo(ui):
     ui.ven_Glorieta.value = ""
 
     ui.ven_Vips.hint_text = "Berenice"
-    ui.ven_SanMiguel.hint_text = "Carmen"
-    ui.ven_SanAntonio.hint_text = "Ivette - Sayuri"
+    ui.ven_SanMiguel.hint_text = "Mary"
+    ui.ven_SanAntonio.hint_text = "Salma"
     ui.ven_Ensuenos.hint_text = "Cesar"
-    ui.ven_Cofradia2.hint_text = ""
+    ui.ven_Cofradia2.hint_text = "Operaciones"
     ui.ven_Glorieta.hint_text = "---"
 
     # Operadores
@@ -455,7 +455,7 @@ def planeador_Domingo(ui):
     ui.ruta1.value = ""
     ui.ruta2.value = ""
 
-    ui.ruta_unica.hint_text = "Efrain"
+    ui.ruta_unica.hint_text = "Leonardo - Angel"
     ui.ruta1.hint_text = ""
     ui.ruta2.hint_text = ""
 
@@ -483,6 +483,6 @@ def planeador_Domingo(ui):
     ui.vm_SanAntonio.hint_text = "$10,500"
     ui.vm_Ensuenos.hint_text = "$6,000"
     ui.vm_Cofradia2.hint_text = "$5,800"
-    ui.vm_Glorieta.hint_text = "$4,800"
+    ui.vm_Glorieta.hint_text = "---"
 
     ui.update()
